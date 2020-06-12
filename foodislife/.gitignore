@@ -24,10 +24,10 @@
 
 /public/assets
 .byebug_history
-/config/database.yml
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
 
 /public/packs
 /public/packs-test
