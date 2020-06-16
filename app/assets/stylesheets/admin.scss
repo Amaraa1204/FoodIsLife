@@ -39,11 +39,11 @@ body {
   position: fixed;
   width: 78%;
   height: 100%;
-  background-color: red;
+  background-color: #f5f6fa;
   right: 0px;
 }
 .menu {
-	width: 300px;
+	width: 302px;
   height: 100%;
   background-color: #f5f6fa;
   position: relative;
@@ -75,7 +75,7 @@ div.sticky {
   position: relative;
   width: calc(250px - 16px);
   height: calc(100px - 16px);
-  background: white;
+  background: green;
   float: left;
   margin-left: 30px;
   margin-top: 6px;
@@ -89,7 +89,7 @@ div.sticky {
   position: relative;
   width: calc(400px - 0px);
   height: calc(250px - 0px);
-  background: white;
+  background: red;
   float: left;
   margin-left: 20px;
   margin-top: 20px;
@@ -99,4 +99,8 @@ div.sticky {
   overflow: hidden;
   border-radius: 10px;
 }
-
+.h4 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 600;
+}

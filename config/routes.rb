@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'admin/view'
+  resources :category
 
-  root 'admin#view'
 end
