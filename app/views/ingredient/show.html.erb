@@ -1,0 +1,17 @@
+<p>
+  <strong>Name:</strong>
+  <%= @ingre.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @ingre.categoryId %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @ingre.calories %>
+</p>
+
+<%= link_to 'Edit', edit_ingredient_path(@ingre) %> |
+<%= link_to 'Back', ingredient_index_path %>
