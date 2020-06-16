@@ -4,9 +4,11 @@ class CategoryController < ApplicationController
 	end
 	def new
 		@category = Category.new
+		@newpath = category_index_path
 	end
 	def edit
 		@category = Category.find(params[:id])
+		@editpath = category_path(@category)
 	end
 	def create
 		@category = Category.new(category_params)
@@ -34,7 +36,7 @@ class CategoryController < ApplicationController
   		@category = Category.find(params[:id])
   		@category.destroy
  
-  		redirect_to category_path
+  		redirect_to category_index_path
 	end
 	private
 	def category_params
