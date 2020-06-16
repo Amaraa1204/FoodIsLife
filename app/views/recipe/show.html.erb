@@ -1,0 +1,22 @@
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+ 
+<p>
+  <strong>Instruction:</strong>
+  <%= @recipe.instruction %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @recipe.image.thumb.url %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @recipe.authorId %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipe_index_path %>
