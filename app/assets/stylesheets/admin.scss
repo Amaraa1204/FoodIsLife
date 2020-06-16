@@ -10,7 +10,6 @@
     color: transparent;
     margin-top: 10px;
     text-shadow: 7px 7px 0px #d2d2d22e;
-
 }
 
 .character-1 {
@@ -41,6 +40,9 @@ body {
   height: 100%;
   background-color: #f5f6fa;
   right: 0px;
+  left: 140px;
+  padding-left: 200px;
+
 }
 .menu {
 	width: 302px;
@@ -49,26 +51,12 @@ body {
   position: relative;
   left: 0px;
   padding: 10px;
-}
+  }
 div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   background-color: #f5f6fa;
-}
-.box-profile {
-  position: relative;
-  width: calc(250px - 16px);
-  height: calc(100px - 5px);
-  background: #ff0;
-  float: left;
-  margin-left: 30px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  box-sizing: border-box;
-  overflow: hidden;
-  border-radius: 10px;
 }
 
 .box-category,.box-users,.box-recipes,.box-ingredients {
