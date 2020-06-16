@@ -20,8 +20,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'carrierwave'   
 gem 'bootstrap-sass'  
 gem 'mini_magick', '~> 4.3'
-gem 'jquery-rails'
-gem 'file-validators'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

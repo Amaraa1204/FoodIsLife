@@ -13,7 +13,7 @@
     <tr>
       <td><%= recipe.name %></td>
       <td><%= recipe.instruction %></td>
-      <td><%= recipe.image %></td>
+      <td><%= image_tag recipe.image.thumb.url %></td>
       <td><%= recipe.authorId %></td>
       <td><%= link_to 'Show', recipe_path(recipe) %></td>
       <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>

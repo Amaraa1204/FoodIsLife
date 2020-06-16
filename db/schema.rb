@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_035908) do
     t.text "instruction"
     t.decimal "rating", precision: 10
     t.string "image"
+    t.integer "categoryId"
     t.integer "authorId"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

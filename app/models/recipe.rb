@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :Category, :foreign_key=>'categoryId'
-  belongs_to :User, :foreign_key=>'authorId'
+  belongs_to :User, :foreign_key=>'authorId', autosave: true
   mount_uploader :image, ImageUploader
   validates_processing_of :image
 validate :image_size_validation
