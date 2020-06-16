@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class Admin::UserController < ApplicationController     
     def index 
         @user = User.all
     end
@@ -15,7 +15,7 @@ class UserController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            redirect_to @user
+            redirect_to url: admin_user_index_path(@user)
         else 
             render 'new'
         end
@@ -24,7 +24,7 @@ class UserController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
 
-        redirect_to user_index_path
+        redirect_to admin_user_index_path
     end
     private
     def user_params
