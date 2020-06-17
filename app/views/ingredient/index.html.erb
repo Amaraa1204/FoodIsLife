@@ -1,6 +1,13 @@
-<h1>Listing Ingredients</h1>
+<h1>
+  <%= image_tag 'order.png', :class => "iconH1" %> Listing Ingredients
+</h1>
+
 <hr width="25%", align="left">
-<%= link_to 'New ingredient', new_ingredient_path, :class => "action", :id => "newIngre" %>
+
+<h3>
+  <%= image_tag 'add.png', :class => "iconAddIndex" %>
+  <%= link_to 'New ingredient', new_ingredient_path, :class => "action", :id => "newIngre" %>
+</h3>
 
 <table>
   <tr>
