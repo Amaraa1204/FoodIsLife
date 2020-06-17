@@ -1,0 +1,44 @@
+<<<<<<< HEAD
+=======
+.menu {
+  float: left;
+  background-color: #ffffff;
+  width: 25%;
+  height: 100%;
+}
+
+.menu a {
+  display: block;
+  background-color: rgb(100, 182, 52);
+  color: rgb(0, 0, 0);
+  padding: 22px 16px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: rgb(153, 221, 156);
+}
+
+.menu a.active {
+  background-color: rgb(8, 80, 1);
+}
+
+.content {
+  float: right;
+  right: 0;
+  position: absolute;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  height: 100%;
+}
+>>>>>>> 598c90c2b9b2f00f353f42f8dc78c73a8b5a74ea

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
-  resources :category
-
+  namespace :admin do
+    resources :recipe, :ingredient
+  end
 end

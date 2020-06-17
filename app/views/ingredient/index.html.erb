@@ -1,0 +1,25 @@
+<h1>Listing Ingredients</h1>
+<hr width="25%", align="left">
+<%= link_to 'New ingredient', new_ingredient_path, :class => "action", :id => "newIngre" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Calories</th>
+    <th></th>
+  </tr>
+
+  <% @ingres.each do |ingredient| %>
+    <tr class="listTable" >
+      <td><%= ingredient.name %></td>
+      <td><%= ingredient.categoryId %></td>
+      <td><%= ingredient.calories %></td>
+      <td><%= link_to ' Show ', ingredient_path(ingredient), :class => "action" %> | </td>
+      <td><%= link_to ' Edit ', edit_ingredient_path(ingredient), :class => "action" %> | </td>
+      <td><%= link_to ' Delete ', ingredient_path(ingredient), :class => "action" ,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
