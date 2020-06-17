@@ -1,6 +1,6 @@
-<%= form_with(model: @ingre, url: ingredient_index_path, local: true) do |form| %>
+<%= form_with(model: @ingre, url: @newpath, local: true) do |form| %>
 
-  <%if @ingre.errors.any? %>
+  <% if @ingre.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@ingre.errors.count, "error") %>
@@ -31,7 +31,7 @@
   </p>
 
   <p>
-    <%= form.submit :Save %>
+    <%= form.submit :Save, :class => "saveAction" %>
   </p>
 
 <% end %>

@@ -9,17 +9,19 @@ class IngredientController < ApplicationController
 
   def new
     @ingre = Ingredient.new
+    @newpath = ingredient_index_path
   end
 
   def edit
       @ingre = Ingredient.find(params[:id])
+      @editpath = ingredient_path(@ingre)
   end
 
   def create
     @ingre = Ingredient.new(ingre_params)
 
     if @ingre.save
-      redirect_to @ingre
+      redirect_to ingredient_index_path
     else
       render 'new'
     end
@@ -46,4 +48,4 @@ class IngredientController < ApplicationController
     def ingre_params
       params.require(:ingredient).permit(:name, :categoryId, :calories)
     end
-end
+  end
