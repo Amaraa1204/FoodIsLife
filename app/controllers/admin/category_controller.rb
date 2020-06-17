@@ -1,20 +1,20 @@
-class CategoryController < ApplicationController
+class Admin::CategoryController < ApplicationController
 	def index
 		@category = Category.all
 	end
 	def new
 		@category = Category.new
-		@newpath = category_index_path
+		@newpath = admin_category_index_path
 	end
 	def edit
 		@category = Category.find(params[:id])
-		@editpath = category_path(@category)
+		@editpath = admin_category_index_path(@category)
 	end
 	def create
 		@category = Category.new(category_params)
 
 		if @category.save
-			redirect_to @category
+			redirect_to url: admin_user_index_path(@category)
 		else
 			render 'new'
 		end
@@ -26,7 +26,7 @@ class CategoryController < ApplicationController
   		@category = Category.find(params[:id])
  
   		if @category.update(category_params)
-    		redirect_to @category
+    		redirect_to admin_user_index_path(@category)
   		else
     		render 'edit'
   		end
@@ -36,7 +36,7 @@ class CategoryController < ApplicationController
   		@category = Category.find(params[:id])
   		@category.destroy
  
-  		redirect_to category_index_path
+  		redirect_to admin_category_index_path
 	end
 	private
 	def category_params

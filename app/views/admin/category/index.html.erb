@@ -1,4 +1,4 @@
-<%= link_to 'New article', new_category_path %>
+<%= link_to 'New article', new_admin_category_path %>
 <table>
   <tr>
     <th>Title</th>
@@ -10,9 +10,9 @@
     <tr>
       <td><%= category.categoryId %></td>
       <td><%= category.Name %></td>
-      <td><%= link_to 'Show', category_path(category) %></td>
-      <td><%= link_to 'Edit', edit_category_path(category) %></td>
-      <td><%= link_to 'Destroy', category_path(category),
+      <td><%= link_to 'Show', admin_category_path(category) %></td>
+      <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+      <td><%= link_to 'Destroy', admin_category_path(category),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
