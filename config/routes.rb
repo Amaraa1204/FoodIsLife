@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :ingredient
-  
-  resources :admin
-
+  namespace :admin do
+    resources :recipe, :ingredient
+  end
 end
