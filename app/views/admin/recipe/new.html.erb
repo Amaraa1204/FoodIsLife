@@ -1,4 +1,4 @@
-<%= form_with scope: :recipe, url: recipe_index_path(@recipe), local: true do |form| %>
+<%= form_with scope: :recipe, url: admin_recipe_index_path(@recipe), local: true do |form| %>
   
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
@@ -49,4 +49,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', recipe_index_path(@recipe) %>
+<%= link_to 'Back', adminrecipe_index_path(@recipe) %>

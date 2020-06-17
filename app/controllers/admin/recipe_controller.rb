@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class Admin: :RecipeController < ApplicationController
 	def index 
 		@recipe = Recipe.all
 	end 
@@ -36,7 +36,7 @@ class RecipeController < ApplicationController
 	def destroy
 		@recipe = Recipe.find(params[:id])
 		@recipe.destroy
-		redirect_to recipe_index_path
+		redirect_to admin_recipe_index_path
 	end 
 
 	private 
