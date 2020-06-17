@@ -1,3 +1,4 @@
+
 class Admin::IngredientController < ApplicationController
   def index
       @ingres = Ingredient.all
@@ -9,7 +10,6 @@ class Admin::IngredientController < ApplicationController
 
   def new
     @ingre = Ingredient.new
-    #@newpath = ingredient_index_path
   end
 
   def edit

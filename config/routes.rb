@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/show'
   namespace :admin do
-    resources :recipe, :ingredient
+    resources :recipe, :ingredient, :user, :category
   end
-  #get 'admin/ingredient/index'
-
-  #root 'admin#ingredient#index'
 end
