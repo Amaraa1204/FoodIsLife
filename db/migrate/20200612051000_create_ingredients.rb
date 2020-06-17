@@ -3,7 +3,7 @@ class CreateIngredients < ActiveRecord::Migration[6.0]
     create_table :ingredients do |t|
       t.string :name
       t.decimal :calories
-      t.integer :categoryId
+      t.string :categoryId
 
       t.timestamps
     end

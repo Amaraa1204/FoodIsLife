@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_035908) do
+ActiveRecord::Schema.define(version: 2020_06_16_065539) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "userName"
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_035908) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "category"
+    t.string "categoryId"
+    t.string "Name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -44,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_035908) do
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.decimal "calories", precision: 10
-    t.integer "categoryId"
+    t.string "categoryId"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_035908) do
     t.text "instruction"
     t.decimal "rating", precision: 10
     t.string "image"
-    t.integer "categoryId"
+    t.string "categoryId"
     t.integer "authorId"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
