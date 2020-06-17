@@ -1,5 +1,9 @@
-<h1>New Ingredient</h1>
+<h1>
+  <%= image_tag 'add.png', :class => "iconH1" %> New Ingredient
+</h1>
+
+<hr width="20%", align="left">
 
 <%= render 'form' %>
 
-<%= link_to 'Back', ingredient_index_path, :class => "action" %>
+<%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
