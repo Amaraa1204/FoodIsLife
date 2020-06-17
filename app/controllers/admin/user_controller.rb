@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-class UserController < ApplicationController
-=======
 class Admin::UserController < ApplicationController     
->>>>>>> temp
     def index 
         @user = User.all
     end
@@ -19,11 +15,7 @@ class Admin::UserController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-<<<<<<< HEAD
-            redirect_to @user
-=======
             redirect_to url: admin_user_index_path(@user)
->>>>>>> temp
         else 
             render 'new'
         end
@@ -32,11 +24,7 @@ class Admin::UserController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
 
-<<<<<<< HEAD
-        redirect_to user_index_path
-=======
         redirect_to admin_user_index_path
->>>>>>> temp
     end
     private
     def user_params

@@ -1,6 +1,35 @@
 
-<h1>Edit category/h1>
+<h1>Edit category</h1>
+<%= form_with model: @category, url: admin_category_path(@category), local: true do |form| %>
  
-<%= render 'form' %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@category.errors.count, "error") %> prohibited
+        this category from being saved:
+      </h2>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :id %><br>
+    <%= form.text_field :categoryId %>
+  </p>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :Name %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
  
 <%= link_to 'Back', admin_category_path %>
