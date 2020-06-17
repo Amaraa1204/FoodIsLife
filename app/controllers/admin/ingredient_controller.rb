@@ -1,4 +1,4 @@
-class IngredientController < ApplicationController
+class Admin::IngredientController < ApplicationController
   def index
       @ingres = Ingredient.all
   end
@@ -14,14 +14,14 @@ class IngredientController < ApplicationController
 
   def edit
       @ingre = Ingredient.find(params[:id])
-      @editpath = ingredient_path(@ingre)
+      @editpath = admin_ingredient_path(@ingre)
   end
 
   def create
     @ingre = Ingredient.new(ingre_params)
 
     if @ingre.save
-      redirect_to ingredient_index_path
+      redirect_to admin_ingredient_index_path
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class IngredientController < ApplicationController
     @ingre = Ingredient.find(params[:id])
 
     if @ingre.update(ingre_params)
-      redirect_to @ingre
+      redirect_to admin_ingredient_path
     else
       render 'edit'
     end
@@ -41,7 +41,7 @@ class IngredientController < ApplicationController
     @ingre = Ingredient.find(params[:id])
     @ingre.destroy
 
-    redirect_to ingredient_index_path
+    redirect_to admin_ingredient_index_path
   end
 
   private

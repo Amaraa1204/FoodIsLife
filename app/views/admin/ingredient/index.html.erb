@@ -6,7 +6,7 @@
 
 <h3>
   <%= image_tag 'add.png', :class => "iconAddIndex" %>
-  <%= link_to 'New ingredient', new_ingredient_path, :class => "action", :id => "newIngre" %>
+  <%= link_to 'New ingredient', new_admin_ingredient_path, :class => "action", :id => "newIngre" %>
 </h3>
 
 <table>
@@ -22,9 +22,9 @@
       <td><%= ingredient.name %></td>
       <td><%= ingredient.categoryId %></td>
       <td><%= ingredient.calories %></td>
-      <td><%= link_to ' Show ', ingredient_path(ingredient), :class => "action" %> | </td>
-      <td><%= link_to ' Edit ', edit_ingredient_path(ingredient), :class => "action" %> | </td>
-      <td><%= link_to ' Delete ', ingredient_path(ingredient), :class => "action" ,
+      <td><%= link_to ' Show ', admin_ingredient_path(ingredient), :class => "action" %> | </td>
+      <td><%= link_to ' Edit ', edit_admin_ingredient_path(ingredient), :class => "action" %> | </td>
+      <td><%= link_to ' Delete ', admin_ingredient_path(ingredient), :class => "action" ,
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
