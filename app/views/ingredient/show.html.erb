@@ -1,0 +1,23 @@
+<h1>
+  <%= image_tag 'cook.png', :class => "iconH1" %> Ingredient
+</h1>
+
+<hr width="15%", align="left">
+
+<p>
+  <strong>Name:</strong>
+  <%= @ingre.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @ingre.categoryId %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @ingre.calories %>
+</p>
+
+<%= link_to 'Edit', edit_admin_ingredient_path(@ingre), :class => "action" %> |
+<%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
