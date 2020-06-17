@@ -9,7 +9,7 @@ class IngredientController < ApplicationController
 
   def new
     @ingre = Ingredient.new
-    @newpath = ingredient_index_path
+    #@newpath = ingredient_index_path
   end
 
   def edit
