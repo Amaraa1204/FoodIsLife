@@ -1,16 +1,6 @@
 
-<%= form_with scope: :article, url: category_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+<h1>New category/h1>
  
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
+<%= render 'form' %>
  
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= link_to 'Back', category_index_path %>
