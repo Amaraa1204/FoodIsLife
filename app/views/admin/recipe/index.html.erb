@@ -1,6 +1,6 @@
 <h1>Recipe list</h1>
-<%= link_to 'New recipe', new_admin_recipe_path %>
-<table>
+<%= link_to 'New recipe', new_admin_recipe_path, class: "btn" %>
+<table class="list">
   <tr>
     <th>Name</th>
     <th>Instruction</th>
@@ -15,11 +15,11 @@
       <td><%= recipe.instruction %></td>
       <td><%= image_tag recipe.image.thumb.url %></td>
       <td><%= recipe.authorId %></td>
-      <td><%= link_to 'Show', admin_recipe_path(recipe) %></td>
-      <td><%= link_to 'Edit', edit_admin_recipe_path(recipe) %></td>
-      <td><%= link_to 'Destroy', admin_recipe_path(recipe),
+      <td><%= link_to 'Show', admin_recipe_path(recipe), class: "btn" %></td>
+      <td><%= link_to 'Edit', edit_admin_recipe_path(recipe), class: "btn" %></td>
+      <td><%= link_to 'Delete', admin_recipe_path(recipe),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' }, class: "btn" %></td>
     </tr>
   <% end %>
 </table>

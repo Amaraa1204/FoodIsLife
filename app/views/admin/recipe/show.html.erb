@@ -1,22 +1,33 @@
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
- 
-<p>
-  <strong>Instruction:</strong>
-  <%= @recipe.instruction %>
-</p>
+<table class="list">
+  <tr>
+    <th>
+      <strong>Name:</strong>
+    </th>
+    <th>
+      <strong>Instruction:</strong>
+    </th>
+    <th>
+      <strong>Image:</strong>
+    </th>
+    <th>
+      <strong>Author:</strong>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <%= @recipe.name %>
+    </td>
+    <td>
+      <%= @recipe.instruction %>
+    </td>
+    <td>
+      <%= image_tag @recipe.image.thumb.url %>
+    </td>
+    <td>
+      <%= @recipe.authorId %>
+    </td>
+  </tr>
+</table>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @recipe.image.thumb.url %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @recipe.authorId %>
-</p>
-
-<%= link_to 'Edit', edit_admin_recipe_path(@recipe) %> |
-<%= link_to 'Back', admin_recipe_index_path %>
+<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
+<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
