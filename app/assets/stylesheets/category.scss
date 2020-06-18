@@ -1,0 +1,80 @@
+div.main {
+	background-color: #f5f6fa;
+}
+table, td, th{  
+  border: 2px solid #ddd;
+  text-align: center;
+  background-color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 75%;
+  margin-left: 180px;
+  font-family: "Muli", sans-serif;
+  margin-top: 50px;
+}
+
+th, td {
+  padding: 50px;
+  height: 60px;
+}
+tr:hover {background-color:#f5f5f5;}
+th {
+	 background-color: rgb(132, 232, 107);
+}
+div.sticky {
+  position: -webkit-sticky;
+  position: fixed;
+  top: 0;
+  padding: 10px;
+}
+.newBtn {
+	width: 150px;
+	height: 50px;
+	background-color: rgb(132, 232, 107);
+	font-family: "Muli", sans-serif;
+	font-size: 20px;
+	display: inline-block;
+	text-decoration: none;
+  	display: inline-block;
+    border: none;
+    border-radius: 12px;
+}
+.newBtn:hover {
+	background-color: rgb(10, 209, 24);
+}
+.sedBtn {
+	width: 60%;
+	height: 60%;
+	display: inline-block;
+	background-color: rgb(167, 196, 242);
+}
+.sedBtn:hover {
+	background-color: rgb(38, 224, 97);
+}
+.cancelBtn{ 
+	position:-webkit-sticky; 
+	position:sticky; 
+	bottom:0; 
+	border-color:red;
+	padding-top: 10px;
+}
+.newBtnSt {
+	text-align: right;
+	padding-top: 10px;
+}
+.editCatPage {
+	margin-left: 400px;
+	font-family: "Muli", sans-serif;
+	font-size: 20px;
+}
+#submitEdit {
+	width: 60%;
+	height: 60%;
+}
+.newCatPage {
+	margin-left: 400px;
+	font-family: "Muli", sans-serif;
+	font-size: 20px;
+}

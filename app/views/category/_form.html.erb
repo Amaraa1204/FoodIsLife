@@ -1,3 +1,11 @@
+<div class="main">
+<div class="sticky">
+     <div class="glyphicon glyphicon-magnet" 
+   style="font-size:60px;color:lightblue; text-shadow:2px 2px 4px #000000;">
+   </div>
+   <footer class="cancelBtn"><%= button_to "Back", category_index_path, :method => "get", class: "newBtn"%></footer>
+</div>
+<div class="newCatPage">
 <%= form_with model: @category, url: category_index_path, local: true do |form| %>
  
   <% if @category.errors.any? %>
@@ -29,3 +37,4 @@
   </p>
  
 <% end %>
+</div>

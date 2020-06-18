@@ -1,5 +1,12 @@
-<%= form_with model: @category, url: @newpath, local: true do |form| %>
- 
+<div class="main">
+<div class="sticky">
+     <div class="glyphicon glyphicon-magnet" 
+   style="font-size:60px;color:lightblue; text-shadow:2px 2px 4px #000000;">
+   </div>
+   <footer class="cancelBtn"><%= button_to "Back", category_index_path, :method => "get", class: "newBtn"%></footer>
+</div>
+<div class="editCatPage">
+  <%= form_with model: @category, url: @newpath, local: true do |form| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,19 +20,23 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
+  <p id="idEdit">
     <%= form.label :id %><br>
+    <div class="idEdit">
     <%= form.text_field :categoryId %>
+    </div>
   </p>
  
-  <p>
+  <p id="nameEdit">
     <%= form.label :name %><br>
+    <div class="nameEdit">
     <%= form.text_area :Name %>
+    </div>
   </p>
  
-  <p>
+  <p id="submitEdit">
     <%= form.submit %>
   </p>
- 
-<% end %>
+<% end %> 
+</div>
+</div>

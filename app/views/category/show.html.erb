@@ -1,11 +1,21 @@
-<p>
-  <strong>ID:</strong>
-  <%= @category.categoryId %>
-</p>
- 
-<p>
-  <strong>NAME:</strong>
-  <%= @category.Name %>
-</p>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', category_index_path %>
+<div class="main">
+<div class="sticky">
+     <div class="glyphicon glyphicon-magnet" 
+   style="font-size:60px;color:lightblue; text-shadow:2px 2px 4px #000000;">
+   </div>
+   <div class="newBtnSt">
+   <%= button_to "Edit", edit_category_path(@category), :method => "get", class: "newBtn"%>
+   </div>
+   <footer class="cancelBtn"><%= button_to "Back", category_index_path, :method => "get", class: "newBtn"%></footer>
+</div>
+<table>
+  <tr>
+    <th style="text-align: center;">ID:</th>
+    <th style="text-align: center;">NAME:</th>
+  </tr>
+  <tr>
+    <td><%= @category.categoryId %></td>
+    <td><%= @category.Name %>n</td>
+  </tr>
+</table>
+</div>

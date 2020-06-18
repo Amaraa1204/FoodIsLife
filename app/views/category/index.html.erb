@@ -1,20 +1,33 @@
-<%= link_to 'New category', new_category_path %>
+<div class="main">
+<div class="sticky">
+     <div class="glyphicon glyphicon-magnet" 
+   style="font-size:60px;color:lightblue; text-shadow:2px 2px 4px #000000;">
+   </div>
+   <div class="newBtnSt">
+   <%= button_to "New category", new_category_path, :method => "get", class: "newBtn"%>
+   </div>
+   <footer class="cancelBtn"><%= button_to "Back", category_index_path, :method => "get", class: "newBtn"%></footer>
+</div>
 <table>
   <tr>
-    <th>categoryId</th>
-    <th>Name</th>
-    <th colspan="2"></th>
+    <th style="text-align: center;">categoryId</th>
+    <th style="text-align: center;">Name</th>
+    <th colspan="4" style="background-color: #ffffff"></th>
   </tr>
  
   <% @category.each do |category| %>
     <tr>
       <td><%= category.categoryId %></td>
       <td><%= category.Name %></td>
-      <td><%= link_to 'Show', category_path(category) %></td>
-      <td><%= link_to 'Edit', edit_category_path(category) %></td>
-      <td><%= link_to 'Destroy', category_path(category),
+      <td><%= button_to  'Show', category_path(category), :method => "get", class: "sedBtn" %></td>
+      <td><%= button_to  'Edit', edit_category_path(category), :method => "get", class: "sedBtn" %></td>
+      <td><%= button_to 'Destroy', category_path(category),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' }, class: "sedBtn" %></td>
     </tr>
   <% end %>
 </table>
+
+
+
+</div>
