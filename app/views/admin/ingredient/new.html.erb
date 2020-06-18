@@ -1,9 +1,63 @@
-<h1>
-  <%= image_tag 'add.png', :class => "iconH1" %> New Ingredient
-</h1>
+<body style="background-color: #d8e5f1;">
+<div class="head">
+  <h1 class="headWord">
+    <%= image_tag 'add.png', :class => "iconH1" %> New Ingredient
+  </h1>
+  <hr>
+</div>
 
-<hr width="20%", align="left">
+  <%#= render 'form' %>
 
-<%= render 'form' %>
+  <%= form_with(model: @ingre, url: admin_ingredient_index_path, local: true) do |form| %>
 
-<%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+    <div class="error">
+      <% if @ingre.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@ingre.errors.count, "error") %>
+      prohibited
+            this ingredient from being saved:
+          </h2>
+          <ul>
+            <% @ingre.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+  <div class="formNew">
+    <p>
+      <%= form.label :name %>
+      <div class="txtFLD">
+        <%= form.text_field :name %>
+      </div>
+    </p>
+
+    <p>
+      <%= form.label :category %>
+      <div class="txtFLD">
+        <%= form.number_field :categoryId %>
+      </div>
+    </p>
+
+    <p>
+      <%= form.label :calories %>
+      <div class="txtFLD">
+        <%= form.number_field :calories %>
+      </div>
+    </p>
+
+    <p>
+      <%= form.submit :Save, :class => "saveAction" %>
+    </p>
+  </div>
+
+  <% end %>
+
+<div class="actionBack">
+  <%= image_tag 'back.png', :class => "iconLil" %>
+  <%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+</div>
+</body>

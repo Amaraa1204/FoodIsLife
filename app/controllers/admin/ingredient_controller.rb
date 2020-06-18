@@ -14,7 +14,6 @@ class Admin::IngredientController < ApplicationController
 
   def edit
       @ingre = Ingredient.find(params[:id])
-      @editpath = admin_ingredient_path(@ingre)
   end
 
   def create

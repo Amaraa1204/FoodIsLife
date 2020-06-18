@@ -2,26 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .action{
-  color: gray;
+  color: black;
   text-decoration: none;
 }
 
+.actionBack{
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+
+.actionInShow{
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
 .action:hover{
-  color: #83aae5;
+  color: #467fd7;
 }
 
 .listTable{
   text-align: center;
+  background-color: #83aae5;
 }
 
 .saveAction:hover{
-  color: gray;
+  color: #467fd7;
+}
+
+.saveAction{
+  background-color: #f2f5f7;
+  border: 1px solid #c6c6c6;
 }
 
 .iconH1{
   width: 25px;
 }
 
-.iconAddIndex{
+.iconLil{
   width: 15px;
+}
+
+.tableIndex{
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.thTable{
+  background-color: #467fd7;
+}
+
+.head{
+  margin-left: 18%;
+  margin-right: 18%;
+}
+
+.formNew{
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+
+.headWord{
+  color: #2b59a2;
+}
+
+.tableAction{
+  background-color: lightgray;
+  width: 10%;
+  text-align: center;
+}
+
+.error{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.txtFLD{
+  opacity: 0.5;
 }
