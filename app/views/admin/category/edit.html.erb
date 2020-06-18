@@ -1,7 +1,7 @@
-
+<div class="indexCate">
 <h1>Edit category</h1>
 <%= form_with model: @category, url: admin_category_path(@category), local: true do |form| %>
- 
+
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -15,21 +15,22 @@
       </ul>
     </div>
   <% end %>
- 
+
   <p>
     <%= form.label :id %><br>
     <%= form.text_field :categoryId %>
   </p>
- 
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_area :name %>
   </p>
- 
+
   <p>
     <%= form.submit %>
   </p>
- 
+
 <% end %>
- 
-<%= link_to 'Back', admin_category_path %>
+
+<%= link_to 'Back', admin_category_path, :class => 'newCate' %>
+</div>
