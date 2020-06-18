@@ -1,23 +1,38 @@
-<h1>
-  <%= image_tag 'cook.png', :class => "iconH1" %> Ingredient
-</h1>
+<div class="head">
+  <h1 class="headWord">
+    <%= image_tag 'cook.png', :class => "iconH1" %> Ingredient
+  </h1>
 
-<hr width="15%", align="left">
+  <hr>
+</div>
+<div class="formNew">
+  <p>
+    <strong>Name:</strong>
+    <%= @ingre.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ingre.name %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @ingre.categoryId %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @ingre.categoryId %>
-</p>
+  <p>
+    <strong>Calories:</strong>
+    <%= @ingre.calories %>
+  </p>
+  </div>
 
-<p>
-  <strong>Calories:</strong>
-  <%= @ingre.calories %>
-</p>
-
-<%= link_to 'Edit', edit_admin_ingredient_path(@ingre), :class => "action" %> |
-<%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+  <div class="actionInShow">
+    <table>
+      <tr>
+        <td class="tableAction">
+          <%= image_tag 'plus.png', :class => "iconLil" %>
+          <%= link_to 'Edit', edit_admin_ingredient_path(@ingre), :class => "action" %>
+        </td>
+        <td class="tableAction">
+          <%= image_tag 'back.png', :class => "iconLil" %>
+          <%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+        </td>
+    </tr>
+  </table>
+  </div>

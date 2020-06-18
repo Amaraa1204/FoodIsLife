@@ -1,47 +1,53 @@
-<h1>
+<div class="head">
+<h1 class="headWord">
   <%= image_tag "edit.png", :class => "iconH1" %> Edit Ingredient
 </h1>
-<hr width="20%", align="left">
-
+<hr>
+</div>
 <%# render 'form' %>
 
-<%= form_with(model: @ingre, url: @editpath, local: true) do |form| %>
+<%= form_with(model: @ingre, url: admin_ingredient_path(@ingre), local: true) do |form| %>
 
-  <% if @ingre.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@ingre.errors.count, "error") %>
-  prohibited
-        this ingredient from being saved:
-      </h2>
-      <ul>
-        <% @ingre.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="error">
+    <% if @ingre.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@ingre.errors.count, "error") %>
+    prohibited
+          this ingredient from being saved:
+        </h2>
+        <ul>
+          <% @ingre.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+  <div class="formNew">
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </p>
 
-  <p>
-    <%= form.label :category %><br>
-    <%= form.number_field :categoryId %>
-  </p>
+    <p>
+      <%= form.label :category %><br>
+      <%= form.number_field :categoryId %>
+    </p>
 
-  <p>
-    <%= form.label :calories %><br>
-    <%= form.number_field :calories %>
-  </p>
+    <p>
+      <%= form.label :calories %><br>
+      <%= form.number_field :calories %>
+    </p>
 
-  <p>
-    <%= form.submit :Save, :class => "saveAction" %>
-  </p>
-
+    <p>
+      <%= form.submit :Save, :class => "saveAction" %>
+    </p>
+  </div>
 <% end %>
 
-<%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
-
+<div class="actionBack">
+  <%= image_tag 'back.png', :class => "iconLil" %>
+  <%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+</div>

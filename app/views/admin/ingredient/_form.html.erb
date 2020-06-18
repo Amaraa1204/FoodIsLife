@@ -1,20 +1,23 @@
 <%= form_with(model: @ingre, url: admin_ingredient_index_path, local: true) do |form| %>
 
-  <% if @ingre.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@ingre.errors.count, "error") %>
-  prohibited
-        this ingredient from being saved:
-      </h2>
-      <ul>
-        <% @ingre.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="error">
+    <% if @ingre.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@ingre.errors.count, "error") %>
+    prohibited
+          this ingredient from being saved:
+        </h2>
+        <ul>
+          <% @ingre.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 
+<div class="formNew">
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -33,5 +36,6 @@
   <p>
     <%= form.submit :Save, :class => "saveAction" %>
   </p>
+</div>
 
 <% end %>

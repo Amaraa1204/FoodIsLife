@@ -1,9 +1,12 @@
-<h1>
-  <%= image_tag 'add.png', :class => "iconH1" %> New Ingredient
-</h1>
+<div class="head">
+  <h1 class="headWord">
+    <%= image_tag 'add.png', :class => "iconH1" %> New Ingredient
+  </h1>
+  <hr>
+</div>
 
-<hr width="20%", align="left">
-
-<%= render 'form' %>
-
-<%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+  <%= render 'form' %>
+<div class="actionBack">
+  <%= image_tag 'back.png', :class => "iconLil" %>
+  <%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+</div>
