@@ -40,6 +40,6 @@ class Admin::CategoryController < ApplicationController
 	end
 	private
 	def category_params
-		params.require(:category).permit(:categoryId, :Name)
+		params.require(:category).permit(:categoryId, :name)
 	end
 end
