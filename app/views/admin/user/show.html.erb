@@ -1,16 +1,31 @@
-
-<p>
-<strong>Email:</strong>
-<%= @user.email %>
-</p>
-<p>
-<strong>Username:</strong>
-<%= @user.user_name %>
-</p>
-<p>
-<strong>Account created at:</strong>
-<%= @user.created_at %>
-</p>
-
-<%= link_to 'Back', admin_user_index_path %>
+<table>
+    <tr>
+        <th>
+        <strong>Email:</strong>
+        </th>
+        <td>
+        <%= @user.email %>
+        </td>
+    </tr>
+    <tr>
+    <th>
+    <strong>Username:</strong>
+    </th>
+        <td>
+        <%= @user.user_name %>
+        </td>
+        
+    </tr>
+    <tr>
+        <th>
+            <strong>Account created at:</strong>
+        </th>
+        <td>
+        <%= @user.created_at %>
+        </td>
+    </tr>
+</table>
+<br>
+<br>
+<%= link_to 'Back', admin_user_index_path,class: "btn" %>
 
