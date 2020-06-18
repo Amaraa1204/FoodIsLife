@@ -1,0 +1,37 @@
+<%= image_tag 'house.png', :class => "iconLil" %>
+<%= link_to 'Home', admin_show_path, :class => 'homeBTN' %>
+<body style="background-color: #d8e5f1;">
+<div class="head">
+  <h1 class="headWord">
+    <%= image_tag 'order.png', :class => "iconH1" %> Listing Ingredients
+  </h1>
+
+  <hr>
+
+  <h3>
+    <%= image_tag 'add.png', :class => "iconLil" %>
+    <%= link_to 'New ingredient', new_admin_ingredient_path, :class => "action", :id => "newIngre" %>
+  </h3>
+
+<table class="tableIndex">
+  <tr class="thTable">
+    <th>Name</th>
+    <th>Category</th>
+    <th>Calories</th>
+  </tr>
+
+  <% @ingres.each do |ingredient| %>
+    <tr class="listTable" >
+      <td><%= ingredient.name %></td>
+      <td><%= ingredient.categoryId %></td>
+      <td><%= ingredient.calories %></td>
+      <td class="tableAction"><%= image_tag 'cook.png', :class => "iconLil" %><%= link_to ' Show ', admin_ingredient_path(ingredient), :class => "action" %></td>
+      <td class="tableAction"><%= image_tag 'plus.png', :class => "iconLil" %><%= link_to ' Edit ', edit_admin_ingredient_path(ingredient), :class => "action" %></td>
+      <td class="tableAction"><%= image_tag 'trash.png', :class => "iconLil" %><%= link_to ' Delete ', admin_ingredient_path(ingredient), :class => "action" ,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</body>

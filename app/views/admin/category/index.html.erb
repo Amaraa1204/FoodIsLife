@@ -1,0 +1,25 @@
+<%= image_tag 'house.png', :class => "iconLil" %>
+<%= link_to 'Home', admin_show_path, :class => 'homeBTN' %>
+<div class="indexCate">
+  <%= link_to 'New Category', new_admin_category_path, :class => 'newCate' %>
+
+<table class="tableCate">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+
+  <% @category.each do |category| %>
+    <tr>
+      <td><%= category.categoryId %></td>
+      <td><%= category.name %></td>
+      <td class="newCate"><%= link_to 'Show', admin_category_path(category), :class => 'newCate' %></td>
+      <td class="newCate"><%= link_to 'Edit', edit_admin_category_path(category), :class => 'newCate' %></td>
+      <td class="newCate"><%= link_to 'Destroy', admin_category_path(category), :class => 'newCate' ,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+</div>
