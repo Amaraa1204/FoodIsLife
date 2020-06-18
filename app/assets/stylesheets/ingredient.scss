@@ -19,7 +19,7 @@
 }
 
 .action:hover{
-  color: #83aae5;
+  color: #467fd7;
 }
 
 .listTable{
@@ -27,7 +27,12 @@
 }
 
 .saveAction:hover{
-  color: gray;
+  color: #467fd7;
+}
+
+.saveAction{
+  background-color: #f2f5f7;
+  border: 1px solid #c6c6c6;
 }
 
 .iconH1{
@@ -80,4 +85,12 @@ hr{
 .error{
   margin-left: 20%;
   margin-right: 20%;
+}
+
+body{
+  background-color: #d8e5f1;
+}
+
+.txtFLD{
+  opacity: 0.5;
 }
