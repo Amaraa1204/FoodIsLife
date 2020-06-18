@@ -24,6 +24,7 @@
 
 .listTable{
   text-align: center;
+  background-color: #83aae5;
 }
 
 .saveAction:hover{
@@ -49,21 +50,13 @@
   width: 70%;
 }
 
-tr{
-  background-color: #83aae5;
-}
-
-th{
+.thTable{
   background-color: #467fd7;
 }
 
 .head{
   margin-left: 18%;
   margin-right: 18%;
-}
-
-hr{
-   width: 100%;
 }
 
 .formNew{
@@ -85,10 +78,6 @@ hr{
 .error{
   margin-left: 20%;
   margin-right: 20%;
-}
-
-body{
-  background-color: #d8e5f1;
 }
 
 .txtFLD{
