@@ -13,40 +13,41 @@
       </ul>
     </div>
   <% end %>
-
-  <p>
+<div id="form">
+  <p id="labels">
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "inputs" %>
   </p>
  
-  <p>
+  <p id="labels">
     <%= form.label :instruction %><br>
-    <%= form.text_area :instruction %>
+    <%= form.text_area :instruction, class: "inputs" %>
   </p>
 
-  <p>
+  <p id="labels">
     <%= form.label :rating %><br>
-    <%= form.number_field :rating %>
+    <%= form.number_field :rating, class: "inputs" %>
   </p>
 
-  <p>
+  <p id="labels">
     <%= form.label :image %><br>
-    <%= form.file_field :image %>
+    <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
   </p>
 
-  <p>
+  <p id="labels">
     <%= form.label :categoryId %><br>
-    <%= form.text_field :categoryId %>
+    <%= form.text_field :categoryId, class: "inputs" %>
   </p>
 
-  <p>
+  <p id="labels">
     <%= form.label :authorId %><br>
-    <%= form.number_field :authorId %>
+    <%= form.number_field :authorId, class: "inputs" %>
   </p>
  
   <p>
-    <%= form.submit %>
+    <%= form.submit nil, class: "submit" %>
   </p>
+</div>
 <% end %>
 
-<%= link_to 'Back', admin_recipe_index_path(@recipe) %>
+<%= link_to 'Back', admin_recipe_index_path(@recipe), class: "btn" %>

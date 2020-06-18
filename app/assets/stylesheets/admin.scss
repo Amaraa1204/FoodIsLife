@@ -1,33 +1,38 @@
+body {
+  margin: 0;
+}
+
 .menu {
   float: left;
-  background-color: #ffffff;
-  width: 25%;
-  height: 100%;
+  width: 70%;
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  margin-bottom: 10%;
+  margin-left: -36%;
+  height: 500px;
 }
 
 .menu a {
   display: block;
-  background-color: rgb(100, 182, 52);
-  color: rgb(0, 0, 0);
+  background-color: rgb(55, 119, 216);
   padding: 22px 16px;
   width: 100%;
+  height: 100%;
   border-radius: 10px;
   border: none;
   outline: none;
   text-align: center;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 17px;
-  margin: 10px;
   text-decoration: none;
+  font-size: 80px;
+  font-family: 'Aleo';
+  color: rgb(255, 255, 255);
 }
 
 .menu a:hover {
-  background-color: rgb(153, 221, 156);
-}
-
-.menu a.active {
-  background-color: rgb(8, 80, 1);
+  background-color: rgb(191, 234, 253);
 }
 
 .content {
@@ -38,4 +43,55 @@
   border: 1px solid #ccc;
   width: 70%;
   height: 100%;
+}
+
+.ub {
+  position: absolute; 
+  top: 8px; 
+  left: 16px; 
+  height: 25%;
+  width: 40%;
+}
+
+.cb {
+  position: absolute;
+  top: 8px;
+  right: 16px; 
+  height: 25%;
+  width: 40%;
+}
+
+.ib {
+  position: absolute;
+  bottom: 8px;
+  left: 16px; 
+  height: 25%;
+  width: 40%;
+  margin-bottom: 100px;
+}
+
+.rb {
+  position: absolute;
+  bottom: 8px;
+  right: 16px; 
+  height: 25%;
+  width: 40%;
+  margin-bottom: 100px;
+}
+
+.header {
+  top: 0px;
+  position: absolute;
+  width: 96.7%;
+  height: 50px;
+  background-color: rgb(55, 119, 216);
+  margin-bottom: 100px;
+  left: 0px;
+}
+
+#logo {
+  font-family: 'Aleo';
+  color: rgb(255, 255, 255);
+  margin-left: 10%;
+  margin-top:10px;
 }
