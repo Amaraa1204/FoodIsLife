@@ -19,6 +19,7 @@ class User::SessionController < UserApplicationController
   def welcome
   end
   def destroy 
-        
+    session.delete(:user_id)
+    @current_user = nil
   end
 end

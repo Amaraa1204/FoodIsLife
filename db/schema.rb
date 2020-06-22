@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2020_06_19_084531) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-<<<<<<< HEAD
   create_table "recipe_and_rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "recipeId"
     t.decimal "rate", precision: 10
@@ -72,9 +71,8 @@ ActiveRecord::Schema.define(version: 2020_06_19_084531) do
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-=======
+
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
->>>>>>> 192916a9ea2c8dde9f68955efd67c3c09690cc47
     t.string "name"
     t.text "instruction"
     t.decimal "rating", precision: 10
