@@ -1,0 +1,7 @@
+<h1>Sessions#welcome</h1>
+<p>Find me in app/views/sessions/welcome.html.erb</p>
+<% if admin_logged_in? %>
+    <h1>You are Logged In, <%= current_admin.user_name %></h1>
+<%end%>
+<%= button_to "Sign up", '/admin/new', method: :get%>
+<%= button_to "Login", '/admin/login', method: :get%>
