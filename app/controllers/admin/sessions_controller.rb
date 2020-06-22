@@ -15,6 +15,7 @@ class Admin::SessionsController < AdminApplicationController
   end
 
   def login
+    
   end
 
   def welcome

@@ -1,4 +1,5 @@
-class Admin::RecipeController < ApplicationController
+class Admin::RecipeController < AdminApplicationController
+	skip_before_action :authorized
 	def index 
 		@recipe = Recipe.all
 	end 
