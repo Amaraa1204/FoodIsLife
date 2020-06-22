@@ -8,7 +8,7 @@ class Admin::AdminController < AdminApplicationController
         @admin = Admin.create(params.require(:admin).permit(:user_name, :password))
         session[:admin_id] = @admin.id
         if @admin.save
-			redirect_to 'http://localhost:3000/admin/welcome'
+			redirect_to 'http://localhost:3000/admin/home'
 		else 
 			render 'new'
 		end

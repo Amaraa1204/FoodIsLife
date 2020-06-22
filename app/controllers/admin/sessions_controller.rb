@@ -20,4 +20,9 @@ class Admin::SessionsController < AdminApplicationController
 
   def welcome
   end
+
+  def destroy 
+    session.delete(:admin_id)
+    @current_admin = nil
+  end
 end

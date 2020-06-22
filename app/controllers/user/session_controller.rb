@@ -18,4 +18,7 @@ class User::SessionController < UserApplicationController
 
   def welcome
   end
+  def destroy 
+        
+  end
 end

@@ -1,5 +1,5 @@
 class Admin::CategoryController < AdminApplicationController
-	skip_before_action :authorized
+	before_action :authorized
 	def index
 		@category = Category.all
 	end
