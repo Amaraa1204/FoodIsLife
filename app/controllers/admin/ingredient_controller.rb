@@ -1,5 +1,6 @@
 
-class Admin::IngredientController < ApplicationController
+class Admin::IngredientController < AdminApplicationController
+  before_action :authorized
   def index
       @ingres = Ingredient.all
   end
