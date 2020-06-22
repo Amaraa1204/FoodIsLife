@@ -21,9 +21,12 @@ Rails.application.routes.draw do
   post '/user/new', to: 'user/user#create'
   get '/user/authorized', to: 'user/session#login'
   delete '/user/logout', to: 'user/session#destroy'
-  get '/user/home', to: 'user/user#show'
+  get '/user/home', to: 'user/user#home'
   namespace :user do
-    resources :user, :session, :recipes
+    resources :user, :session, :ingredient; :recipe_and_ingredient
+    resources :recipe do
+      resources :comment, :recipe_and_rate
+    end 
   end
 
   namespace :admin do
