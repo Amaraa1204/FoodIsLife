@@ -1,2 +1,0 @@
-class UnitController < ApplicationController
-end

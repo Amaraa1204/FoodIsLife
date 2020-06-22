@@ -21,5 +21,6 @@ class User::SessionController < UserApplicationController
   def destroy 
     session.delete(:user_id)
     @current_user = nil
+    redirect_to 'http://localhost:3000/user/welcome'
   end
 end
