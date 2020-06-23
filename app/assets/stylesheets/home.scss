@@ -1,17 +1,36 @@
 body{
-    margin-left: 20px;
-    margin-top: 25px;
-      background-color: #ddeef0
+    background-color: #ddeef0
+}
+
+#page-container {
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#content-wrap {
+  padding-bottom: 10%;
+  padding-top: 10%;
 }
   
 .user_home_header {
     top: 0px;
     position: absolute;
     width: 100%;
-    height: 10%;
+    min-height: 10%;
     background-color: rgb(55, 119, 216);
-    margin-bottom: 100px;
-    left: 0px;
+    margin-bottom: 10%;
+    left: 0;
+    color: white;
+  }
+
+  .user_home_footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    min-height: 10%;
+    background-color: rgb(55, 119, 216);
+    left: 0;
     color: white;
   }
 
@@ -106,7 +125,7 @@ body{
     background-color: rgb(15, 68, 146);
 }
 
-.search input[type=submit]:focus, .search input[type=submit]:active {
+.search input[type=submit]:focus:active {
     background-color: rgb(15, 68, 146);
     border: none;
 }
@@ -140,4 +159,61 @@ body{
   .dropdown-content a:hover {background-color: rgba(122, 122, 122, 0.171);}
 
   .dropdown:hover .dropdown-content {display: block;}
+
+.ingredients {
+    margin-top: 15%;
+    width: 100%;
+}
+
+.ingredients input[type=submit] {
+    float: right;
+    background-color: rgba(255, 146, 96, 0.808);
+    border: none;
+    width: 15%;
+    height: 35%;
+    margin-bottom: 10%;
+}
+
+.group1, .group2 {
+    margin-left: 20%;
+}
+
+  .cat_btn {
+    background-color: rgba(131, 131, 131, 0);
+    border: none;
+    width: 15%;
+    height: 35%;
+  }
+  
+  .category {
+    position: relative;
+    display: inline;
+    margin-right: 5%;
+  }
+  
+  .content {
+    display: none;
+    position: absolute;
+    background-color: #ff7b7b;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 1200px;
+  }
+  
+  .content input {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .content input:hover {background-color: rgba(122, 122, 122, 0.171);}
+
+  #diary:hover #diary-content {display: block;}
+
+  #vegetable:hover #vegetable-content {display: block;}
+
+  #fruit:hover #fruit-content {display: block;}
+  
+  #meat:hover #meat-content {display: block;}
 
