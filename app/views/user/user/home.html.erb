@@ -1,8 +1,27 @@
+<%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="user_home_header">
-<h1 id="logo">RECIDENT</h1>
+    <h1 id="logo">RECIDENT</h1>
+    <div class="sign_btns">
+        <span><%= button_to "Sign up", '/user/new', method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", '/user/login', method: :get, id: "sign_btn"%></span>
+    </div>
 </div>
 
-<div class="sign_btns">
-    <%= button_to "Sign up", '/user/new', method: :get, class: "sign_btn"%>
-    <%= button_to "Login", '/user/login', method: :get, class: "sign_btn"%>
+<div class="motto">
+    <h1>Discover new recipes with your favourite ingredients!</h1>
+    <h2>Share your recipe with the world</h2>
+</div>
+
+<div class="search">
+    <div class="dropdown">
+        <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%>></img></button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <input type="text" placeholder="Write the name of the food you want to make">
+    <input type="submit" value="Search">
 </div>
