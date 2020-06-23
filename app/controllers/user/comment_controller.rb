@@ -1,3 +1,4 @@
+class CommentController < ApplicationController
 class User::CommentController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipeId])

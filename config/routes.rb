@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete '/admin/logout', to: 'admin/sessions#destroy'
   get '/admin/home', to: 'admin/admin#show'
 
+
   get '/user/login', to: 'user/session#new'
   post '/user/login', to: 'user/session#create'
   get '/user/welcome', to: 'user/session#welcome'
@@ -15,11 +16,11 @@ Rails.application.routes.draw do
   post '/user/new', to: 'user/user#create'
   get '/user/authorized', to: 'user/session#login'
   delete '/user/logout', to: 'user/session#destroy'
-  get '/user/home', to: 'user/user#show'
+  get '/user/home', to: 'user/user#home'
   namespace :user do
-    resources :user, :session
+    resources :user, :session, :ingredient; :recipe_and_ingredient
     resources :recipe do
-      resources :comment
+      resources :comment, :recipe_and_rate
     end
   end
 
