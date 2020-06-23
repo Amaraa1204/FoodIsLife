@@ -1,7 +1,9 @@
 class User::RecipeController < UserApplicationController
   before_action :authorized
 
-	def index
+  def index
+    @recipe = Recipe.all
+    /
 		@cat = Category.all
 		if params[:search].present?
 			recipe_ids = RecipeIngridient.where(ingridient_id: params[:search]).pluck(:recipe_id)
@@ -9,7 +11,7 @@ class User::RecipeController < UserApplicationController
 			@recipe = Recipe.where(id: recipe_ids)
 		else
 			@recipe = Recipe.all
-		end
+		end/
 	end 
 
 	def show
