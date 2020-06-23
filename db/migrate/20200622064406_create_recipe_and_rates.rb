@@ -1,9 +1,9 @@
 class CreateRecipeAndRates < ActiveRecord::Migration[6.0]
   def change
     create_table :recipe_and_rates do |t|
-      t.integer :recipeId
+      t.integer :recipe_id
       t.decimal :rate
-      t.integer :userId
+      t.integer :user_id
 
       t.timestamps
     end

@@ -1,0 +1,2 @@
+class RecCategory < ApplicationRecord
+end

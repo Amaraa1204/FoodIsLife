@@ -1,8 +1,15 @@
 class User::RecipeController < UserApplicationController
-    before_action :authorized
-	def index 
-        @recipe = Recipe.all
-        @cat = Category.all
+  before_action :authorized
+
+	def index
+		@cat = Category.all
+		if params[:search].present?
+			recipe_ids = RecipeIngridient.where(ingridient_id: params[:search]).pluck(:recipe_id)
+			select recipe_id from RecipeIngridient where ingridient in (1,2,3,4,5)
+			@recipe = Recipe.where(id: recipe_ids)
+		else
+			@recipe = Recipe.all
+		end
 	end 
 
 	def show
@@ -41,8 +48,9 @@ class User::RecipeController < UserApplicationController
 		redirect_to user_recipe_index_path
 	end 
 
-	private 
-		def recipe_params
-			params.require(:recipe).permit(:name, :instruction, :rating, :image, :categoryId, :authorId)
-		end
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :instruction, :rating, :image, :categoryId, :authorId)
+  end
 end

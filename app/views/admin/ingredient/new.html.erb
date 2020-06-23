@@ -6,7 +6,7 @@
   <hr>
 
   <%#= render 'form' %>
-
+  <%= stylesheet_link_tag 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= form_with(model: @ingre, url: admin_ingredient_index_path, local: true, :class => "form") do |form| %>
 
       <% if @ingre.errors.any? %>
