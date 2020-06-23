@@ -1,0 +1,53 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+
+  <script type="text/javascript" src="comment.js"></script>
+  <script>
+    $('.sendBtn').click(send_Text);
+
+    function send_Text(){
+      var txtsend = $(".divEditor").html();
+      $(".commmm").val(txtsend);
+    }
+  </script>
+</head>
+
+<body class="commentBody">
+<h1>
+  <%#= image_tag 'book.png', :style => 'width:3%;'%>Comments
+</h1>
+
+<% @comms.each do |comment| %>
+<div class="oneCommentArea">
+  <strong><%= current_user.user_name %> </strong>
+  <h5 class="commentAction"><%= comment.comment%>
+    <span class="actionInCommentHover">
+      <table>
+        <tr class="commentTableTR">
+          <td class='commentTableTD'>
+            <%#= image_tag 'pencil.png', :class => "commentActionIcon" %>
+            <%= link_to ' Edit ', edit_user_comment_path(comment), :class => "commentActionTable" %>
+          </td>
+          <td class='commentTableTD'>
+            <%#= image_tag 'deleteComm.png', :class => "commentActionIcon" %>
+            <%= link_to ' Delete ', user_comment_path(comment), :class => "commentActionTable",
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      </table>
+    </span>
+  </h5>
+</div>
+<% end %>
+<p></p>
+<%= form_with(model: @comm, local: true) do |form| %>
+<%= form.submit :Send, :id => 'sendBtn', :style => 'background-color: #fa7470; width:10%; border: 1px solid black; font-family:Sofia;' %>
+<div contenteditable="true" id="divEditor">
+  <%= form.text_area :comment, :class => 'txtAreaComment', :style => 'background-color: #faf5f5;' %><br>
+</div>
+  <%#= form.submit :Send, :class => 'fakesendBtn', :style => 'background-color: #fa7470; width:10%; border: 1px solid black; font-family:Sofia;' %>
+    <%= link_to 'New comment', new_user_comment_path, :style => 'text-decoration:none; color:black;'%>
+<% end %>
+</body>

@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/user/home', to: 'user/user#show'
   namespace :user do
     resources :user, :session
+    resources :recipe do
+      resources :comment
+    end
   end
 
   namespace :admin do
