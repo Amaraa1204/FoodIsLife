@@ -1,4 +1,6 @@
-class Admin::UserController < ApplicationController     
+class Admin::UserController < AdminApplicationController  
+    before_action :authorized  
+
     def index 
         @user = User.all
     end

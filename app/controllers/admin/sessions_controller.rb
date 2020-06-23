@@ -15,8 +15,15 @@ class Admin::SessionsController < AdminApplicationController
   end
 
   def login
+    
   end
 
   def welcome
+  end
+
+  def destroy 
+    session.delete(:admin_id)
+    @current_admin = nil
+    redirect_to 'http://localhost:3000/admin/welcome'
   end
 end

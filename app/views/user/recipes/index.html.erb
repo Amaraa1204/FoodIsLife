@@ -1,7 +1,7 @@
 <%= image_tag 'house.png', :class => "iconLil" %>
-<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+<%= link_to 'Home', user_welcome_path, :class => 'homeBTN' %>
 <h1>Recipe list</h1>
-<%= link_to 'New recipe', new_admin_recipe_path, class: "btn" %>
+<%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
 <table class="list">
   <tr>
     <th>Name</th>
@@ -17,9 +17,9 @@
       <td><%= recipe.instruction %></td>
       <td><%= image_tag recipe.image.thumb.url %></td>
       <td><%= recipe.authorId %></td>
-      <td><%= link_to 'Show', admin_recipe_path(recipe), class: "btn" %></td>
-      <td><%= link_to 'Edit', edit_admin_recipe_path(recipe), class: "btn" %></td>
-      <td><%= link_to 'Delete', admin_recipe_path(recipe),
+      <td><%= link_to 'Show', user_recipe_path(recipe), class: "btn" %></td>
+      <td><%= link_to 'Edit', edit_user_recipe_path(recipe), class: "btn" %></td>
+      <td><%= link_to 'Delete', user_recipe_path(recipe),
               method: :delete,
               data: { confirm: 'Are you sure?' }, class: "btn" %></td>
     </tr>
