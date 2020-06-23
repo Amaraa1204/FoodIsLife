@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class User::RecipesController < UserApplicationController
     before_action :authorized
     def index
@@ -47,7 +46,3 @@ class User::RecipesController < UserApplicationController
       end
     end
   
-=======
-class RecipeController < ApplicationController
-end
->>>>>>> 2a6ed16b6a3082010d4d769178c486ea94c658b9
