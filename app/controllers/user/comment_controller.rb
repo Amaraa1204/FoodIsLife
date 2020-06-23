@@ -1,5 +1,4 @@
-class CommentController < ApplicationController
-class User::CommentController < ApplicationController
+class User::CommentController < UserApplicationController
   def index
       @comms = Comment.all
   end
