@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :user, :session, :ingredient; :recipe_and_ingredient
     resources :recipe do
       resources :comment, :recipe_and_rate
-    end 
+    end
   end
 
   namespace :admin do

@@ -1,8 +1,167 @@
 
+<%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div id="page-container">
+
 <div class="user_home_header">
-<h1 id="logo">RECIDENT</h1>
+    <h1 id="logo">RECIDENT</h1>
+    <div class="sign_btns">
+        <span><%= button_to "Sign up", '/user/new', method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", '/user/login', method: :get, id: "sign_btn"%></span>
+    </div>
 </div>
-wellcome<%= current_user.user_name %>
-<div class="sign_btns">
+<div id="content-wrap">
+<div class="motto">
+    <h1>Discover new recipes with your favourite ingredients!</h1>
+    <h2>Share your recipe with the world</h2>
+</div>
+
+<div class="search">
+    <div class="dropdown">
+        <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <%= form_for user_recipe_index_path do %>
+        <%= text_field :search, nil, placeholder: "Write the name of the food you want to make" %>
+        <%= submit_tag "Search" %>
+    <%end%>
+</div>
+
+<div class="ingredients">
+    <div class="group1">
+        <div class="category" id="diary">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("milk.png") %> ></img></button>
+            <div class="content" id="diary-content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+        <div class="category" id="vegetable">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> ></img></button>
+            <div class="content" id="vegetable-content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">veggies</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+        <div class="category" id="fruit">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("fruit.png") %> ></img></button>
+            <div class="content" id="fruit-content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+        <div class="category" id="meat">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("meat.png") %> ></img></button>
+            <div class="content" id="meat-content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+    </div>
+    <div class="group2">
+        <div class="category" id="diary">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("milk.png") %> ></img></button>
+            <div class="content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+        <div class="category">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("milk.png") %> ></img></button>
+            <div class="content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+        <div class="category">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("milk.png") %> ></img></button>
+            <div class="content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+        <div class="category">
+            <button class="cat_btn"><img style="max-width:100%; height: auto;" src=<%= asset_path("milk.png") %> ></img></button>
+            <div class="content">
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+                <input type="checkbox" id="milk" name="milk" value="milk">
+                <label for="milk">Milk</label>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Search by ingredient">
+</div>
+
+<div class="user_home_footer">
 
 </div>
+
+</div>
+</div>
+
