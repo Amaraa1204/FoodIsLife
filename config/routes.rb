@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete '/admin/logout', to: 'admin/sessions#destroy'
   get '/admin/home', to: 'admin/admin#show'
 
+
   get '/user/login', to: 'user/session#new'
   post '/user/login', to: 'user/session#create'
   get '/user/welcome', to: 'user/session#welcome'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
     resources :user, :session, :ingredient; :recipe_and_ingredient
     resources :recipe do
       resources :comment, :recipe_and_rate
-    end 
+    end
   end
 
   namespace :admin do
