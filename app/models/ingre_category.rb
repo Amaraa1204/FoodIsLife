@@ -1,0 +1,2 @@
+class IngreCategory < ApplicationRecord
+end

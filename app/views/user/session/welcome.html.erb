@@ -1,6 +1,5 @@
 <% if user_logged_in? %>
     <h1>You are Logged In, <%= current_user.user_name %></h1>
-    redirect_to 
 <%end%>
 <%= button_to "Sign up", '/user/new', method: :get%>
 <%= button_to "Login", '/user/login', method: :get%>
