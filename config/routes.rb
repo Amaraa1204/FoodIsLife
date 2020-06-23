@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   get '/user/authorized', to: 'user/session#login'
   delete '/user/logout', to: 'user/session#destroy'
   get '/user/home', to: 'user/user#home'
+
   namespace :user do
-    resources :user, :session, :ingredient; :recipe_and_ingredient
+    resources :user, :session, :ingredient, :recipe_and_ingredient, :search
     resources :recipe do
       resources :comment, :recipe_and_rate
     end 
