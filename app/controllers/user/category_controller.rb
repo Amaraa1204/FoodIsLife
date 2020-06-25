@@ -1,2 +1,2 @@
-class CategoryController < ApplicationController
+class User::CategoryController < UserApplicationController
 end
