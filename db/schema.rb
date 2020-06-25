@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_094444) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", primary_key: "categoryId", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["categoryId"], name: "index_categories_on_categoryId"
-  end
-
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -33,14 +26,12 @@ ActiveRecord::Schema.define(version: 2020_06_23_094444) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
   create_table "favourites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
   create_table "ingre_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false

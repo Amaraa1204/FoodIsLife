@@ -8,14 +8,13 @@ class Admin::SessionsController < AdminApplicationController
     @admin = Admin.find_by(user_name: params[:user_name])
     if @admin && @admin.authenticate(params[:password])
       session[:admin_id] = @admin.id
-      redirect_to 'http://localhost:3000/admin/welcome'
+      redirect_to 'http://localhost:3000/admin/home'
     else
       redirect_to 'http://localhost:3000/admin/login'
     end
   end
 
   def login
-    
   end
 
   def welcome

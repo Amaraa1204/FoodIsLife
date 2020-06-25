@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   delete '/admin/logout', to: 'admin/sessions#destroy'
   get '/admin/home', to: 'admin/admin#show'
 
-
   namespace :user do
     resources :user
     resources :session
@@ -18,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :recipe, :ingredient, :user, :category, :admin, :sessions
+    resources :recipe, :ingredient, :user, :category, :admin, :session
   end
 end
