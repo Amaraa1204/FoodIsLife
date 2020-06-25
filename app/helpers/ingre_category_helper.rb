@@ -1,0 +1,2 @@
+module IngreCategoryHelper
+end
