@@ -1,23 +1,9 @@
 class User::CommentController < UserApplicationController
-  def index
-      @comms = Comment.all
-  end
-
-  #def show
-  #  @comm = Comment.find(params[:id])
-  #end
-
-  #def new
-  #  @comm = Comment.new
-  #end
-
-  #def edit
-  #    @comm = Comment.find(params[:id])
-  #end
-
+  skip_before_action :authorized
   def create
-    @recipe = Recipe.find(params[:recipeId])
-    @comm = @recipe.comment.create(comm_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.comments.create(comm_params)
+    # raise @recipe.comments.inspect
     redirect_to user_recipe_path(@recipe)
   end
 
@@ -29,7 +15,8 @@ class User::CommentController < UserApplicationController
   end
 
   private
-    def comm_params
-      params.require(:comment).permit(:body)
-    end
+
+  def comm_params
+    params.require(:comment).permit(:comment)
+  end
 end
