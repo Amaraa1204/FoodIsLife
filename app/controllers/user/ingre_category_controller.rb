@@ -1,0 +1,2 @@
+class IngreCategoryController < ApplicationController
+end
