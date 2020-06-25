@@ -8,7 +8,7 @@ class User::UserController < UserApplicationController
         @user = User.create(params.require(:user).permit(:user_name, :email, :password))
         session[:user_id] = @user.id
         if @user.save
-			redirect_to 'http://localhost:3000/user/welcome'
+			redirect_to 'http://localhost:3000/user/user'
 		else 
 			render 'new'
 		end
