@@ -19,38 +19,38 @@
       <%= form.label :name %><br>
       <%= form.text_field :name, class: "inputs" %>
     </p>
-   
+
     <p id="labels">
       <%= form.label :instruction %><br>
       <%= form.text_area :instruction, class: "inputs" %>
     </p>
-  
+
     <p id="labels">
       <% form.label :rating %><br>
       <% form.number_field :rating, value: 0, class: "inputs" %>
     </p>
-  
+
     <p id="labels">
       <%= form.label :image %><br>
       <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
     </p>
-    
+
     <p id="labels">
-    <%= collection_select(:category_id, 0, Category.all, :id, :name) %>
+    <%#= collection_select(:category_id, 0, Category.all, :id, :name) %>
     </p>
-  
+
     <p id="labels">
       <%= form.label :author %><br>
       <%= form.label current_user.user_name , class: "inputs" %>
     </p>
-   
+
     <p>
       <%= form.submit nil, class: "submit" %>
     </p>
   </div>
 
 
-  
+
   <%= link_to 'Back', user_recipe_index_path(@recipe), class: "btn" %>
-  
+
   <% end %>

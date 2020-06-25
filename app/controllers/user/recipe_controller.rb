@@ -12,28 +12,28 @@ class User::RecipeController < UserApplicationController
 		else
 			@recipe = Recipe.all
 		end/
-	end 
+	end
 
 	def show
 		@recipe = Recipe.find(params[:id])
 	end
 
 	def new
-		@recipe = Recipe.new 
-	end 
+		@recipe = Recipe.new
+	end
 
-	def edit 
+	def edit
 		@recipe = Recipe.find(params[:id])
-	end 
+	end
 
-	def create 
+	def create
 		@recipe = Recipe.new(recipe_params)
 		if @recipe.save
 			redirect_to url: user_recipe_index_path(@recipe)
-		else 
+		else
 			render 'new'
 		end
-	end 
+	end
 
 	def update
 		@recipe = Recipe.find(params[:id])
@@ -48,11 +48,11 @@ class User::RecipeController < UserApplicationController
 		@recipe = Recipe.find(params[:id])
 		@recipe.destroy
 		redirect_to user_recipe_index_path
-	end 
+	end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :instruction, :rating, :image, :categoryId, :authorId)
+    params.require(:recipe).permit(:name, :instruction, :rating, :image, :category_id, :author_id)
   end
 end
