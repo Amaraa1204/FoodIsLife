@@ -1,7 +1,5 @@
-<h1>Session#new</h1>
-<p>Find me in app/views/session/new.html.erb</p>
 <h1>Login</h1>
-<%= form_tag '/user/login' do %>
+<%= form_tag url: user_session_index_path do %>
     <%= label_tag :user_name %>
     <%= text_field_tag :user_name %>
     <%= label_tag :password %>

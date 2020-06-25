@@ -24,7 +24,7 @@
             <a href="#">Link 3</a>
         </div>
     </div>
-    <%= form_tag(user_search_path method: :get) do %>
+    <%= form_tag do %>
         <%= text_field_tag :recipe_name, nil, placeholder: "Write the name of the food you want to make" %>
         <%= submit_tag "Search" %>
     <%end%>
