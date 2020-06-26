@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_094444) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
