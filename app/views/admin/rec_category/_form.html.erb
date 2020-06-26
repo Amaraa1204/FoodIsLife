@@ -1,0 +1,31 @@
+<%= form_with model: @reccategory, url: @newpath, local: true do |form| %>
+ 
+  <% if @reccategory.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@reccategory.errors.count, "error") %> prohibited
+        this reccategory from being saved:
+      </h2>
+      <ul>
+        <% @reccategory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :id %><br>
+    <%= form.text_field :reccategoryId %>
+  </p>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
