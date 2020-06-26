@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :recipe, :ingredient, :user, :category, :admin
+    resources :recipe, :ingredient, :user, :rec_category, :ingre_catergory, :admin
     resources :session do
     collection do
       post 'new', to: 'session#create'
