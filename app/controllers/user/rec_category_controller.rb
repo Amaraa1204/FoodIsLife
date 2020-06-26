@@ -1,2 +1,0 @@
-class RecCategoryController < ApplicationController
-end
