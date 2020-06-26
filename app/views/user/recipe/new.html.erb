@@ -36,7 +36,7 @@
     </p>
 
     <p id="labels">
-    <%#= collection_select(:category_id, 0, Category.all, :id, :name) %>
+    <%= collection_select(:id, 0, RecCategory.all, :id, :name)%>
     </p>
 
     <p id="labels">
