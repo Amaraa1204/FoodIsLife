@@ -22,12 +22,14 @@
 </div>
 
 <div class="search">
-  <div class="dropdown">
-    <button class="dropbtn"><img style="margin-top: 50%;" src=<%= asset_path("three1.png") %> ></button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+    <div class="dropdown">
+        <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
+        <div class="dropdown-content">
+        <% RecCategory.all.each do |cate| %>
+            #FIX THIS SHIT
+            <a href="cate/name"><%= cate.name %></a>
+        <% end %>    
+        </div>
     </div>
   </div>
   <%= form_tag(user_search_index_path, method: :post) do %>
