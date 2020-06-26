@@ -8,9 +8,9 @@ class User::SessionController < UserApplicationController
     @user = User.find_by(user_name: params[:user_name])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to 'http://localhost:3000/user/user'
+      redirect_to user_user_index_path
     else
-      redirect_to 'http://localhost:3000/user/session/new'
+      redirect_to new_user_session_path
     end
   end
 
@@ -22,6 +22,6 @@ class User::SessionController < UserApplicationController
   def destroy 
     session.delete(:user_id)
     @current_user = nil
-    redirect_to 'http://localhost:3000/user/session'
+    redirect_to user_session_index_path
   end
 end

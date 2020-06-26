@@ -6,7 +6,12 @@ Rails.application.routes.draw do
         post 'new', to: 'session#create'
       end
     end
-    resources :ingredient, :recipe_and_ingredient, :search
+    resources :ingredient, :recipe_and_ingredient
+    resources :search, only: [:create] do
+      collection do
+        get '/', to: 'search#show'
+      end
+    end
     resources :recipe do
       resources :comment, :recipe_and_rate
     end
