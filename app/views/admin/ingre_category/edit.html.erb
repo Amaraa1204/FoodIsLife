@@ -1,0 +1,30 @@
+<div class="indexCate">
+<h1>Edit category</h1>
+<%= form_with model: @ingrecategory, url: admin_ingre_category_path(@ingrecategory), local: true do |form| %>
+
+  <% if @ingrecategory.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@ingrecategory.errors.count, "error") %> prohibited
+        this ingre_category from being saved:
+      </h2>
+      <ul>
+        <% @ingrecategory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', admin_ingre_category_path, :class => 'newCate' %>
+</div>
