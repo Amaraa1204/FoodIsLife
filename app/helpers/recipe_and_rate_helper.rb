@@ -1,0 +1,2 @@
+module RecipeAndRateHelper
+end

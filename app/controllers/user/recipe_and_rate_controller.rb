@@ -1,0 +1,2 @@
+class RecipeAndRateController < ApplicationController
+end

@@ -1,0 +1,66 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
+
+<h1>Recipes</h1>
+
+<table class="list">
+  <tr>
+    <th>
+      <strong>Name:</strong>
+    </th>
+    <th>
+      <strong>Instruction:</strong>
+    </th>
+    <th>
+      <strong>Image:</strong>
+    </th>
+    <th>
+      <strong>Author:</strong>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <%= @recipe.name %>
+    </td>
+    <td>
+      <%= @recipe.instruction %>
+    </td>
+    <td>
+      <%= image_tag @recipe.image.full.url %>
+    </td>
+    <td>
+      <%= @recipe.author_id %>
+    </td>
+  </tr>
+</table>
+
+<%#= image_tag 'book.png', :style => 'width:3%;'%>
+
+<%#= image_tag 'pencil.png', :class => "commentActionIcon" %>
+
+<%#= image_tag 'deleteComm.png', :class => "commentActionIcon" %>
+
+<h2>Comments</h2>
+<% @recipe.comments.each do |comment| %>
+
+  <strong>Comment:</strong>
+  <%= comment.comment %>
+
+  <%= link_to 'Delete', [comment.recipe, comment],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @recipe, @recipe.comments.build ], url: user_recipe_comment_index_path, local: true) do |f| %>
+
+  <%= f.label :'Write your comment' %><br>
+  <%= f.text_area :comment %>
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
+<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
