@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= image_tag 'house.png', :class => "iconLil" %>
+<%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+<h1>Recipe list</h1>
+<%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
+<table class="list">
+  <tr>
+    <th>Name</th>
+    <th>Instruction</th>
+    <th>Image</th>
+    <th>Author</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @recipe.each do |recipe| %>
+    <tr>
+      <td><%= recipe.name %></td>
+      <td><%= recipe.instruction %></td>
+      <td><%= image_tag recipe.image.thumb.url %></td>
+      <td><%= recipe.author_id %></td>
+      <td><%= link_to 'Show', user_recipe_path(recipe), class: "btn" %></td>
+      <td><%= link_to 'Edit', edit_user_recipe_path(recipe), class: "btn" %></td>
+      <td><%= link_to 'Delete', user_recipe_path(recipe),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "btn" %></td>
+    </tr>
+  <% end %>
+</table>

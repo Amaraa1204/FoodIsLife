@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 <body style="background-color: #d8e5f1;">
 <div class="head">
 <h1 class="headWord">
@@ -29,7 +30,7 @@
 
     <p>
       <%= form.label :category %><br>
-      <%= form.number_field :categoryId %>
+      <%= form.text_field :categoryId %>
     </p>
 
     <p>

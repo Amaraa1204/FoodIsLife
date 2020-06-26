@@ -1,5 +1,5 @@
 
-class Admin::IngredientController < ApplicationController
+class Admin::IngredientController < AdminApplicationController
   def index
       @ingres = Ingredient.all
   end
