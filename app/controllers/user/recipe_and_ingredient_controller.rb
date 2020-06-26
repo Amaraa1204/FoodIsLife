@@ -1,2 +1,2 @@
-class User::RecipeAndIngredientController < ApplicationController
+class RecipeAndIngredientController < ApplicationController
 end

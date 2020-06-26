@@ -1,2 +1,2 @@
-class User::FavouriteController < ApplicationController
+class FavouriteController < ApplicationController
 end
