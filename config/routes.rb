@@ -8,12 +8,13 @@ Rails.application.routes.draw do
     end
     resources :ingredient, :recipe_and_ingredient, :search
     resources :recipe do
-      resources :comment, :recipe_and_rate
+      resources :comments, only: %i[create destroy]
+      resources :recipe_and_rate
     end
   end
 
   namespace :admin do
-    resources :recipe, :ingredient, :user, :rec_category, :ingre_catergory, :admin
+    resources :recipe, :ingredient, :user, :rec_category, :ingre_category, :admin
     resources :session do
     collection do
       post 'new', to: 'session#create'

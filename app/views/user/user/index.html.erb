@@ -4,10 +4,16 @@
 
 <div class="user_home_header">
     <h1 id="logo">RECIDENT</h1>
-    <div class="sign_btns">
-        <span><%= button_to "Sign up", 'user/new', method: :get, id: "sign_btn"%></span>
-        <span><%= button_to "Login", 'session/new', method: :get, id: "sign_btn"%></span>
-    </div>
+    <% if user_logged_in?%>
+        <div class="pro_btn">
+            <span><%= button_to "Profile", 'user/user', method: :get, id: "profile_btn"%></span>
+        </div>
+    <% else %>
+        <div class="sign_btns">
+            <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+            <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+        </div>
+    <% end %>
 </div>
 <div id="content-wrap">
 <div class="motto">
@@ -25,7 +31,7 @@
         <% end %>    
         </div>
     </div>
-    <%= form_tag do %>
+    <%= form_tag url: user_search_index_path do %>
         <%= text_field_tag :recipe_name, nil, placeholder: "Write the name of the food you want to make" %>
         <%= submit_tag "Search" %>
     <%end%>
