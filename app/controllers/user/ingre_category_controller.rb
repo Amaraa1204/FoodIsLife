@@ -1,2 +1,0 @@
-class IngreCategoryController < ApplicationController
-end

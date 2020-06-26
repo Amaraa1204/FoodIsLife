@@ -1,7 +1,7 @@
 class Admin::SessionController < AdminApplicationController
   skip_before_action :authorized, only: [:new, :create, :index]
+
   def new
-    
   end
 
   def create
@@ -17,7 +17,7 @@ class Admin::SessionController < AdminApplicationController
   def login
   end
 
-  def destroy 
+  def destroy
     session.delete(:admin_id)
     @current_admin = nil
     redirect_to admin_session_index_path

@@ -1,2 +1,2 @@
-class RecipeAndRateController < ApplicationController
+class User::RecipeAndRateController < ApplicationController
 end

@@ -4,4 +4,4 @@
 <%end%>
 <%= button_to "Sign up", '/admin/admin/new', method: :get%>
 <%= button_to "Login", '/admin/session/new', method: :get%>
-<%= button_to "Logout", '/admin/session', method: :delete%>
+<%= link_to "Logout", admin_session_index_path, method: :delete%>
