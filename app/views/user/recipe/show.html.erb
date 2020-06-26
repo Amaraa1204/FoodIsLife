@@ -19,6 +19,9 @@
     <th>
       <strong>Author:</strong>
     </th>
+    <th>
+      <strong>Rating:</strong>
+    </th>
   </tr>
   <tr>
     <td>
@@ -33,8 +36,14 @@
     <td>
       <%= @recipe.author_id %>
     </td>
+    <td>
+      <%= %>
+    </td>
   </tr>
 </table>
+
+<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
+<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
 
 <%#= image_tag 'book.png', :style => 'width:3%;'%>
 
@@ -45,22 +54,19 @@
 <h2>Comments</h2>
 <% @recipe.comments.each do |comment| %>
 
-  <strong>Comment:</strong>
+  <p><strong><%= current_user.user_name %>: </strong>
   <%= comment.comment %>
 
-  <%= link_to 'Delete', [comment.recipe, comment],
+  <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+              data: { confirm: 'Are you sure?' } %></p>
 <% end %>
 
 <h2>Add a comment:</h2>
-<%= form_with(model: [ @recipe, @recipe.comments.build ], url: user_recipe_comment_index_path, local: true) do |f| %>
+<%= form_with(model: @recipe.comments.build, url: user_recipe_comments_path(recipe_id: @recipe.id), local: true) do |f| %>
 
   <%= f.label :'Write your comment' %><br>
   <%= f.text_area :comment %>
-  <%= f.submit %>
+  <%= f.submit :Send %>
 
 <% end %>
-
-<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
-<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>

@@ -1,8 +1,7 @@
 class User::CommentsController < UserApplicationController
-  skip_before_action :authorized
+  #before_action :authorized
 
   def create
-    #raise params.inspect
     @recipe = Recipe.find(params[:recipe_id])
     @comment = @recipe.comments.create(comm_params)
     # raise @recipe.comments.inspect
