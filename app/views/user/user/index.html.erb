@@ -1,6 +1,5 @@
 
 <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <div id="page-container">
 
 <div class="user_home_header">
@@ -26,10 +25,9 @@
     <div class="dropdown">
         <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
         <div class="dropdown-content">
-        <% RecCategory.all.each do |cate| %>
-            #FIX THIS SHIT
-            <a href="cate/name"><%= cate.name %></a>
-        <% end %>    
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
         </div>
     </div>
     <%= form_tag url: user_search_index_path do %>

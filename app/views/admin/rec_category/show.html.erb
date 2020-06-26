@@ -1,0 +1,13 @@
+<div class="indexCate">
+	<p>
+  <strong>ID:</strong>
+  <%= @reccategory.id %>
+</p>
+<p>
+  <strong>NAME:</strong>
+  <%= @reccategory.name %>
+</p>
+<%= link_to 'Edit', edit_admin_rec_category_path(@reccategory), :class => 'newCate' %> | 
+<%= link_to 'Back', admin_rec_category_index_path, :class => 'newCate' %>
+</div>
+
