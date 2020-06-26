@@ -16,7 +16,7 @@
       <td><%= recipe.name %></td>
       <td><%= recipe.instruction %></td>
       <td><%= image_tag recipe.image.thumb.url %></td>
-      <td><%= recipe.authorId %></td>
+      <td><%= recipe.author_id %></td>
       <td><%= link_to 'Show', user_recipe_path(recipe), class: "btn" %></td>
       <td><%= link_to 'Edit', edit_user_recipe_path(recipe), class: "btn" %></td>
       <td><%= link_to 'Delete', user_recipe_path(recipe),
