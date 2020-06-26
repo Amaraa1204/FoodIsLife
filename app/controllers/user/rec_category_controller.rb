@@ -1,10 +1,9 @@
 class User::RecCategoryController < UserApplicationController
     def index
-		@reccategory = RecCategory.all
+		@reccategory = Rec_Category.all
 	end
 	def new
-		@reccategory = recCategory.new
-		@newpath = reccategory_index_path
+		@reccategory = Rec_Category.new
 	end
 	def edit
 		@reccategory = recCategory.find(params[:id])
