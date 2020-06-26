@@ -53,13 +53,14 @@
 
 <h2>Comments</h2>
 <% @recipe.comments.each do |comment| %>
+  <p>
+    <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
+    <%= comment.comment %>
 
-  <p><strong><%= current_user.user_name %>: </strong>
-  <%= comment.comment %>
-
-  <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></p>
+    <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </p>
 <% end %>
 
 <h2>Add a comment:</h2>
