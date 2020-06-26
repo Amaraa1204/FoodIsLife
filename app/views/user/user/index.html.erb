@@ -5,8 +5,8 @@
 <div class="user_home_header">
     <h1 id="logo">RECIDENT</h1>
     <div class="sign_btns">
-        <span><%= button_to "Sign up", '/user/new', method: :get, id: "sign_btn"%></span>
-        <span><%= button_to "Login", '/user/login', method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Sign up", 'user/new', method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", 'session/new', method: :get, id: "sign_btn"%></span>
     </div>
 </div>
 <div id="content-wrap">
@@ -19,9 +19,10 @@
     <div class="dropdown">
         <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+        <% RecCategory.all.each do |cate| %>
+            #FIX THIS SHIT
+            <a href="cate/name"><%= cate.name %></a>
+        <% end %>    
         </div>
     </div>
     <%= form_tag do %>
