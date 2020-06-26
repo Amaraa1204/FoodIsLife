@@ -1,8 +1,8 @@
 class User::SearchController < UserApplicationController
     skip_before_action :authorized
-    def index
-        if params[:recipe_name]
-            @search = Recipe.where('name LIKE ?', "%#{params[:recipe_name]}%") 
+    def create
+        if search_params
+            @search = Recipe.where('name LIKE ?', "%#{search_params}%") 
         else 
             @search = Recipe.all
         end
