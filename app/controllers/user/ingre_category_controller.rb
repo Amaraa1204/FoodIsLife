@@ -1,2 +1,2 @@
-class User::IngreCategoryController < ApplicationController
+class User::IngreCategoryController < UserApplicationController
 end

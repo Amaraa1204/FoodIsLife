@@ -23,7 +23,7 @@
   <% @ingres.each do |ingredient| %>
     <tr class="listTable" >
       <td><%= ingredient.name %></td>
-      <td><%= ingredient.categoryId %></td>
+      <td><%= ingredient.ingre_category_id %></td>
       <td class="tableAction"><%= image_tag 'cook.png', :class => "iconLil" %><%= link_to ' Show ', admin_ingredient_path(ingredient), :class => "action" %></td>
       <td class="tableAction"><%= image_tag 'plus.png', :class => "iconLil" %><%= link_to ' Edit ', edit_admin_ingredient_path(ingredient), :class => "action" %></td>
       <td class="tableAction"><%= image_tag 'trash.png', :class => "iconLil" %><%= link_to ' Delete ', admin_ingredient_path(ingredient), :class => "action" ,

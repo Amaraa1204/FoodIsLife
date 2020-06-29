@@ -94,7 +94,7 @@ body{
     margin-right: 5%;
 }
 
-.search input[type=text] {
+.search input[type=search] {
     width: 70%;
     height: 100%;
     border: none;
@@ -112,14 +112,7 @@ body{
     margin-left: 5%;
 }
 
-.search input[type=submit] {
-    width: 10%;
-    height: 100%;
-    border: none;
-    border-radius: 30px;
-    background-color: rgb(55, 119, 216);
-    color: white;
-}
+
 
 .search input[type=submit]:hover {
     background-color: rgb(15, 68, 146);
@@ -217,3 +210,15 @@ body{
   
   #meat:hover #meat-content {display: block;}
 
+  .pro_btn{
+      float: right;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-top: 5%;
+      top: 0px;
+      padding: 10px 24px;
+  }
+  #pro_btn:hover {
+    background-color: rgb(130, 121, 255);
+}

@@ -1,5 +1,3 @@
-<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
@@ -20,9 +18,6 @@
     </th>
     <th>
       <strong>Author:</strong>
-    </th>
-    <th>
-      <strong>Rating:</strong>
     </th>
   </tr>
   <tr>
@@ -94,9 +89,6 @@
   </tr>
 </table>
 
-<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
-<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
-
 <%#= image_tag 'book.png', :style => 'width:3%;'%>
 
 <%#= image_tag 'pencil.png', :class => "commentActionIcon" %>
@@ -119,6 +111,9 @@
 
   <h3><%= f.label :'Write your comment' %></h3>
   <%= f.text_area :comment %>
-  <%= f.submit :Send %>
+  <%= f.submit %>
 
 <% end %>
+
+<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
+<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
