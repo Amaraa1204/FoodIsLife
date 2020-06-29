@@ -11,7 +11,6 @@ class User::SearchController < UserApplicationController
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all
-        redirect_to(user_user_index_path, alert: "No results")
       else
         puts '*** 3 ***' 
         # redirect_to user_search_index_path
