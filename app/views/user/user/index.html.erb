@@ -33,10 +33,12 @@
         </div>
     </div>
   </div>
-  <%= form_tag(user_search_index_path, method: :post) do %>
-    <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make" %>
-    <%= submit_tag "Search" %>
+  <div class="search">
+  <%= form_tag(user_search_index_path, method: :get) do %>
+    <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+    <%= button_tag "Search", :name => nil %>
   <%end%>
+  </div>
 </div>
 
 <div class="ingredients">

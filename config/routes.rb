@@ -7,11 +7,7 @@ Rails.application.routes.draw do
       end
     end
     resources :ingredient, :recipe_and_ingredient
-    resources :search, only: [:create] do
-      collection do
-        get '/', to: 'search#show'
-      end
-    end
+    resources :search, only: [:create, :index]
     resources :recipe do
       resources :comment, :recipe_and_rate
     end
@@ -25,5 +21,4 @@ Rails.application.routes.draw do
       end
     end
   end
-end
 end

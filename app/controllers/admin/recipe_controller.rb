@@ -41,6 +41,6 @@ class Admin::RecipeController < AdminApplicationController
 
 	private 
 		def recipe_params
-			params.require(:recipe).permit(:name, :instruction, :rating, :image, :categoryId, :authorId)
+			params.require(:recipe).permit(:name, :instruction, :rating, :image, :rec_category_id, :author_id)
 		end
 end
