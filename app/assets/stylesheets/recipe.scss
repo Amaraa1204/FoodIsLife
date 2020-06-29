@@ -1,6 +1,6 @@
 body {
     font-family: "Aleo";
-    background-color: rgb(230, 230, 230);
+    background-color: #ffe8d7;
     font-size: 20px;
 }
 
@@ -98,3 +98,19 @@ body {
     display: inline-block;
     text-align: center;
 }
+.grid-container {
+    margin-top: 20%;
+    display: grid;
+    height: 400px;
+    align-content: center;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }

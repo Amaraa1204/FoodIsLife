@@ -1,6 +1,9 @@
+
 <%= image_tag 'house.png', :class => "iconLil" %>
 <%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
 <h1>Recipe list</h1>
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <%= link_to 'New recipe', new_admin_recipe_path, class: "btn" %>
 <table class="list">
   <tr>
@@ -16,7 +19,7 @@
       <td><%= recipe.name %></td>
       <td><%= recipe.instruction %></td>
       <td><%= image_tag recipe.image.thumb.url %></td>
-      <td><%= recipe.authorId %></td>
+      <td><%= recipe.author_id %></td>
       <td><%= link_to 'Show', admin_recipe_path(recipe), class: "btn" %></td>
       <td><%= link_to 'Edit', edit_admin_recipe_path(recipe), class: "btn" %></td>
       <td><%= link_to 'Delete', admin_recipe_path(recipe),

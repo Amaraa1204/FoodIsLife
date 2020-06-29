@@ -1,2 +1,2 @@
-class RecCategoryController < ApplicationController
+class User::RecCategoryController < UserApplicationController
 end
