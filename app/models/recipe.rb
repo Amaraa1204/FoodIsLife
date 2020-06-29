@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   validate :image_size_validation
 
   has_many :comments, dependent: :destroy
+  has_many :recipe_and_rates
 
   private
   def image_size_validation
