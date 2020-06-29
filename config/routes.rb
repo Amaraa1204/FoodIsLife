@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :ingredient, :recipe_and_ingredient, :search
     resources :recipe do
       resources :comments, only: %i[create destroy]
-      resources :recipe_and_rate
+      resources :recipe_and_rate, only: %i[create destroy]
     end
   end
 
