@@ -210,3 +210,15 @@ body{
   
   #meat:hover #meat-content {display: block;}
 
+  .pro_btn{
+      float: right;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-top: 5%;
+      top: 0px;
+      padding: 10px 24px;
+  }
+  #pro_btn:hover {
+    background-color: rgb(130, 121, 255);
+}
