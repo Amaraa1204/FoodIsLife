@@ -1,23 +1,28 @@
 Rails.application.routes.draw do
   namespace :user do
-    resources :user
+    resources :rec_category do
+      collection do
+        get '/search', to: 'rec_category#search'
+      end
+    end
     resources :session do
       collection do
         post 'new', to: 'session#create'
       end
     end
-    resources :ingredient, :recipe_and_ingredient, :search
+    resources :ingredient, :recipe_and_ingredient, :user, :ingre_category
+    resources :search, only: [:create, :index]
     resources :recipe do
       resources :comment, :recipe_and_rate
     end
   end
 
   namespace :admin do
-    resources :recipe, :ingredient, :user, :rec_category, :ingre_category, :admin
+    resources :recipe, :ingredient, :user, :ingre_category, :admin, :rec_category
     resources :session do 
-    collection do
-      post 'new', to: 'session#create'
+      collection do
+        post 'new', to: 'session#create'
+      end
     end
   end
-end
 end

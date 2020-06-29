@@ -9,6 +9,6 @@ class UserApplicationController < ApplicationController
         !current_user.nil?
     end
     def authorized
-        redirect_to '/user/session' unless user_logged_in?
+        redirect_to user_session_index_path unless user_logged_in?
     end
 end
