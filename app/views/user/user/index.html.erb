@@ -26,10 +26,11 @@
     <div class="dropdown">
         <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
         <div class="dropdown-content">
-        <% RecCategory.all.each do |cate| %>
-            #FIX THIS SHIT
-            <a href="cate/name"><%= cate.name %></a>
-        <% end %>    
+          <%= form_tag(search_user_rec_category_index_path, method: :get) do %>
+            <% RecCategory.all.each do |cate| %>
+              <span><%= cate.name %><%= submit_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
+            <% end %>
+          <% end %>    
         </div>
     </div>
   </div>
