@@ -33,6 +33,59 @@
     <td>
       <%= @recipe.author_id %>
     </td>
+    <td>
+      <h3>All ratings:</h3>
+        <% @recipe.recipe_and_rates.each do |rate| %>
+          <p>
+            <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
+            <%#= rate.rate %>
+
+            <% if rate.rate == 1 %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+            <% end %>
+            <% if rate.rate == 2 %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+            <% end %>
+            <% if rate.rate == 3 %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+            <% end %>
+            <% if rate.rate == 4 %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+            <% end %>
+            <% if rate.rate == 5 %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
+            <% end %>
+
+            <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+          </p>
+        <% end %>
+
+        <div class="alert">
+          <% if alert %>
+          <strong><%= alert %></strong>
+          <% end %>
+        </div>
+
+      <h3>Rate it:</h3>
+        <%= form_with(model: @recipe.recipe_and_rates.build, url: user_recipe_recipe_and_rate_index_path(recipe_id: @recipe.id), local: true) do |f| %>
+
+          <%= f.number_field :rate %>
+          <%= f.submit :Send %>
+
+        <% end %>
+    </td>
   </tr>
 </table>
 
@@ -44,19 +97,19 @@
 
 <h2>Comments</h2>
 <% @recipe.comments.each do |comment| %>
+  <p>
+    <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
+    <%= comment.comment %>
 
-  <strong>Comment:</strong>
-  <%= comment.comment %>
-
-  <%= link_to 'Delete', [comment.recipe, comment],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </p>
 <% end %>
 
-<h2>Add a comment:</h2>
-<%= form_with(model: [ @recipe, @recipe.comments.build ], url: user_recipe_comment_index_path, local: true) do |f| %>
+<%= form_with(model: @recipe.comments.build, url: user_recipe_comments_path(recipe_id: @recipe.id), local: true) do |f| %>
 
-  <%= f.label :'Write your comment' %><br>
+  <h3><%= f.label :'Write your comment' %></h3>
   <%= f.text_area :comment %>
   <%= f.submit %>
 
