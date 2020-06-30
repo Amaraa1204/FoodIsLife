@@ -41,29 +41,34 @@
     <%end%>
     </div>
   </div>
-
-  <div class="ingredients">
-      <div class="category">
-      <% IngreCategory.all.each do |inca| %>
-        <button class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-        <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
-        </button>
-        <div class="content" id=<%=inca.id%>>
-        <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+  
+  <%= form_tag(search_user_recipe_and_ingredient_index_path, method: :get) do |f| %>
+    <div class="ingredients">
+        <div class="category">
+        <% IngreCategory.all.each do |inca| %>
+          <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
+          <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
+          </a>
+          <div class="content" id=<%=inca.id%>>
           
-          <input type="checkbox" id=<%=ingre.name%> name=<%=ingre.name%> value=<%=ingre.name%>>
-          <label for=<%=ingre.name%>><%=ingre.name%></label>
+          <%=collection_check_boxes(:post, :ingredient_ids, Ingredient.where("ingre_category_id = ?", inca.id), :id, :name) do |b| %>
+            <%= b.check_box %>
+            <%= b.label %>
           <% end %>
-        </div>
+          </div>
         <% end %>  
+      </div>
+      <br>
+      <%= submit_tag("Search by ingredients") %>
     </div>
-    <input type="submit" value="Search by ingredient">
-  </div>
+    </div>
+  <% end %>
 
-</div>
-<script>
+      
 
-function ingre_show(inca_id){
+  <script>
+
+  function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
     
     var clas = document.getElementsByClassName("content");
@@ -78,5 +83,6 @@ function ingre_show(inca_id){
         x.style.display = "none";
     
     }
-}
-</script>
+  }
+  </script>
+
