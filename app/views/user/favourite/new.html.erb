@@ -1,0 +1,13 @@
+<h1>Add your own favourite!</h1>
+
+<%= form_with scope: :favourite, url: user_favourite_index_path(@favourite), local: true do |form| %>
+    <p>
+      <%= form.submit nil, class: "submit" %>
+    </p>
+  </div>
+
+
+
+  <%= link_to 'Back', user_favourite_index_path(@favourite), class: "btn" %>
+
+  <% end %>

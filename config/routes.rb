@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :user do
-    resources :user
+    resources :user, :favourite
     resources :session do
       collection do
         post 'new', to: 'session#create'
