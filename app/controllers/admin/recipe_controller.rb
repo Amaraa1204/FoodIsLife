@@ -17,7 +17,9 @@ class Admin::RecipeController < AdminApplicationController
 
 	def create 
 		@recipe = Recipe.new(recipe_params)
+		raise @recipe.inspect
 		if @recipe.save
+			
 			redirect_to url: admin_recipe_index_path(@recipe)
 		else 
 			render 'new'
