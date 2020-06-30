@@ -45,6 +45,6 @@ class Admin::IngredientController < AdminApplicationController
 
   private
     def ingre_params
-      params.require(:ingredient).permit(:name, :category_id, :calories)
+      params.require(:ingredient).permit(:name, :ingre_category_id)
     end
   end

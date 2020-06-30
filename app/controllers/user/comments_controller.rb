@@ -4,7 +4,7 @@ class User::CommentsController < UserApplicationController
   def create
     #raise params.inspect
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = @recipe.comments.create(comm_params)
+    @comment = @recipe.comments.create(comment: comm_params[:comment], user_id: current_user.id)
     # raise @recipe.comments.inspect
     redirect_to user_recipe_path(@recipe)
   end
