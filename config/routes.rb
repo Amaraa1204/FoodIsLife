@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         get '/search', to: 'rec_category#search'
       end
     end
+    resources :user, :favourite
     resources :session do
       collection do
         post 'new', to: 'session#create'

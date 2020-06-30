@@ -1,1 +1,56 @@
+<%= stylesheet_link_tag 'user-profile-show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <h1>Profile</h1>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openRecipe(event, 'own')" id="defaultOpen">My own recipes</button>
+  <button class="tablinks" onclick="openRecipe(event, 'favourite')">My favourite recipes</button>
+</div>
+
+<div id="own" class="tabcontent">
+  <div class="grid-container">
+  <% Recipe.all.each do |recipe| %>
+      <% if session[:user_id] == recipe.author_id %>   
+      <div>
+      <% recipe.name %>
+      <%= image_tag recipe.image.full.url %>
+      <% recipe.author_id %>
+      </div>    
+      <% end %>   
+    
+  <% end %>
+  </div>
+</div>
+
+<div id="favourite" class="tabcontent">
+  <div class="grid-container-fav">
+  <% Favourite.all.each do |favourite| %>
+    <% Recipe.all.each do |recipe| %>
+      <% if favourite.recipe_id == recipe.id && session[:user_id] == favourite.user_id %>
+          <div>
+          <%= image_tag recipe.image.full.url %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+<script>
+function openRecipe(evt, RecipeName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(RecipeName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

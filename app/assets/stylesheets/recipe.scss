@@ -99,13 +99,15 @@ body {
     text-align: center;
 }
 .grid-container {
-    margin-top: 20%;
+    margin-top: 17%;
     display: grid;
     height: 400px;
     align-content: center;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     grid-gap: 10px;
-    padding: 10px;
+    padding: 100px;
+    transition: .5s ease;
+    backface-visibility: hidden;
   }
   
   .grid-container > div {
