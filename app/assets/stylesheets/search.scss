@@ -1,3 +1,73 @@
-// Place all the styles related to the search controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body{
+  background-color: #ddeef0
+}
+
+#page-container {
+position: relative;
+min-height: 100%;
+min-width: 100%;
+}
+
+#content-wrap {
+padding-bottom: 10%;
+padding-top: 10%;
+}
+
+.user_home_header {
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  min-height: 10%;
+  background-color: rgb(55, 119, 216);
+  margin-bottom: 10%;
+  left: 0;
+  color: white;
+}
+
+.user_home_footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  min-height: 10%;
+  background-color: rgb(55, 119, 216);
+  left: 0;
+  color: white;
+}
+
+#logo {
+  font-family: 'Aleo';
+  color: rgb(255, 255, 255);
+  margin-left: 10%;
+  margin-top: 1%;
+  display: inline-block;
+}
+
+  .sign_btns {
+    float: right;
+    height: 100%;
+    margin-right: 0.5%;
+  }
+
+  .sign_btns span{
+    background-color: rgba(75, 75, 75, 0.329);
+    float: left;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 10%;
+    top: 0px;
+  }
+
+  #sign_btn {
+    background-color: rgba(75, 75, 75, 0.329);
+    float: left;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+  }
+
+  #sign_btn:hover {
+      background-color: rgb(130, 121, 255);
+  }

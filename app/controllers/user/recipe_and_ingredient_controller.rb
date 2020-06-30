@@ -1,5 +1,11 @@
 class User::RecipeAndIngredientController < UserApplicationController
-    skip_before_action :authorized
+  skip_before_action :authorized
+  def new
+  end
+
+  def create 
+    
+  end
   def search 
     if params[:rec_cate].blank?
       puts '*** 1 ***' 
@@ -17,4 +23,10 @@ class User::RecipeAndIngredientController < UserApplicationController
       end
     end
   end 
+
+  private
+
+  def recipe_and_ingredients_params
+    params.require(:recipe_and_ingredients).permit(:recipe_id, {:ingridient_id => []})
+  end   
 end

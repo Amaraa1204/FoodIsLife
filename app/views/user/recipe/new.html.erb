@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'recipe', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <h1>Add your own recipe!</h1>
 
 <%= form_with scope: :recipe, url: user_recipe_index_path(@recipe), local: true do |form| %>
@@ -14,11 +16,27 @@
         </ul>
       </div>
     <% end %>
-  <div id="form">
     <p id="labels">
       <%= form.label :name %><br>
       <%= form.text_field :name, class: "inputs" %>
     </p>
+
+    <div class="ingredients">
+      <div class="category">
+      <% IngreCategory.all.each do |inca| %>
+        <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
+        <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
+        </a>
+        <div class="content" id=<%=inca.id%>>
+        <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+          <%= check_box_tag "ingredient_id[]", ingre.id %>
+          <%= ingre.name %>
+          <% end %>
+        </div>
+        <% end %>  
+    </div>
+    <input type="submit" value="Search by ingredient">
+  </div>
 
     <p id="labels">
       <%= form.label :instruction %><br>
@@ -27,7 +45,7 @@
 
     <p id="labels">
       <% form.label :rating %><br>
-      <% form.number_field :rating, value: 0, class: "inputs" %>
+      <%= form.hidden_field :rating, value: 0%>
     </p>
 
     <p id="labels">
@@ -36,22 +54,38 @@
     </p>
 
     <p id="labels">
-    <%= collection_select(:id, 0, RecCategory.all, :id, :name)%>
+      <%= collection_select(:id, 0, RecCategory.all, :id, :name)%>
     </p>
 
     <p id="labels">
       <%= form.label :author_id %><br>
-      <%= form.label current_user.user_name%>
-      <%= form.number_field :author_id, value:current_user.id , class: "inputs" %>
+      <%= form.label current_user.user_name, class: "inputs" %><br>
+      <%= form.hidden_field :author_id, :value => current_user.id%>
     </p>
 
     <p>
       <%= form.submit nil, class: "submit" %>
     </p>
-  </div>
-
-
+<% end %>
 
   <%= link_to 'Back', user_recipe_index_path(@recipe), class: "btn" %>
 
-  <% end %>
+<script>
+
+function ingre_show(inca_id){
+    var x = document.getElementById(inca_id);
+    
+    var clas = document.getElementsByClassName("content");
+
+  if(x.style.display === "none"){
+    for (var i = 0; i < clas.length; i++) {
+    clas[i].style.display = "none";
+    }
+    x.style.display = "inline";
+  }
+  else{
+        x.style.display = "none";
+    
+    }
+}
+</script>
