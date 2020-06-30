@@ -15,8 +15,12 @@ class User::RecipeController < UserApplicationController
 	end
 
 	def show
+    params.permit(:id)
+    @non_rated = 5
 		@recipe = Recipe.find(params[:id])
-	end
+    @rate = RecipeAndRate.select('avg(rate) as ave_rate').where(recipe_id: params[:id]).group('recipe_id')[0]
+    @non_rated =- @rate.ave_rate if @rate.present?
+  end
 
 	def new
 		@recipe = Recipe.new
