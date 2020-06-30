@@ -40,6 +40,6 @@ class Admin::IngreCategoryController < AdminApplicationController
 	end
 	private
 	def ingrecategory_params
-		params.require(:ingre_category).permit(:name)
+		params.require(:ingre_category).permit(:name, :image)
 	end
 end
