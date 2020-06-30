@@ -1,2 +1,2 @@
-class IngredientController < ApplicationController
+class User::IngredientController < UserApplicationController   
 end

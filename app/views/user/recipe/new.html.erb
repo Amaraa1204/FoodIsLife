@@ -40,8 +40,9 @@
     </p>
 
     <p id="labels">
-      <%= form.label :author %><br>
-      <%= form.label current_user.user_name , class: "inputs" %>
+      <%= form.label :author_id %><br>
+      <%= form.label current_user.user_name%>
+      <%= form.number_field :author_id, value:current_user.id , class: "inputs" %>
     </p>
 
     <p>
