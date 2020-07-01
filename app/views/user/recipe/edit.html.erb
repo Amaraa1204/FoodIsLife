@@ -27,6 +27,8 @@
           <%=inca.name%>
           <% if inca.image.full.url %>
             <%= image_tag inca.image.full.url %>
+          <% else %>
+            <%= image_tag asset_path("tomato.png")%>
           <% end %>
         </a>
         <div class="content" id=<%=inca.id%>>
