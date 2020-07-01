@@ -17,9 +17,19 @@ class Admin::RecipeController < AdminApplicationController
 
 	def create 
 		@recipe = Recipe.new(recipe_params)
-		raise @recipe.inspect
 		if @recipe.save
-			
+			@params = recipe_ingredient_params
+			#raise @params.inspect
+			@params[:ingredient_id].each do |p|
+				@ingredient_params = params.permit(:recipe_id, :ingredient_id)
+				temp = @ingredient_params
+				temp[:recipe_id] = @recipe.id
+				temp[:ingredient_id] = p
+				#raise @ingredient_params.inspect
+				@rip = RecipeAndIngredient.new(temp)
+				#raise @rip.inspect
+				@rip.save
+			end
 			redirect_to url: admin_recipe_index_path(@recipe)
 		else 
 			render 'new'
@@ -44,5 +54,9 @@ class Admin::RecipeController < AdminApplicationController
 	private 
 		def recipe_params
 			params.require(:recipe).permit(:name, :instruction, :rating, :image, :rec_category_id, :author_id)
+		end
+
+		def recipe_ingredient_params
+			params.permit(:ingredient_id => [])
 		end
 end

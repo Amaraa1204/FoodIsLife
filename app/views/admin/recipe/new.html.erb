@@ -18,36 +18,69 @@
     <%= form.label :name %><br>
     <%= form.text_field :name, class: "inputs" %>
   </p>
+
+  <div class="ingredients">
+      <div class="category">
+      <% IngreCategory.all.each do |inca| %>
+        <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
+        <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
+        </a>
+        <div class="content" id=<%=inca.id%>>
+        <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+          <%= check_box_tag "ingredient_id[]", ingre.id %>
+          <%= ingre.name %>
+          <% end %>
+        </div>
+        <% end %>  
+    </div>
+  </div>
  
   <p id="labels">
-    <%= form.label :instruction %><br>
-    <%= form.text_area :instruction, class: "inputs" %>
-  </p>
+      <%= form.label :instruction %><br>
+      <%= form.text_area :instruction, class: "inputs" %>
+    </p>
 
-  <p id="labels">
-    <%= form.label :rating %><br>
-    <%= form.number_field :rating, class: "inputs" %>
-  </p>
+    <p id="labels">
+      <% form.label :rating %><br>
+      <%= form.hidden_field :rating, value: 0%>
+    </p>
 
-  <p id="labels">
-    <%= form.label :image %><br>
-    <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
-  </p>
+    <p id="labels">
+      <%= form.label :image %><br>
+      <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
+    </p>
 
-  <p id="labels">
-    <%= form.label :rec_category_id %><br>
-    <%= form.text_field :rec_category_id, class: "inputs" %>
-  </p>
+    <p id="labels">
+      <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
+    </p>
 
-  <p id="labels">
-    <%= form.label :author_id %><br>
-    <%= form.number_field :author_id, class: "inputs" %>
-  </p>
- 
-  <p>
-    <%= form.submit nil, class: "submit" %>
-  </p>
-</div>
+    <p id="labels">
+      <%= form.hidden_field :author_id, :value => 0%>
+    </p>
+
+    <p>
+      <%= form.submit nil, class: "submit" %>
+    </p>
 <% end %>
 
-<%= link_to 'Back', admin_recipe_index_path(@recipe), class: "btn" %>
+  <%= link_to 'Back', user_recipe_index_path(@recipe), class: "btn" %>
+
+<script>
+
+function ingre_show(inca_id){
+    var x = document.getElementById(inca_id);
+    
+    var clas = document.getElementsByClassName("content");
+
+  if(x.style.display === "none"){
+    for (var i = 0; i < clas.length; i++) {
+    clas[i].style.display = "none";
+    }
+    x.style.display = "inline";
+  }
+  else{
+        x.style.display = "none";
+    
+    }
+}
+</script>

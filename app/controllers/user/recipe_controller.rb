@@ -41,7 +41,6 @@ class User::RecipeController < UserApplicationController
 				#raise @rip.inspect
 				@rip.save
 			end
-
 			redirect_to user_recipe_index_path
 		else
 			render 'new'
