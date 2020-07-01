@@ -13,10 +13,28 @@ class User::RecipeAndIngredientController < UserApplicationController
       puts '*** 1 ***'
       redirect_to(user_user_index_path)
     else
-      @parameter = params[:ingredient_id]
-      @rai = RecipeAndIngredient.where(ingredient_id: @parameter) 
-      @results = Recipe.where(id: @rai[:recipe_id])
-      raise @results.inspect
+      @parameter = params[:ingredient_id] #includes
+      recipe_ids = Array.new
+      
+      @ris = RecipeAndIngredient.select('id, recipe_id, group_concat(ingredient_id) as ingri_ids').group(:recipe_id)
+      
+      @ris.each do |ri|
+        total = 0
+        @parameter.each do |par|
+          if(ri.ingri_ids.include?(par))
+            total = total + 1 
+          end  
+        end
+        if total > 2
+          recipe_ids.push(ri.recipe_id)
+        else
+          if total == @parameter.length
+            recipe_ids.push(ri.recipe_id)
+          end
+        end
+      end
+      @results = Recipe.where(id: recipe_ids)
+      #raise @results.inspect
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all

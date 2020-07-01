@@ -2,4 +2,6 @@
 
   <% @results.each do |result| %>
     <%= result.id %><br>
+    <%= result.name %><br>
+    <%= image_tag result.image.thumb.url %>
   <% end %>
