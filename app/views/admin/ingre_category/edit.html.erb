@@ -21,7 +21,14 @@
     <%= form.label :name %><br>
     <%= form.text_area :name %>
   </p>
-
+  <p>
+  <strong>IMAGE:</strong>
+  <%= image_tag @ingrecategory.image.full.url %>
+  </p>
+  <p id="labels">
+  <%= form.label :image %><br>
+  <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
+  </p>
   <p>
     <%= form.submit %>
   </p>

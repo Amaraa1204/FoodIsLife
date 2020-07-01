@@ -1,6 +1,3 @@
-<%= image_tag 'house.png', :class => "iconLil" %>
-<%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
-<h1>Recipe list</h1>
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
 <br>
@@ -20,6 +17,37 @@
     
   <% end %>
   </div>
+<div class="header">
+  <%= image_tag 'house.png', :class => "iconLil" %>
+  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+</div><br>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
+
+<div class="recipeShow">
+  <%= image_tag 'order.png', :class => "iconH1" %>
 
 
-</table>
+  <p>
+    <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
+  </p>
+
+  <ul class="grid-container">
+    <% @recipe.each do |recipe| %>
+        <li class="recipeimgli">
+          <% if recipe.image.full.url%>
+            <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
+          <%end%>
+          <span class="recipeimgspan">
+            <strong>Recipe name: </strong>
+            <%= recipe.name %><br>
+            <strong>Author: </strong>
+            <%= recipe.author_id %><br>
+            <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
+          </span>
+        </li>
+    <% end %>
+  </ul>
+</div>

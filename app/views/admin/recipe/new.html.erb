@@ -35,13 +35,12 @@
   </p>
 
   <p id="labels">
-    <%= form.label :rec_category_id %><br>
-    <%= form.text_field :rec_category_id, class: "inputs" %>
+      <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
   </p>
 
+
   <p id="labels">
-    <%= form.label :author_id %><br>
-    <%= form.number_field :author_id, class: "inputs" %>
+      <%= collection_select(:recipe, :author_id, User.all, :id, :user_name)%>
   </p>
  
   <p>
