@@ -1,0 +1,20 @@
+<%= image_tag 'house.png', :class => "iconLil" %>
+<%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+<div class="indexCate">
+  <%= link_to 'New favourite', new_user_favourite_path, :class => 'newCate' %>
+
+<table class="tableCate">
+  <tr>
+    <th>user_id</th>
+    <th>recipe_id</th>
+  </tr>
+
+  <% Favourite.all.each do |favourite| %>
+    <tr>
+      <td><%= favourite.user_id %></td>
+      <td><%= favourite.recipe_id %></td>
+    </tr>
+  <% end %>
+</table>
+
+</div>
