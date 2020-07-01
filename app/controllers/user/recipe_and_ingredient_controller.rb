@@ -7,11 +7,11 @@ class User::RecipeAndIngredientController < UserApplicationController
     
   end
   def search 
-    if params[:rec_cate].blank?
+    if params[:ingre].blank?
       puts '*** 1 ***' 
       redirect_to(user_user_index_path)
     else
-      @parameter = params[:rec_cate]
+      @parameter = params[:ingre]
       @results = RecipeAndIngredient.where(ingredient_id: @parameter) 
       #raise @results.inspect
       if @results.blank?
