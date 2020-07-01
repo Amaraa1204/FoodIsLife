@@ -66,7 +66,7 @@ class User::RecipeController < UserApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :instruction, :rating, :image, :rec_category_id, :author_id)
+    params.require(:recipe).permit(:name, :instruction, :image, :rec_category_id, :author_id)
 	end
 
 	def recipe_ingredient_params

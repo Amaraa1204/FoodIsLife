@@ -9,16 +9,17 @@ class User::RecipeAndIngredientController < UserApplicationController
 		@rip.save
   end
   def search 
-    if params[:ingre].blank?
-      puts '*** 1 ***' 
+    if params[:ingredient_id].blank?
+      puts '*** 1 ***'
       redirect_to(user_user_index_path)
     else
-      @parameter = params[:ingre]
-      @results = RecipeAndIngredient.where(ingredient_id: @parameter) 
-      #raise @results.inspect
+      @parameter = params[:ingredient_id]
+      @rai = RecipeAndIngredient.where(ingredient_id: @parameter) 
+      @results = Recipe.where(id: @rai[:recipe_id])
+      raise @results.inspect
       if @results.blank?
         puts '*** 2 ***' 
-        @results = RecipeAndIngredient.all
+        @results = Recipe.all
       else
         puts '*** 3 ***' 
         # redirect_to user_search_index_path
