@@ -59,7 +59,7 @@ class User::RecipeController < UserApplicationController
 	def destroy
 		@recipe = Recipe.find(params[:id])
 		@recipe.destroy
-		redirect_to user_recipe_index_path
+		redirect_to "http://localhost:3000/user/user/user?"
 	end
 
   private

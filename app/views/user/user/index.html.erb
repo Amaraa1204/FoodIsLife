@@ -47,16 +47,15 @@
         <div class="category">
         <% IngreCategory.all.each do |inca| %>
           <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-          <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
+          <%=inca.name%><%= image_tag inca.image.full.url %>
           </a>
           <div class="content" id=<%=inca.id%>>
-          
-          <%=collection_check_boxes(:post, :ingredient_ids, Ingredient.where("ingre_category_id = ?", inca.id), :id, :name) do |b| %>
-            <%= b.check_box %>
-            <%= b.label %>
-          <% end %>
+          <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+            <%= check_box_tag "ingredient_id[]", ingre.id %>
+            <%= ingre.name %>
+            <% end %>
           </div>
-        <% end %>  
+          <% end %>  
       </div>
       <br>
       <%= submit_tag("Search by ingredients") %>

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="indexCate">
 	<p>
   <strong>ID:</strong>
@@ -6,6 +8,11 @@
 <p>
   <strong>NAME:</strong>
   <%= @ingrecategory.name %>
+</p>
+
+<p>
+  <strong>IMAGE:</strong>
+<%= image_tag @ingrecategory.image.full.url %>
 </p>
 <%= link_to 'Edit', edit_admin_ingre_category_path(@ingrecategory), :class => 'newCate' %> | 
 <%= link_to 'Back', admin_ingre_category_index_path, :class => 'newCate' %>
