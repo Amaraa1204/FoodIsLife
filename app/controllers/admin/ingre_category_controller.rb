@@ -34,8 +34,13 @@ class Admin::IngreCategoryController < AdminApplicationController
 
 	def destroy
   		@ingrecategory = IngreCategory.find(params[:id])
-  		@ingrecategory.destroy
- 
+			@ingrecategory.destroy
+			if @ingrecategory.destroy
+				@ingredients = Ingredient.where("ingre_category_id = ?", @ingrecategory.id)
+				@ingredients.each do |i|
+					i.destroy
+				end
+			end
   		redirect_to admin_ingre_category_index_path
 	end
 	private

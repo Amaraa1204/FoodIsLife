@@ -9,7 +9,11 @@
   <% @recipe.each do |recipe| %>
       <div>
       <% recipe.name %>
-      <%= image_tag recipe.image.full.url %>
+      <% if recipe.image.full.url %>
+        <%= image_tag recipe.image.full.url %>
+      <% else %>
+        <%= image_tag asset_path("default.jpg")%>
+      <% end %>
       <% recipe.author_id %>
       <% link_to 'Show', user_recipe_path(recipe), class: "btn" %>
       </div>          

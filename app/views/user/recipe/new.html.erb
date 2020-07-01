@@ -21,11 +21,18 @@
       <%= form.text_field :name, class: "inputs" %>
     </p>
 
+<%if alert%>
+  <%= alert %>
+<%end%>
+
     <div class="ingredients">
       <div class="category">
       <% IngreCategory.all.each do |inca| %>
         <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-        <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
+          <%=inca.name%>
+          <% if inca.image.full.url %>
+            <%= image_tag inca.image.full.url %>
+          <% end %>
         </a>
         <div class="content" id=<%=inca.id%>>
         <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
@@ -40,11 +47,6 @@
     <p id="labels">
       <%= form.label :instruction %><br>
       <%= form.text_area :instruction, class: "inputs" %>
-    </p>
-
-    <p id="labels">
-      <% form.label :rating %><br>
-      <%= form.hidden_field :rating, value: 0%>
     </p>
 
     <p id="labels">
