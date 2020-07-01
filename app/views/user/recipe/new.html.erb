@@ -35,7 +35,6 @@
         </div>
         <% end %>  
     </div>
-    <input type="submit" value="Search by ingredient">
   </div>
 
     <p id="labels">
@@ -54,7 +53,7 @@
     </p>
 
     <p id="labels">
-      <%= collection_select(:id, 0, RecCategory.all, :id, :name)%>
+      <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
     </p>
 
     <p id="labels">
