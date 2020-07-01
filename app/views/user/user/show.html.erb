@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag 'user-profile-show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <h1>Profile</h1>
-<body>
 
 <div class="tab">
   <button class="tablinks" onclick="openRecipe(event, 'own')" id="defaultOpen">My own recipes</button>
@@ -9,30 +8,56 @@
 
 <div id="own" class="tabcontent">
   <div class="grid-container">
-  <% Recipe.all.each do |recipe| %>
+    <% Recipe.all.each do |recipe| %>
       <% if session[:user_id] == recipe.author_id %>   
-      <div>
-      <% recipe.name %>
-      <%= image_tag recipe.image.full.url %>
-      <% recipe.author_id %>
-      </div>    
+        <div >
+          <%= image_tag recipe.image.full.url %>
+
+            <div class="dropdown" style="float:right;">
+              <button class="dropbtn"><img style="width: 50px; height: 50px; margin: 5px;" src=<%=asset_path("tool.png")%> ></img></button>
+              <div class="dropdown-content">
+                <a href="<%= edit_admin_recipe_path(recipe) %>">EDIT RECIPE</a>
+                <%= link_to 'REMOVE', user_recipe_path(recipe),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "btn" %>
+              </div>
+              <div class="word"">
+              <p style="font-size: 16px; color: rgb(227, 213, 18);">PERSONAL RECIPE</p>
+              <%= recipe.name %>
+              <%= link_to 'Show', admin_recipe_path(recipe), class: "btn" %>
+            </div>
+            </div>
+        </div>
       <% end %>   
-    
-  <% end %>
+    <% end %>
   </div>
 </div>
 
+
+
+
 <div id="favourite" class="tabcontent">
-  <div class="grid-container-fav">
-  <% Favourite.all.each do |favourite| %>
-    <% Recipe.all.each do |recipe| %>
-      <% if favourite.recipe_id == recipe.id && session[:user_id] == favourite.user_id %>
+  <div class="grid-container">
+    <% Favourite.all.each do |favourite| %>
+      <% Recipe.all.each do |recipe| %>
+        <% if favourite.recipe_id == recipe.id && session[:user_id] == favourite.user_id %>
           <div>
-          <%= image_tag recipe.image.full.url %>
-        </div>
+            <%= image_tag recipe.image.full.url %>
+              <div class="dropdown" style="float:right;">
+                <button class="dropbtn"><img style="width: 50px; height: 50px; margin: 5px;" src=<%=asset_path("tool.png")%> ></img></button>
+              <div class="dropdown-content">
+                <a href="#">REMOVE</a>
+              </div>
+              <div class="word">
+                <p style="font-size: 16px; color: rgb(227, 213, 18);">FAVOURITE RECIPE</p>
+                <%= recipe.name %>
+              <%= link_to 'Show', admin_recipe_path(recipe), class: "btn" %>
+              </div>
+          </div>
+          </div>  
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
   </div>
 </div>
 
@@ -53,4 +78,9 @@ function openRecipe(evt, RecipeName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+function myFunction() {
+  document.getElementById("demo").style.color = "red";
+}
+
 </script>
