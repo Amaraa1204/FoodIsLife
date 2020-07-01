@@ -2,7 +2,6 @@
 <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
 <h1>Recipe slist</h1>
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
 <br>
 <div class="grid-container">
@@ -12,6 +11,11 @@
       <%= image_tag recipe.image.full.url %>
       <% recipe.author_id %>
       <% link_to 'Show', user_recipe_path(recipe), class: "btn" %>
+
+      <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
+        method: :post,
+        data: { confirm: 'Add Favourite' },
+        class: "btn" %>    
       </div>          
     
   <% end %>

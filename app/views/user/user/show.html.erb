@@ -5,7 +5,23 @@
   <button class="tablinks" onclick="openRecipe(event, 'own')" id="defaultOpen">My own recipes</button>
   <button class="tablinks" onclick="openRecipe(event, 'favourite')">My favourite recipes</button>
 </div>
+<button class="open-button" id="btnLogin">Open Form</button>
 
+<div class="form-popup" id="myForm">
+  <form class="form-container" id="myForm">
+    <h1 id="myForm">Hello, <%= current_user.user_name %></h1>
+
+    <label for="email" id="mail" id="myForm"><b>Username</b></label>
+    <input type="text" id="myForm" placeholder="Enter Email" name="email" required>
+
+    <label for="psw" id="myForm"><b>Password</b></label>
+    <input type="password" id="myForm" placeholder="Enter Password" name="psw" required>
+    
+    <button type="submit" id="myForm" class="btn"><%= link_to 'Logout', user_session_path, method: :delete %></button>
+
+    
+  </form>
+</div>
 <div id="own" class="tabcontent">
   <div class="grid-container">
     <% Recipe.all.each do |recipe| %>
@@ -17,9 +33,13 @@
               <button class="dropbtn"><img style="width: 50px; height: 50px; margin: 5px;" src=<%=asset_path("tool.png")%> ></img></button>
               <div class="dropdown-content">
                 <a href="<%= edit_admin_recipe_path(recipe) %>">EDIT RECIPE</a>
+
+
                 <%= link_to 'REMOVE', user_recipe_path(recipe),
               method: :delete,
               data: { confirm: 'Are you sure?' }, class: "btn" %>
+
+
               </div>
               <div class="word"">
               <p style="font-size: 16px; color: rgb(227, 213, 18);">PERSONAL RECIPE</p>
@@ -46,8 +66,15 @@
               <div class="dropdown" style="float:right;">
                 <button class="dropbtn"><img style="width: 50px; height: 50px; margin: 5px;" src=<%=asset_path("tool.png")%> ></img></button>
               <div class="dropdown-content">
-                <a href="#">REMOVE</a>
+
+
+                <%= link_to 'REMOVE', user_favourite_path(favourite),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: "btn" %> 
+
+
               </div>
+
               <div class="word">
                 <p style="font-size: 16px; color: rgb(227, 213, 18);">FAVOURITE RECIPE</p>
                 <%= recipe.name %>
@@ -79,8 +106,21 @@ function openRecipe(evt, RecipeName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
-function myFunction() {
-  document.getElementById("demo").style.color = "red";
+$(function(){
+    $("#btnLogin").click(function(e){       
+        e.stopPropagation();
+        $("#myForm").show();
+        $("body").click(function(e){
+            if(e.target.id != "myForm")
+            {
+                $("#myForm").hide();
+                $("form-popup").unbind("click");
+            }
+        });
+    });
+    
+});
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }
-
 </script>
