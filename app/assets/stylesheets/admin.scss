@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #d8e5f1;
 }
 
 .menu {
@@ -16,7 +17,7 @@ body {
 
 .menu a {
   display: block;
-  background-color: rgb(55, 119, 216);
+  background-color: #2b59a2;
   padding: 22px 16px;
   width: 100%;
   height: 100%;
@@ -34,7 +35,7 @@ body {
 }
 
 .menu a:hover {
-  background-color: rgb(191, 234, 253);
+  opacity: 0.7;
 }
 
 .content {
@@ -48,9 +49,9 @@ body {
 }
 
 .ub {
-  position: absolute; 
-  top: 8px; 
-  left: 16px; 
+  position: absolute;
+  top: 8px;
+  left: 16px;
   height: 25%;
   width: 40%;
 }
@@ -58,7 +59,7 @@ body {
 .cb {
   position: absolute;
   top: 8px;
-  right: 16px; 
+  right: 16px;
   height: 25%;
   width: 40%;
 }
@@ -66,7 +67,7 @@ body {
 .ib {
   position: absolute;
   bottom: 8px;
-  left: 16px; 
+  left: 16px;
   height: 25%;
   width: 40%;
   margin-bottom: 60px;
@@ -75,7 +76,7 @@ body {
 .rb {
   position: absolute;
   bottom: 8px;
-  right: 16px; 
+  right: 16px;
   height: 25%;
   width: 40%;
   margin-bottom: 60px;
@@ -86,7 +87,7 @@ body {
   position: absolute;
   width: 100%;
   height: 50px;
-  background-color: rgb(55, 119, 216);
+  background-color: #2b59a2;
   margin-bottom: 100px;
   left: 0px;
 }

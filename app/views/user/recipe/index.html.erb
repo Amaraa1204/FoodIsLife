@@ -9,17 +9,18 @@
 </head>
 
 <div class="recipeShow">
+  <%= image_tag 'order.png', :class => "iconH1" %>
   <strong class="recipeName">Recipes list</strong><br>
 
   <p>
     <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
   </p>
 
-  <div class="grid-container">
+  <ul class="grid-container">
     <% @recipe.each do |recipe| %>
-        <div class="recipeimg">
+        <li class="recipeimgli">
           <% if recipe.image.full.url%>
-            <%= image_tag recipe.image.full.url %>
+            <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
           <%end%>
           <span class="recipeimgspan">
             <strong>Recipe name: </strong>
@@ -28,7 +29,7 @@
             <%= recipe.author_id %><br>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
           </span>
-        </div>
+        </li>
     <% end %>
-  </div>
+  </ul>
 </div>

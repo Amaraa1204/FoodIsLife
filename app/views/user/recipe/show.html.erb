@@ -14,32 +14,16 @@
   </strong> by
   <%= User.find_by(id: @recipe.author_id).user_name if @recipe.author_id.present? %>
 
-  <% (1..5).each.with_index do |index| %>
-    <p class="demo" style="float:right;">
-      <%= link_to image_tag('starWhite.png', :style => 'width:15px;') %>
-    </p>
-    <script>
-      $('.demo').click(function(){
-        //alert('YES!!!');
-        var img = document.createElement("img");
-        img.src = "starYellow.png";
-        var src = document.getElementById("x");
-        src.appendChild(img);
-        //document.getElementById("demo").style.color = "yellow";
-      });
-    </script>
-  <% end %> <br>
-
-  <% if @rate.present? %>
-    <% while @rate.ave_rate != 0 do %>
-      <%= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
-      <% @rate.ave_rate = @rate.ave_rate - 1 %>
-    <% end %>
-  <% end %>
-  <% while @non_rated != 0 do %>
-    <%= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-    <% @non_rated = @non_rated - 1 %>
-  <% end %><br>
+  <%# if @rate.present? %>
+    <%# while @rate.ave_rate != 0 do %>
+      <%#= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
+      <%# @rate.ave_rate = @rate.ave_rate - 1 %>
+    <%# end %>
+  <%# end %>
+  <%# while @non_rated != 0 do %>
+    <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
+    <%# @non_rated = @non_rated - 1 %>
+  <%# end %><br>
 
   <% if @recipe.image.full.url%>
     <%= image_tag @recipe.image.full.url, :class => 'recipeImage'%><br>
@@ -54,17 +38,22 @@
 <div class="recipeShow">
   <strong class="recipeInst">All ratings</strong>
 
-  <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-  <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-  <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-  <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-  <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_1', :data => 1),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 1), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_2', :data => 2),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 2), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_3', :data => 3),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 3), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_4', :data => 4),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 4), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_5', :data => 5),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 5), method: :post %>
 
   <% @recipe.recipe_and_rates.each do |rate| %>
     <p>
       <div class="commentView">
         <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
-        <%#= rate.rate %>
+        <%= rate.rate %>
 
         <span class="commHover">
           <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate), :class => 'commDelete',

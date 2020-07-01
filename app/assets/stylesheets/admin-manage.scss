@@ -1,121 +1,136 @@
 body{
   margin-left: 20px;
   margin-top: 25px;
-    background-color: #ddeef0
+  background-color: #d8e5f1;
 }
 table {
-    width: 60%;
-    border: white;
-  }
-  th {
-    text-align: center;
-    padding: 8px;
-  }
-  td {
-    text-align: center;
-    padding: 4px;
-  }
-  tr{
-      background-color: white;
-  }
-
-  tr:nth-child(even){background-color: #e6eeff}
-  
-  th {
-    background-color: #5682db;
-    color: white;
-  }
+  width: 100%;
+}
+th {
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+}
+td {
+  text-align: center;
+  padding: 4px;
+  border-radius: 6px;
+}
+.admin_user_tr{
+  background-color: white;
+}
+tr{
+  background-color: #B2D9FC;
+}
+th {
+  background-color: #2b59a2;
+  color: white;
+}
 .btn-form, .btn-user{
-    background-color: #5682db;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    
+  background-color: #2b59a2;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 6px;
 }
 .btn-user:hover , .btn-form:hover{
   background-color: #304b82;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
-
 input[type=text], select {
-    width: 90%;
-    padding: 12px 20px;
-    margin: 8px 15px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  input[type=password], select {
-    width: 90%;
-    padding: 12px 20px;
-    margin: 8px 15px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input[type=submit] {
-    width: 90%;
-    background-color: #5682db ;
-    color: white;
-    padding: 14px 25px;
-    margin: 8px 25px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #304b82;
-  }
-  
-  /*div {
-    width: 50%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }*/
-
-  .user_home_header {
-    top: 0px;
-    position: absolute;
-    width: 100%;
-    height: 10%;
-    background-color: rgb(55, 119, 216);
-    margin-bottom: 100px;
-    left: 0px;
-    color: white;
-  }
-
-    .sign_btns {
-      float: right;
-      height: 100%;
-    }
-  
-    .sign_btn {
-      background-color: rgb(55, 119, 216);
-      float: left;
-      border: none;
-      color: white;
-      padding: 10px 24px;
-      cursor: pointer;
-    }
-
-    .log_btn {
-      background-color: rgb(55, 119, 216);
-      float: left;
-      border: none;
-      color: white;
-      padding: 10px 24px;
-      cursor: pointer;
-    }
-
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 90%;
+  background-color: #5682db ;
+  color: white;
+  padding: 14px 25px;
+  margin: 8px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #304b82;
+}
+.user_home_header {
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  background-color: rgb(55, 119, 216);
+  margin-bottom: 100px;
+  left: 0px;
+  color: white;
+}
+.sign_btns {
+  float: right;
+  height: 100%;
+}
+.sign_btn {
+  background-color: rgb(55, 119, 216);
+  float: left;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+.log_btn {
+  background-color: rgb(55, 119, 216);
+  float: left;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+.homeBTN{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.inside_head{
+  margin-top: 1%;
+  margin-left: 3%;
+}
+.admin_sub{
+  background: white;
+  margin: 5% 10% 5% 10%;
+  border-radius: 6px;
+}
+.admin_sub_inside{
+  margin-left: 12%;
+  padding-top: 1%;
+}
+.insub{
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 3%;
+}
+.btn_form_td{
+  background-color: white;
+  width: 10%;
+}
+.hr{
+  width: 80%;
+}
