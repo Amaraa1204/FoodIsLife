@@ -47,7 +47,7 @@
         <div class="category">
         <% IngreCategory.all.each do |inca| %>
           <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-          <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
+          <%=inca.name%><%= image_tag inca.image.full.url %>
           </a>
           <div class="content" id=<%=inca.id%>>
           <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>

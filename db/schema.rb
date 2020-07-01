@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_032925) do
 
   create_table "ingre_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_06_26_032925) do
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "instruction"
-    t.decimal "rating", precision: 10
     t.string "image"
     t.string "rec_category_id"
     t.integer "author_id"
