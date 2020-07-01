@@ -1,26 +1,6 @@
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
-<br>
-<div class="grid-container">
-  <% @recipe.each do |recipe| %>
-      <div>
-      <% recipe.name %>
-      <% if recipe.image.full.url %>
-        <%= image_tag recipe.image.full.url %>
-      <% else %>
-        <%= image_tag asset_path("default.jpg")%>
-      <% end %>
-      <% recipe.author_id %>
-      <% link_to 'Show', user_recipe_path(recipe), class: "btn" %>
 
-      <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
-        method: :post,
-        data: { confirm: 'Add Favourite' },
-        class: "btn" %>    
-      </div>          
-    
-  <% end %>
-  </div>
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
   <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
@@ -41,17 +21,25 @@
   <ul class="grid-container">
     <% @recipe.each do |recipe| %>
         <li class="recipeimgli">
-          <% if recipe.image.full.url%>
+          <% if recipe.image.full.url %>
             <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
-          <%end%>
+          <% else %>
+            <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
+          <% end %>
           <span class="recipeimgspan">
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>
             <strong>Author: </strong>
             <%= recipe.author_id %><br>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
+            <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
+        method: :post,
+        data: { confirm: 'Add Favourite' },
+        class: "btn" %> 
           </span>
         </li>
+        
     <% end %>
+    
   </ul>
 </div>
