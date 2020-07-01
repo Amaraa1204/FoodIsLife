@@ -21,9 +21,11 @@
   <ul class="grid-container">
     <% @recipe.each do |recipe| %>
         <li class="recipeimgli">
-          <% if recipe.image.full.url%>
+          <% if recipe.image.full.url %>
             <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
-          <%end%>
+          <% else %>
+            <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
+          <% end %>
           <span class="recipeimgspan">
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>

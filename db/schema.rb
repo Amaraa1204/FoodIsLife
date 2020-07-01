@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_06_26_032925) do
   end
 
   create_table "ingre_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "name"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
@@ -80,16 +79,12 @@ ActiveRecord::Schema.define(version: 2020_06_26_032925) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "user_name"
     t.string "email"
     t.string "password_digest"

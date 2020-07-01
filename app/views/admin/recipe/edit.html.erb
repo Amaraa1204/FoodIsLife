@@ -19,15 +19,36 @@
     <%= form.label :name %><br>
     <%= form.text_field :name, class: "inputs" %>
   </p>
+
+  <div class="ingredients">
+    <div class="category">
+      <% IngreCategory.all.each do |inca| %>
+        <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
+          <%=inca.name%>
+          <% if inca.image.full.url %>
+            <%= image_tag inca.image.full.url %>
+          <% else %>
+            <%= image_tag asset_path("tomato.png")%>
+          <% end %>
+        </a>
+        <div class="content" id=<%=inca.id%>>
+        <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+          <% if RecipeAndIngredient.where("recipe_id = ?", @recipe.id).pluck(:ingredient_id).include?(ingre.id) %>
+            <%= check_box_tag "ingredient_id[]", ingre.id, true %>
+            <%= ingre.name %>
+          <% else %>
+            <%= check_box_tag "ingredient_id[]", ingre.id %>
+            <%= ingre.name %>          
+          <% end %>
+        <% end %>
+        </div>
+      <% end %>  
+    </div>
+  </div>
  
   <p id="labels">
     <%= form.label :instruction %><br>
     <%= form.text_area :instruction, class: "inputs" %>
-  </p>
-
-  <p id="labels">
-    <%= form.label :rating %><br>
-    <%= form.number_field :rating, class: "inputs" %>
   </p>
 
   <p id="labels">
@@ -36,13 +57,11 @@
   </p>
 
   <p id="labels">
-    <%= form.label :rec_category_id %><br>
-    <%= form.text_field :rec_category_id, class: "inputs" %>
+    <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
   </p>
 
   <p id="labels">
-    <%= form.label :author_id %><br>
-    <%= form.number_field :author_id, class: "inputs" %>
+    <%= form.hidden_field :author_id, value: 0, class: "inputs" %>
   </p>
  
   <p>
@@ -52,3 +71,23 @@
 <% end %>
 
 <%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
+
+<script>
+
+function ingre_show(inca_id){
+    var x = document.getElementById(inca_id);
+    
+    var clas = document.getElementsByClassName("content");
+
+  if(x.style.display === "none"){
+    for (var i = 0; i < clas.length; i++) {
+    clas[i].style.display = "none";
+    }
+    x.style.display = "inline";
+  }
+  else{
+        x.style.display = "none";
+    
+    }
+}
+</script>

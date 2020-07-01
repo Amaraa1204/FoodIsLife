@@ -34,18 +34,8 @@ class User::RecipeController < UserApplicationController
 		@recipe = Recipe.new(recipe_params)
 		if @recipe.save
 			@params = recipe_ingredient_params
-			#raise @params.inspect
-			@params[:ingredient_id].each do |p|
-				@ingredient_params = params.permit(:recipe_id, :ingredient_id)
-				temp = @ingredient_params
-				temp[:recipe_id] = @recipe.id
-				temp[:ingredient_id] = p
-				#raise @ingredient_params.inspect
-				@rip = RecipeAndIngredient.new(temp)
-				#raise @rip.inspect
-				@rip.save
-			end
-
+			@rip = RecipeAndIngredient.new
+			@rip.addIngredient(@params, @recipe)
 			redirect_to user_recipe_index_path
 		else
 			render 'new'
@@ -55,6 +45,19 @@ class User::RecipeController < UserApplicationController
 	def update
 		@recipe = Recipe.find(params[:id])
 		if @recipe.update(recipe_params)
+			@ingredients = RecipeAndIngredient.where("recipe_id = ?", @recipe.id)
+			if @ingredients.nil?
+				@params = recipe_ingredient_params
+				@rip = RecipeAndIngredient.new
+				@rip.addIngredient(@params, @recipe)
+			else
+				@ingredients.each do |i|
+					i.destroy
+				end
+				@params = recipe_ingredient_params
+				@rip = RecipeAndIngredient.new
+				@rip.addIngredient(@params, @recipe)
+			end
 			redirect_to url: user_recipe_index_path(@recipe)
 		else
 			render 'edit'
@@ -63,7 +66,12 @@ class User::RecipeController < UserApplicationController
 
 	def destroy
 		@recipe = Recipe.find(params[:id])
-		@recipe.destroy
+		if @recipe.destroy
+			@ingredients = RecipeAndIngredient.where("recipe_id = ?", @recipe.id)
+			@ingredients.each do |i|
+				i.destroy
+			end
+		end
 		redirect_to "http://localhost:3000/user/user/user?"
 	end
 
