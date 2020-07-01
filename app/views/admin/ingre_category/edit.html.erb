@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="indexCate">
 <h1>Edit category</h1>
 <%= form_with model: @ingrecategory, url: admin_ingre_category_path(@ingrecategory), local: true do |form| %>
@@ -19,7 +21,14 @@
     <%= form.label :name %><br>
     <%= form.text_area :name %>
   </p>
-
+  <p>
+  <strong>IMAGE:</strong>
+  <%= image_tag @ingrecategory.image.full.url %>
+  </p>
+  <p id="labels">
+  <%= form.label :image %><br>
+  <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
+  </p>
   <p>
     <%= form.submit %>
   </p>
