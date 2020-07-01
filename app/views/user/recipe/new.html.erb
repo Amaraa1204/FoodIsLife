@@ -25,6 +25,7 @@
         </ul>
       </div>
     <% end %>
+
     <p id="labels">
       <%= form.label :name %><br>
       <%= form.text_field :name, class: "inputs" %>
@@ -37,12 +38,12 @@
            <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
           </a>
           <div class="content" id=<%=inca.id%>>
-           <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-            <%= check_box_tag "ingredient_id[]", ingre.id %>
-            <%= ingre.name %>
+            <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+              <%= check_box_tag "ingredient_id[]", ingre.id %>
+              <%= ingre.name %>
             <% end %>
           </div>
-        <% end %>  
+        <% end %>
       </div>
     </div>
 
@@ -51,11 +52,11 @@
       <%= form.text_area :instruction, class: "inputInst" %>
     </p>
 
-      <p id="labels">
-        <%= form.label :
-        %><br>
-        <%= form.file_field :image, class: "image" %>
-      </p>
+    <p id="labels">
+      <%= form.label :Image%><br>
+      <%= form.file_field :image, class: "image" %>
+    </p>
+    
     <p id="labels">
       <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
     </p>
@@ -81,7 +82,7 @@
 
 function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
-    
+
     var clas = document.getElementsByClassName("content");
 
   if(x.style.display === "none"){
@@ -92,7 +93,7 @@ function ingre_show(inca_id){
   }
   else{
         x.style.display = "none";
-    
+
     }
 }
 </script>
