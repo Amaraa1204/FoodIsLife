@@ -1,123 +1,109 @@
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="header">
+  <%= image_tag 'house.png', :class => "iconLil" %>
+  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+</div><br>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
+<div class="recipeShow">
+  <strong class="recipeName">Recipe:
+    <%= @recipe.name %>
+  </strong> by
+  <%= User.find_by(id: @recipe.author_id).user_name if @recipe.author_id.present? %>
 
-<h1>Recipes</h1>
+  <%# if @rate.present? %>
+    <%# while @rate.ave_rate != 0 do %>
+      <%#= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
+      <%# @rate.ave_rate = @rate.ave_rate - 1 %>
+    <%# end %>
+  <%# end %>
+  <%# while @non_rated != 0 do %>
+    <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
+    <%# @non_rated = @non_rated - 1 %>
+  <%# end %><br>
+  <% if @recipe.image.full.url %>
+     <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
+  <% else %>
+     <%= image_tag asset_path("default.jpg"), :class => 'recipeImage'%>
+  <% end %>
 
-<table class="list">
-  <tr>
-    <th>
-      <strong>Name:</strong>
-    </th>
-    <th>
-      <strong>Instruction:</strong>
-    </th>
-    <th>
-      <strong>Image:</strong>
-    </th>
-    <th>
-      <strong>Author:</strong>
-    </th>
-  </tr>
-  <tr>
-    <td>
-      <%= @recipe.name %>
-    </td>
-    <td>
-      <%= @recipe.instruction %>
-    </td>
-    <td>
-      <% if @recipe.image.full.url %>
-        <%= image_tag @recipe.image.full.url %>
-      <% else %>
-        <%= image_tag asset_path("default.jpg")%>
-      <% end %>
-    </td>
-    <td>
-      <%= @recipe.author_id %>
-    </td>
-    <td>
-      <h3>All ratings:</h3>
-        <% @recipe.recipe_and_rates.each do |rate| %>
-          <p>
-            <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
-            <%#= rate.rate %>
+  <p>
+    <strong class="recipeInst">Instruction</strong><br>
+    <%= @recipe.instruction %>
+  </p>
+</div><br>
 
-            <% if rate.rate == 1 %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-            <% end %>
-            <% if rate.rate == 2 %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-            <% end %>
-            <% if rate.rate == 3 %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-            <% end %>
-            <% if rate.rate == 4 %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-            <% end %>
-            <% if rate.rate == 5 %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-                <%= image_tag 'starYellow.png', :style => 'width:15px;' %>
-            <% end %>
+<div class="recipeShow">
+  <strong class="recipeInst">All ratings</strong>
 
-            <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %>
-          </p>
-        <% end %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_1', :data => 1),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 1), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_2', :data => 2),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 2), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_3', :data => 3),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 3), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_4', :data => 4),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 4), method: :post %>
+  <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_5', :data => 5),
+              user_recipe_recipe_and_rate_index_path(@recipe, rate: 5), method: :post %>
 
-        <div class="alert">
-          <% if alert %>
-          <strong><%= alert %></strong>
-          <% end %>
-        </div>
+  <% @recipe.recipe_and_rates.each do |rate| %>
+    <p>
+      <div class="commentView">
+        <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
+        <%= rate.rate %>
 
-      <h3>Rate it:</h3>
-        <%= form_with(model: @recipe.recipe_and_rates.build, url: user_recipe_recipe_and_rate_index_path(recipe_id: @recipe.id), local: true) do |f| %>
+        <span class="commHover">
+          <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate), :class => 'commDelete',
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+        </span>
+      </div>
+    </p>
+  <% end %>
 
-          <%= f.number_field :rate %>
-          <%= f.submit :Send %>
+  <div class="alert">
+    <% if alert %>
+      <strong>
+        <%= alert %>
+      </strong>
+    <% end %>
+  </div>
 
-        <% end %>
-    </td>
-  </tr>
-</table>
+  <strong class="recipeInst">Rate it</strong>
+  <%= form_with(model: @recipe.recipe_and_rates.build, url: user_recipe_recipe_and_rate_index_path(recipe_id: @recipe.id), local: true) do |f| %>
+    <%= f.number_field :rate, :class => 'areasRaCo'%>
+    <%= f.submit :Send, :class => 'sendBTN' %>
+  <% end %>
 
-<%#= image_tag 'book.png', :style => 'width:3%;'%>
-
+</div>
 <%#= image_tag 'pencil.png', :class => "commentActionIcon" %>
 
 <%#= image_tag 'deleteComm.png', :class => "commentActionIcon" %>
 
-<h2>Comments</h2>
-<% @recipe.comments.each do |comment| %>
-  <p>
-    <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
-    <%= comment.comment %>
+<div class="recipeShow">
+  <h2><%= image_tag 'book.png', :style => 'width:4%; padding-top:5px;'%> Comments</h2>
+  <% @recipe.comments.each do |comment| %>
+    <p>
+      <div class="commentView">
+      <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
+        <%= comment.comment %>
+        <span class="commHover">
+          <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment), :class => 'commDelete',
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+        </span>
+      </div>
+    </p>
+  <% end %>
 
-    <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-  </p>
-<% end %>
+  <%= form_with(model: @recipe.comments.build, url: user_recipe_comments_path(recipe_id: @recipe.id), local: true) do |f| %>
 
-<%= form_with(model: @recipe.comments.build, url: user_recipe_comments_path(recipe_id: @recipe.id), local: true) do |f| %>
+    <h3><%= f.label :'Write your comment' %></h3>
+    <%= f.text_area :comment, :class => 'areasRaCo' %>
+    <%= f.submit :Send, :class => 'sendBTN' %>
 
-  <h3><%= f.label :'Write your comment' %></h3>
-  <%= f.text_area :comment %>
-  <%= f.submit %>
-
-<% end %>
-
-<%= link_to 'Edit', edit_admin_recipe_path(@recipe), class: "btn"%>
-<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
+  <% end %>
+</div>

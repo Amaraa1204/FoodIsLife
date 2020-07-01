@@ -1,8 +1,17 @@
-<%= stylesheet_link_tag 'recipe', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="header">
+  <%= image_tag 'house.png', :class => "iconLil" %>
+  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+</div><br>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
 
-<h1>Add your own recipe!</h1>
+<div class="recipeShow">
+  <strong class="recipeName">Add your own recipe!</strong>
 
-<%= form_with scope: :recipe, url: user_recipe_index_path(@recipe), local: true do |form| %>
+  <%= form_with scope: :recipe, url: user_recipe_index_path(@recipe), local: true do |form| %>
     <% if @recipe.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -16,6 +25,7 @@
         </ul>
       </div>
     <% end %>
+
     <p id="labels">
       <%= form.label :name %><br>
       <%= form.text_field :name, class: "inputs" %>
@@ -44,18 +54,16 @@
         </div>
         <% end %>  
     </div>
-  </div>
 
     <p id="labels">
       <%= form.label :instruction %><br>
-      <%= form.text_area :instruction, class: "inputs" %>
+      <%= form.text_area :instruction, class: "inputInst" %>
     </p>
 
     <p id="labels">
-      <%= form.label :image %><br>
-      <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
+      <%= form.label :Image%><br>
+      <%= form.file_field :image, class: "image" %>
     </p>
-
     <p id="labels">
       <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
     </p>
@@ -65,6 +73,10 @@
       <%= form.label current_user.user_name, class: "inputs" %><br>
       <%= form.hidden_field :author_id, :value => current_user.id%>
     </p>
+      <!-- rating area -->
+        <% form.label :rating %><br>
+        <% form.number_field :rating, value: 0, class: "inputs" %>
+
 
     <p>
       <%= form.submit nil, class: "submit" %>
@@ -77,7 +89,7 @@
 
 function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
-    
+
     var clas = document.getElementsByClassName("content");
 
   if(x.style.display === "none"){
@@ -88,7 +100,7 @@ function ingre_show(inca_id){
   }
   else{
         x.style.display = "none";
-    
+
     }
 }
 </script>
