@@ -3,5 +3,9 @@
   <% @results.each do |result| %>
     <%= result.id %><br>
     <%= result.name %><br>
-    <%= image_tag result.image.thumb.url %>
+    <% if result.image.thumb.url %>
+      <%= image_tag result.image.thumb.url %>
+    <% else %>
+      <%= image_tag asset_path("thumb_default.jpg")%>
+    <% end %>
   <% end %>
