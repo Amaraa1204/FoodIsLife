@@ -26,6 +26,20 @@ class Admin::UserController < AdminApplicationController
 
         redirect_to admin_user_index_path
     end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+            redirect_to url: user_user_index_path(@user)
+        else
+            render 'edit'
+        end
+    end
+    
     private
     def user_params
       params.require(:user).permit(:email, :user_name, :password)
