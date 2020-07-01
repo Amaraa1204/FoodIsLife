@@ -13,26 +13,25 @@
     <%= image_tag 'order.png', :class => "iconH1" %> Listing Ingredients
   </h1>
   <hr class="hr">
-  <div class="inside_head">
+  <div class="insub">
 
     <h3>
-      <%= image_tag 'add.png', :class => "iconLil" %>
-      <%= link_to 'New ingredient', new_admin_ingredient_path, :class => "action", :id => "newIngre" %>
+      <%= link_to 'New ingredient', new_admin_ingredient_path, :class => "btn-form" %>
     </h3>
 
-    <table class="tableIndex">
-      <tr class="thTable">
+    <table>
+      <tr class="admin_user_tr">
         <th>Name</th>
         <th>Category</th>
       </tr>
 
       <% @ingres.each do |ingredient| %>
-        <tr class="listTable" >
+        <tr>
           <td><%= ingredient.name %></td>
           <td><%= ingredient.ingre_category_id %></td>
-          <td class="tableAction"><%= image_tag 'cook.png', :class => "iconLil" %><%= link_to ' Show ', admin_ingredient_path(ingredient), :class => "action" %></td>
-          <td class="tableAction"><%= image_tag 'plus.png', :class => "iconLil" %><%= link_to ' Edit ', edit_admin_ingredient_path(ingredient), :class => "action" %></td>
-          <td class="tableAction"><%= image_tag 'trash.png', :class => "iconLil" %><%= link_to ' Delete ', admin_ingredient_path(ingredient), :class => "action" ,
+          <td class="btn_form_td"><%= link_to ' Show ', admin_ingredient_path(ingredient), :class => "btn-form" %></td>
+          <td class="btn_form_td"><%= link_to ' Edit ', edit_admin_ingredient_path(ingredient), :class => "btn-form" %></td>
+          <td class="btn_form_td"><%= link_to ' Delete ', admin_ingredient_path(ingredient), :class => "btn-form" ,
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
         </tr>
