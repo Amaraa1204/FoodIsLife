@@ -29,7 +29,9 @@
 
     <p>
       <%= form.label :ingre_category %><br>
-        <%= form.text_field :ingre_category_id %>
+        <p id="labels">
+      <%= collection_select(:ingredient, :ingre_category_id, IngreCategory.all, :id, :name)%>
+    </p>
     </p>
 
     <p>
