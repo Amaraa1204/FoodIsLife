@@ -50,6 +50,8 @@
     <%= result.name %><br>
     <% if result.image.thumb.url %>
       <%= image_tag result.image.thumb.url %>
+    <% else %>
+      <%= image_tag asset_path("thumb_default.jpg")%>
     <% end %>
   <% end %>
 </div>
