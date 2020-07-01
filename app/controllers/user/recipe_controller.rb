@@ -28,8 +28,10 @@ class User::RecipeController < UserApplicationController
 
 	def create
 		@recipe = Recipe.new(recipe_params)
+		raise @recipe.inspect
 		if @recipe.save
-			redirect_to url: user_recipe_index_path(@recipe)
+			@ingredient_param = [recipe_id, @recipe.ingredient_id]
+			redirect_to url: user_recipe_and_ingredient_index(@ingredient_param)
 		else
 			render 'new'
 		end
@@ -53,6 +55,8 @@ class User::RecipeController < UserApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :instruction, :rating, :image, :category_id, :author_id)
-  end
+    params.require(:recipe).permit(:name, :ingredient_id[], :instruction, :rating, :image, :category_id, :author_id)
+	end
+	
+	
 end

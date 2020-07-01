@@ -11,7 +11,12 @@ Rails.application.routes.draw do
         post 'new', to: 'session#create'
       end
     end
-    resources :ingredient, :recipe_and_ingredient, :user, :ingre_category
+    resources :recipe_and_ingredient do 
+      collection do
+        get '/search', to: 'recipe_and_ingredient#search'
+      end
+    end
+    resources :ingredient, :user, :ingre_category
     resources :search, only: [:create, :index]
     resources :recipe do
       resources :comments, only: %i[create destroy]

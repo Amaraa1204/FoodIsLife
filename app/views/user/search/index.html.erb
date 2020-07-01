@@ -1,6 +1,61 @@
+
+<%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div id="page-container">
+
+  <div class="user_home_header">
+    <h1 id="logo">RECIDENT</h1>
+    <% if user_logged_in?%>
+      <div class="pro_btn">
+        <span><%= button_to "Profile", 'user/user', method: :get, id: "profile_btn"%></span>
+      </div>
+    <% else %>
+      <div class="sign_btns">
+        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+      </div>
+    <% end %>
+  </div>
+<div id="content-wrap">
+  <div class="motto">
+    <h1>Discover new recipes with your favourite ingredients!</h1>
+    <h2>Share your recipe with the world</h2>
+  </div>
+
+  <div class="search">
+    <div class="dropdown">
+        <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
+        <div class="dropdown-content">
+          <%= form_tag(search_user_rec_category_index_path, method: :get) do %>
+            <% RecCategory.all.each do |cate| %>
+              <span><%= cate.name %><%= submit_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
+            <% end %>
+          <% end %>    
+        </div>
+    </div>
+  </div>
+  <div class="search">
+  <%= form_tag(user_search_index_path, method: :get) do %>
+    <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+    <%= button_tag "Search", :name => nil %>
+  <%end%>
+  </div>
+  <% if alert %>
+    <%= alert %>
+  <% end %>
+  
 <h3>Search Result</h3> 
 
   <% @results.each do |result| %>
     <%= result.name %><br>
     <%= image_tag result.image.thumb.url %>
   <% end %>
+</div>
+
+
+<div class="user_home_footer">
+
+</div>
+
+</div>
+</div>

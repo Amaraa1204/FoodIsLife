@@ -1,3 +1,6 @@
+
+<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <%= form_with model: @ingrecategory, url: @newpath, local: true do |form| %>
  
   <% if @ingrecategory.errors.any? %>
@@ -17,6 +20,10 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
+  <p id="labels">
+  <%= form.label :image %><br>
+  <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
+</p>
  
   <p>
     <%= form.submit %>
