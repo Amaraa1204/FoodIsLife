@@ -7,8 +7,9 @@ body {
 }
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: 1px solid #F9B7BF;
+  background-color: #F9B7BF;
+  font-family: Sofia;
 }
 
 .tab button {
@@ -37,7 +38,11 @@ transition: all 0.2s ease 0s;
   background-color: #da7b93;
 }
 
-.grid-container {
+.tab button.active {
+  background-color: #FF9999;
+}
+
+.grid {
 
     margin-top: 0;
     display: grid;
@@ -49,9 +54,9 @@ transition: all 0.2s ease 0s;
     transition: .5s ease;
     backface-visibility: hidden;
   }
-  
-  .grid-container > div {
-    background-color: #FFCCCC;
+
+  .grid > div {
+    background-color: rgba(155, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
@@ -81,7 +86,7 @@ transition: all 0.2s ease 0s;
 .dropdown {
   position: relative;
   display: inline-block;
-  
+
 }
 
 .dropdown-content {
@@ -207,6 +212,7 @@ transition: all 0.2s ease 0s;
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
 .btnLogEdit {
   font-family: Sofia;
   background-color: #4CAF50;
@@ -231,11 +237,11 @@ transition: all 0.2s ease 0s;
   border-radius: 10%;
   bottom: 0;
 }
-.btnLogEdit a:link { 
-    text-decoration:none; 
+.btnLogEdit a:link {
+    text-decoration:none;
 }
-.btnLogExit a:link { 
-    text-decoration:none; 
+.btnLogExit a:link {
+    text-decoration:none;
 }
 .showBtn {
   font-family: Sofia;
@@ -252,8 +258,8 @@ transition: all 0.2s ease 0s;
   bottom: 1%;
   margin-left: 100px;
 }
-.showBtn a:link { 
-    text-decoration:none; 
+.showBtn a:link {
+    text-decoration:none;
 }
 .showBtn:hover {
   background-color: #ddd;
@@ -275,7 +281,7 @@ button.btnLogEdit::after {
     background-image: image-url("pencil.png");
     background-size: 100% 100%;
     display: inline-block;
-    width: 25px; 
+    width: 25px;
     height: 25px;;
    content: "";
 }
@@ -294,7 +300,7 @@ button.btnLogExit::after {
     background-image: image-url("exit.png");
     background-size: 100% 100%;
     display: inline-block;
-    width: 25px; 
+    width: 25px;
     height: 25px;;
    content: "";
 }
@@ -311,4 +317,38 @@ transition: all 0.2s ease 0s;
 .formPos input{
   float:right;
   display: inline;
+}
+.del_btn {
+  width: 35%;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 60%;
+}
+
+.logout_btn {
+  background-color: #FF9999;
+  color: white;
+  border: none;
+  padding: 1% 5% 1% 5%;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Sofia;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.send_btn {
+  background-color: #FF9999;
+  color: white;
+  border: none;
+  padding: 1% 5% 1% 5%;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Sofia;
+  font-size: 15px;
+  display: inline-block;
 }

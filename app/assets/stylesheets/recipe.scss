@@ -112,6 +112,7 @@ body {
     background-color: #FFCCCC;
     border-radius: 6px;
     padding-bottom: 3%;
+    margin-top: 3%;
   }
 
   .areasRaCo{
@@ -158,6 +159,7 @@ body {
     margin-left: none;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 1%;
   }
 
   .recipeName{
@@ -216,3 +218,82 @@ body {
   .recipeimg{
     width: 90%;
   }
+  .user_div_top_btn{
+    padding-top: 2%;
+  }
+  .user_se_btn{
+    background-color: #FF9999;
+    border: none;
+    border-radius: 6px;
+    padding: 1% 5% 1% 5%;;
+    width: 20%;
+  }
+  .user_sign_fld{
+    border: none;
+    border-radius: 6px;
+    width: 18%;
+    padding: 1% 1% 1% 1%;
+  }
+  .user_se_btn_p{
+    padding-top: 2%;
+  }
+  .logo_user_user{
+    width: 3%;
+  }
+  .recident_let{
+    font-size: 38px;
+    margin-left: 3%;
+    text-decoration: none;
+    color: black;
+  }
+  .head_recident_user{
+    text-decoration: none;
+    color: black;
+  }
+  .search_btn_user{
+    margin-top: -4%;
+  }
+.search_icon{
+  width: 110%;
+}
+.img_area_user_edit{
+  text-align: center;
+}
+.user_rec_edit_out{
+  position: relative;
+  display: inline-block;
+  width: 30%;
+}
+.img_rec_user{
+  width: 50%;
+}
+.user_rec_edit_out .user_rec_edit_span{
+  text-align: left;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  margin-left: -15%;
+  margin-top: -2%;
+  background-color: #FF9999;
+  display: none;
+  width: 100%;
+}
+.user_rec_edit_out:hover .user_rec_edit_span{
+  display: inline-block;
+}
+.search_btn_ingre_user{
+  border: none;
+  background: rgba(75, 75, 75, 0.329);
+  border-radius: 6px;
+  padding: 1% 5% 1% 5%;
+}
+.search_btn_ingre_user:hover{
+  background: gray;
+}
+.search_btn_user_div{
+  text-align: right;
+}
+.ingre_area_user{
+  margin-top: 5%;
+  padding-top: 5%;
+}

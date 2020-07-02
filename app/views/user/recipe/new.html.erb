@@ -2,6 +2,17 @@
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
   <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+  <% if user_logged_in?%>
+      <div class="sign_btns">
+        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
+      </div>
+    <% else %>
+      <div class="sign_btns">
+        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+      </div>
+    <% end %>
 </div><br>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">

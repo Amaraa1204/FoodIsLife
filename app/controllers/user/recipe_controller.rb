@@ -78,6 +78,14 @@ class User::RecipeController < UserApplicationController
 			@ingredients.each do |i|
 				i.destroy
 			end
+			@comments = Comment.where("recipe_id = ?", @recipe.id)
+			@comments.each do |i|
+				i.destroy
+			end
+			@rates = RecipeAndRate.where("recipe_id = ?", @recipe.id)
+			@rates.each do |i|
+				i.destroy
+			end
 		end
 		redirect_to "http://localhost:3000/user/user/user?"
 	end
