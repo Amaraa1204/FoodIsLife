@@ -46,6 +46,7 @@
           <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make" %>
           <%= button_tag "Search", :name => nil, :class => 'search_btn_user' %>
         <%end%>
+       <%= button_to "All recipes", user_recipe_index_path, method: :get %>
       </div>
   </div>
 
@@ -77,6 +78,13 @@
     <p class="search_btn_user_div">
     <%= submit_tag "Search with ingredients", :class => 'search_btn_ingre_user' %>
     <p>
+      <div class="alert">
+        <% if alert %>
+          <strong>
+            <%= alert %>
+          </strong>
+        <% end %>
+      </div>
   <% end %>
 </div>
 
@@ -92,6 +100,7 @@
     clas[i].style.display = "none";
     }
     x.style.display = "inline";
+    x.style.opacity =  1;
   }
   else{
         x.style.display = "none";

@@ -3,7 +3,9 @@ class User::SearchController < UserApplicationController
   def index
     if params[:search].blank?
       puts '*** 1 ***' 
-      redirect_to user_user_index_path, alert: "there's nothing here"
+      @results = Recipe.all
+      flash.now[:alert] = 'Please write a food name!'
+      render 'user/recipe/index'
     else
       @parameter = params[:search].downcase 
       @results = Recipe.where("lower(name) LIKE :search", search: @parameter) 
@@ -11,10 +13,13 @@ class User::SearchController < UserApplicationController
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all
+        flash.now[:alert] = 'Sorry, no results.'
+        render 'user/recipe/index'
       else
         puts '*** 3 ***' 
         # flash.now[:alert]="here's your ducking recipes"
         # redirect_to user_search_index_path
+        render 'user/recipe/index'
       end
     end
   end

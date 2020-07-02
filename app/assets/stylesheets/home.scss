@@ -105,7 +105,13 @@
 .search input[type=submit] {
   border: none;
   border-radius: 30px;
-  background-color: rgb(55, 119, 216);
+  height: 30px;
+  background-color: rgba(75, 75, 75, 0.329);
+  float: right;
+}
+
+.search input[type=submit]:hover {
+  background-color: rgb(15, 68, 146);
 }
 
 .search_form button {
@@ -113,7 +119,7 @@
   float: right;
   border: none;
   color: white;
-  margin-right: 10%;
+  
   height: 30px;
   border-radius: 30px;
 }
@@ -149,6 +155,14 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .dropdown-content button {
+    background-color: #ff7b7b;
+    width: 100%;
+    border: none;
+    text-align: left;
+  }
+/*
 
   .dropdown-content button {
     background-color: #ff7b7b;
@@ -193,7 +207,6 @@
     background-color: #4b90be;
     padding: 10px;
   }
-
   .pro_btn{
       float: right;
       border: none;

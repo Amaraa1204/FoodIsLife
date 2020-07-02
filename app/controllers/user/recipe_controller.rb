@@ -1,5 +1,5 @@
 class User::RecipeController < UserApplicationController
-  before_action :authorized
+  skip_before_action :authorized, only: [:show, :index]
 
   def index
     @recipe = Recipe.all
@@ -76,6 +76,14 @@ class User::RecipeController < UserApplicationController
 		if @recipe.destroy
 			@ingredients = RecipeAndIngredient.where("recipe_id = ?", @recipe.id)
 			@ingredients.each do |i|
+				i.destroy
+			end
+			@comments = Comment.where("recipe_id = ?", @recipe.id)
+			@comments.each do |i|
+				i.destroy
+			end
+			@rates = RecipeAndRate.where("recipe_id = ?", @recipe.id)
+			@rates.each do |i|
 				i.destroy
 			end
 		end
