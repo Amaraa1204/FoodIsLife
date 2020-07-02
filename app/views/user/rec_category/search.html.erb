@@ -1,6 +1,5 @@
 
 <%= stylesheet_link_tag 'search', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
 
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
@@ -30,7 +29,9 @@
     </div>
 
 <div class="recipeShow">
-
+<p>
+    <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
+  </p>
   <ul class="grid-container">
     <% if @results%>
       <% @results.each do |result| %>
@@ -46,10 +47,13 @@
             <strong>Author: </strong>
             <%= User.find(result.author_id).user_name %><br>
             <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
-            <%= link_to 'Favourite', user_favourite_index_path(recipe_id: result.id),
-        method: :post,
-        data: { confirm: 'Add Favourite' },
-        class: "btn" %> 
+            <% if current_user.nil?%>
+            <% else%>
+              <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
+                  method: :post,
+                  data: { confirm: 'Add Favourite' },
+                  class: "btn" %> 
+            <%end%>
           </span>
         </li>
       <% end %>

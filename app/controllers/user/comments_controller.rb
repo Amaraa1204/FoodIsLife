@@ -1,5 +1,4 @@
 class User::CommentsController < UserApplicationController
-  skip_before_action :authorized
 
   def create
     #raise params.inspect
