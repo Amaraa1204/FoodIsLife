@@ -175,3 +175,29 @@ input[type=submit]:hover {
   text-align: center;
   padding-top: 2%;
 }
+.img_rec{
+  width: 20%;
+}
+.admin_rec_edit_out{
+  position: relative;
+  display: inline-block;
+  width: 30%;
+}
+.admin_rec_edit_out .admin_rec_edit_span{
+  visibility: hidden;
+  text-align: left;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  margin-left: -15%;
+  margin-top: -2%;
+  background-color: #CCE5FF;
+  display: inline-block;
+  width: 100%;
+}
+.admin_rec_edit_out:hover .admin_rec_edit_span{
+  visibility: visible;
+}
+.img_area_admin_edit{
+  text-align: center;
+}
