@@ -1,12 +1,11 @@
 class User::RecipeAndIngredientController < UserApplicationController
   skip_before_action :authorized
   def new
-    @recipe_and_ingredients = RecipeAndIngredient.new
+
   end
 
   def create 
-    @rip = RecipeAndIngredient.new(@recipe_and_ingredients_params)
-		@rip.save
+
   end
   def search 
     if params[:ingredient_id].blank?

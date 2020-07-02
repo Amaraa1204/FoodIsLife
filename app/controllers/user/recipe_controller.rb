@@ -1,5 +1,5 @@
 class User::RecipeController < UserApplicationController
-  before_action :authorized
+  skip_before_action :authorized, only: [:show, :index]
 
   def index
     @recipe = Recipe.all

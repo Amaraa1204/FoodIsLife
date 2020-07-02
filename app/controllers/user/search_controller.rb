@@ -3,7 +3,7 @@ class User::SearchController < UserApplicationController
   def index
     if params[:search].blank?
       puts '*** 1 ***' 
-      redirect_to user_user_index_path, alert: "there's nothing here"
+      @results = Recipe.all
     else
       @parameter = params[:search].downcase 
       @results = Recipe.where("lower(name) LIKE :search", search: @parameter) 

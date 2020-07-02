@@ -24,7 +24,7 @@
     <%# @non_rated = @non_rated - 1 %>
   <%# end %><br>
   <div>
-<h4 style="display: inline;">Rating</h4>
+<h4 style="display: inline;">Rating : </h4>
   <% if @res %>
     <%= @res %>
   <% end %>
@@ -38,6 +38,12 @@
   <p>
     <strong class="recipeInst">Instruction</strong><br>
     <%= @recipe.instruction %>
+  </p>
+  <p>
+    <strong class="recipeInst">Ingredients</strong><br>
+    <% RecipeAndIngredient.where("recipe_id = ?", @recipe.id).each do |rip| %>
+      <li><%= Ingredient.find(rip.ingredient_id).name %></li>
+    <% end %>
   </p>
 </div><br>
 
@@ -60,12 +66,14 @@
       <div class="commentView">
         <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
         <%= rate.rate %>
-
-        <span class="commHover">
-          <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate), :class => 'commDelete',
+        <% if current_user.nil?%>
+        <% else rate.user_id == current_user.id%>
+          <span class="commHover">
+            <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate), :class => 'commDelete',
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %>
-        </span>
+          </span>
+        <%end%>
       </div>
     </p>
   <% end %>
@@ -96,11 +104,14 @@
       <div class="commentView">
       <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
         <%= comment.comment %>
+        <% if current_user.nil?%>
+        <% else comment.user_id == current_user.id%>
         <span class="commHover">
           <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment), :class => 'commDelete',
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %>
         </span>
+        <%end%>
       </div>
     </p>
   <% end %>
