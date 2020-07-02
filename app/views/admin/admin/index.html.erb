@@ -1,6 +1,13 @@
-<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="header">
-  <h1 id="logo">RECIDENT</h1>
+  <div class="inside_head">
+    <h1 class="admin_sub_inside recident_logo">
+      <%= image_tag "cook.png", class: 'logo_head' %>
+      <%= 'Recident' %>
+      <%= button_to "Logout", admin_session_index_path , method: :delete, id: "nav-logout"%>
+    </h1>
+  </div>
 </div>
 
 <div class="menu">

@@ -98,3 +98,19 @@ body {
   margin-left: 10%;
   margin-top:10px;
 }
+#nav-logout{
+  position: relative;
+  width: 10%;
+  background-color: #5682db ;
+  color: white;
+  margin-right: 5%;
+  margin-top: -2%;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 4px;
+  float: right;
+}
+
+.nav-logout:hover {
+  background-color: #304b82;
+}

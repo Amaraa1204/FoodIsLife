@@ -1,7 +1,14 @@
-<% if admin_logged_in? %>
-    <h1>You are Logged In, <%= current_admin.user_name %></h1>
-    
-<%end%>
-<%= button_to "Sign up", '/admin/admin/new', method: :get%>
-<%= button_to "Login", '/admin/session/new', method: :get%>
-<%= button_to "Logout", '/admin/session', method: :delete%>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="admin_sub">
+  <div class="insub">
+    <h1 class="welcome_admin">Welcome to FoodIsLife admin sector!</h1>
+    <% if admin_logged_in? %>
+        <h1 class="admin_sub_inside">You are Logged In, <%= current_admin.user_name %></h1>
+        
+    <%= button_to "Logout", admin_session_index_path , method: :delete, class: "log-btn"%>
+    <% else %>
+        <%= button_to "Sign up", new_admin_admin_path, method: :get,  class: "log-btn"%>
+        <%= button_to "Login", new_admin_session_path, method: :get,  class: "log-btn"%>
+    <%end%>
+  </div>
+</div>

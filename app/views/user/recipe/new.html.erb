@@ -31,20 +31,28 @@
       <%= form.text_field :name, class: "inputs" %>
     </p>
 
+<%if alert%>
+  <%= alert %>
+<%end%>
+
     <div class="ingredients">
       <div class="category">
-        <% IngreCategory.all.each do |inca| %>
-          <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-           <%=inca.name%><img style="max-width:100%; height: auto;" src=<%= asset_path("vegetable.png") %> >
-          </a>
-          <div class="content" id=<%=inca.id%>>
-            <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-              <%= check_box_tag "ingredient_id[]", ingre.id %>
-              <%= ingre.name %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <% IngreCategory.all.each do |inca| %>
+        <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
+          <%=inca.name%>
+          <% if inca.image.full.url %>
+            <%= image_tag inca.image.full.url %>
+          <% else %>
+            <%= image_tag asset_path("tomato.png")%>
+          <% end %>
+        </a>
+        <div class="content" id=<%=inca.id%>>
+        <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+          <%= check_box_tag "ingredient_id[]", ingre.id %>
+          <%= ingre.name %>
+          <% end %>
+        </div>
+        <% end %>  
     </div>
 
     <p id="labels">
@@ -56,7 +64,6 @@
       <%= form.label :Image%><br>
       <%= form.file_field :image, class: "image" %>
     </p>
-    
     <p id="labels">
       <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
     </p>

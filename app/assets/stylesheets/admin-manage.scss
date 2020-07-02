@@ -26,22 +26,28 @@ th {
   background-color: #2b59a2;
   color: white;
 }
-.btn-form, .btn-user{
+.btn-form{
   background-color: #2b59a2;
   color: white;
-  padding: 14px 25px;
+  padding: 5% 15%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   border-radius: 6px;
+
 }
-.btn-user:hover , .btn-form:hover{
-  background-color: #304b82;
+.btn-user{
+  background-color: #2b59a2;
   color: white;
-  padding: 14px 25px;
+  padding: 1% 5%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  border-radius: 6px;
+
+}
+.btn-user:hover , .btn-form:hover{
+  opacity: 0.8;
 }
 input[type=text], select {
   width: 90%;
@@ -51,8 +57,9 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+
 }
-input[type=password], select {
+input[type=password] {
   width: 90%;
   padding: 12px 20px;
   margin: 8px 15px;
@@ -125,12 +132,72 @@ input[type=submit]:hover {
 .insub{
   margin-left: 10%;
   margin-right: 10%;
-  padding-bottom: 3%;
+  padding-bottom: 1%;
 }
 .btn_form_td{
   background-color: white;
-  width: 10%;
+  width: 8%;
 }
 .hr{
   width: 80%;
+}
+.admin_cate_btn_area{
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 3%;
+}
+.newCate{
+  background-color: white;
+  width: 10%;
+}
+.label_new{
+  font-size: 20px;
+}
+.input_inst{
+  width: 90%;
+  border-radius: 6px;
+}
+.img_show_ingre{
+  text-align: center;
+}
+.ingre_cate_show_img{
+  width: 30%;
+}
+.logo_head{
+  width: 3%;
+  margin-top: 0.5%;
+}
+.recident_logo{
+  margin-top: -2%;
+  color: white;
+}
+.welcome_admin{
+  text-align: center;
+  padding-top: 2%;
+}
+.img_rec{
+  width: 20%;
+}
+.admin_rec_edit_out{
+  position: relative;
+  display: inline-block;
+  width: 30%;
+}
+.admin_rec_edit_out .admin_rec_edit_span{
+  visibility: hidden;
+  text-align: left;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  margin-left: -15%;
+  margin-top: -2%;
+  background-color: #CCE5FF;
+  display: inline-block;
+  width: 100%;
+}
+.admin_rec_edit_out:hover .admin_rec_edit_span{
+  visibility: visible;
+}
+.img_area_admin_edit{
+  text-align: center;
 }

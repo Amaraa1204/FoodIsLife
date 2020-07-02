@@ -1,27 +1,49 @@
 class User::RecipeAndIngredientController < UserApplicationController
   skip_before_action :authorized
   def new
-    @recipe_and_ingredients = RecipeAndIngredient.new
+
   end
 
   def create 
-    @rip = RecipeAndIngredient.new(@recipe_and_ingredients_params)
-		@rip.save
+
   end
   def search 
-    if params[:rec_cate].blank?
-      puts '*** 1 ***' 
-      redirect_to(user_user_index_path)
+    if params[:ingredient_id].blank?
+      puts '*** 1 ***'
+      @results = Recipe.all
+      render 'user/recipe/index'
     else
-      @parameter = params[:rec_cate]
-      @results = RecipeAndIngredient.where(ingredient_id: @parameter) 
+      @parameter = params[:ingredient_id] #includes
+      recipe_ids = Array.new
+      
+      @ris = RecipeAndIngredient.select('id, recipe_id, group_concat(ingredient_id) as ingri_ids').group(:recipe_id)
+      
+      @ris.each do |ri|
+        total = 0
+        @parameter.each do |par|
+          if(ri.ingri_ids.include?(par))
+            total = total + 1 
+          end  
+        end
+        if total > 2
+          recipe_ids.push(ri.recipe_id)
+        else
+          if total == @parameter.length
+            recipe_ids.push(ri.recipe_id)
+          end
+        end
+      end
+      @results = Recipe.where(id: recipe_ids)
       #raise @results.inspect
       if @results.blank?
         puts '*** 2 ***' 
-        @results = RecipeAndIngredient.all
+        @results = Recipe.all
+        render 'user/recipe/index'
       else
         puts '*** 3 ***' 
         # redirect_to user_search_index_path
+        raise @results.inspect
+        render 'user/recipe/index'
       end
     end
   end 

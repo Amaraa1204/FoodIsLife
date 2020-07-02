@@ -1,13 +1,24 @@
+
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
   <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+  <% if user_logged_in?%>
+      <div class="sign_btns">
+        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
+      </div>
+    <% else %>
+      <div class="sign_btns">
+        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+      </div>
+    <% end %>
 </div><br>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
-
 <div class="recipeShow">
   <strong class="recipeName">Recipe:
     <%= @recipe.name %>
@@ -24,14 +35,27 @@
     <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
     <%# @non_rated = @non_rated - 1 %>
   <%# end %><br>
-
-  <% if @recipe.image.full.url%>
-    <%= image_tag @recipe.image.full.url, :class => 'recipeImage'%><br>
-  <%end%>
+  <div>
+<h4 style="display: inline;">Rating : </h4>
+  <% if @res %>
+    <%= @res %>
+  <% end %>
+</div>
+  <% if @recipe.image.full.url %>
+     <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
+  <% else %>
+     <%= image_tag asset_path("default.jpg"), :class => 'recipeImage'%>
+  <% end %>
 
   <p>
     <strong class="recipeInst">Instruction</strong><br>
     <%= @recipe.instruction %>
+  </p>
+  <p>
+    <strong class="recipeInst">Ingredients</strong><br>
+    <% RecipeAndIngredient.where("recipe_id = ?", @recipe.id).each do |rip| %>
+      <li><%= Ingredient.find(rip.ingredient_id).name %></li>
+    <% end %>
   </p>
 </div><br>
 
@@ -54,12 +78,14 @@
       <div class="commentView">
         <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
         <%= rate.rate %>
-
-        <span class="commHover">
-          <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate), :class => 'commDelete',
+        <% if current_user.nil?%>
+        <% elsif rate.user_id == current_user.id%>
+          <span class="commHover">
+            <%= link_to 'Delete', user_recipe_recipe_and_rate_path(recipe_id: @recipe.id, id: rate), :class => 'commDelete',
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %>
-        </span>
+          </span>
+        <%end%>
       </div>
     </p>
   <% end %>
@@ -72,11 +98,6 @@
     <% end %>
   </div>
 
-  <strong class="recipeInst">Rate it</strong>
-  <%= form_with(model: @recipe.recipe_and_rates.build, url: user_recipe_recipe_and_rate_index_path(recipe_id: @recipe.id), local: true) do |f| %>
-    <%= f.number_field :rate, :class => 'areasRaCo'%>
-    <%= f.submit :Send, :class => 'sendBTN' %>
-  <% end %>
 
 </div>
 <%#= image_tag 'pencil.png', :class => "commentActionIcon" %>
@@ -90,11 +111,14 @@
       <div class="commentView">
       <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
         <%= comment.comment %>
+        <% if current_user.nil?%>
+        <% elsif comment.user_id == current_user.id%>
         <span class="commHover">
           <%= link_to 'Delete', user_recipe_comment_path(recipe_id: @recipe.id, id: comment), :class => 'commDelete',
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %>
         </span>
+        <%end%>
       </div>
     </p>
   <% end %>

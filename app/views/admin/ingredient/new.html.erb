@@ -1,10 +1,18 @@
-<body style="background-color: #d8e5f1;">
-<div class="head">
-  <h1 class="headWord">
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+</div>
+
+<div class="admin_sub">
+  <h1 class="admin_sub_inside">
     <%= image_tag 'add.png', :class => "iconH1" %> New Ingredient
   </h1>
-  <hr>
-  <%= stylesheet_link_tag 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <hr class="hr">
+  <div class="insub">
   <%= form_with(model: @ingre, url: admin_ingredient_index_path, local: true, :class => "form") do |form| %>
 
       <% if @ingre.errors.any? %>
@@ -22,25 +30,22 @@
         </div>
       <% end %>
 
-    <p>
+    <p class="label_new">
       <%= form.label :name %><br>
-        <%= form.text_field :name %>
+      <%= form.text_field :name %>
     </p>
-
-    <p>
-      <%= form.label :ingre_category %><br>
-        <p id="labels">
-      <%= collection_select(:ingredient, :ingre_category_id, IngreCategory.all, :id, :name)%>
+    <p class="label_new">
+      <%= form.label :"Ingredient Category" %><br>
+	    <p>
+	      <%= collection_select(:ingredient, :ingre_category_id, IngreCategory.all, :id, :name)%>
+	    </p>
     </p>
-    </p>
-
     <p>
       <%= form.submit :Save, :class => "saveAction" %>
     </p>
 
   <% end %>
 
-  <%= image_tag 'back.png', :class => "iconLil" %>
-  <%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+  <%= link_to 'Back', admin_ingredient_index_path, :class => "btn-user" %>
 </div>
-</body>
+</div>

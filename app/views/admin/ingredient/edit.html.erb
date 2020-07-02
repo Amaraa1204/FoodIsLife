@@ -1,45 +1,44 @@
-<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-<body style="background-color: #d8e5f1;">
-<div class="head">
-<h1 class="headWord">
-  <%= image_tag "edit.png", :class => "iconH1" %> Edit Ingredient
-</h1>
-<hr>
-<%# render 'form' %>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= form_with(model: @ingre, url: admin_ingredient_path(@ingre), local: true) do |form| %>
-    <% if @ingre.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@ingre.errors.count, "error") %>
-    prohibited
-          this ingredient from being saved:
-        </h2>
-        <ul>
-          <% @ingre.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <p>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
-    </p>
-
-    <p>
-      <%= form.label :ingre_category %><br>
-      <%= form.text_field :ingre_category_id %>
-    </p>
-
-    <p>
-      <%= form.submit :Save, :class => "saveAction" %>
-    </p>
-
-<% end %>
-
-  <%= image_tag 'back.png', :class => "iconLil" %>
-  <%= link_to 'Back', admin_ingredient_index_path, :class => "action" %>
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
 </div>
-</body>
+<div class="admin_sub">
+  <h1 class="admin_sub_inside"> Edit Ingredient</h1>
+  <hr class="hr">
+  <%# render 'form' %>
+  <div class="insub">
+    <%= form_with(model: @ingre, url: admin_ingredient_path(@ingre), local: true) do |form| %>
+        <% if @ingre.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@ingre.errors.count, "error") %>
+        prohibited
+              this ingredient from being saved:
+            </h2>
+            <ul>
+              <% @ingre.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <p class="label_new">
+          <%= form.label :name %><br>
+          <%= form.text_field :name %>
+        </p>
+        <p class="label_new">
+          <%= form.label :'Ingredient Category' %><br>
+          <%= form.text_field :ingre_category_id %>
+        </p>
+        <p>
+          <%= form.submit :Save, :class => "saveAction" %>
+        </p>
+      <% end %>
+    <%= link_to 'Back', admin_ingredient_index_path, :class => "btn-user" %>
+    </div>
+</div>

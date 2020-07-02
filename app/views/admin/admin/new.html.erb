@@ -1,9 +1,17 @@
-<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-<h1>Sign up</h1>
-<%= form_for :admin, url: admin_admin_index_path do |f| %>
-    <%= f.label :user_name %><br>
-    <%= f.text_field :user_name %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, id: 'user_user_name'%><br>
-    <%= f.submit %>
-<% end %>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="admin_sub">
+  <div class="insub">
+    <h1 class="admin_sub_inside">Sign up</h1>
+    <hr class="hr">
+    <%= form_for :admin, url: admin_admin_index_path do |f| %>
+      <p class="label_new">
+        <%= f.label :user_name %><br>
+        <%= f.text_field :user_name %><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, id: 'user_user_name'%><br>
+        <%= f.submit %>
+      </p>
+    <% end %>
+    <%= link_to 'Have you already registered?', new_admin_session_path, class: 'homeBTN' %>
+  </div>
+</div>

@@ -1,73 +1,286 @@
-
-body{
-  background-color: #ddeef0
+body {
+  font-family: "Aleo";
+  background-color: #ffe8d7;
+  font-size: 20px;
+  font-family: Sofia;
+  margin: 0;
+}
+.cat_btn img{
+  background-color: rgba(131, 131, 131, 0);
+  border: none;
+  width: 15%;
+  height: 35%;
 }
 
-#page-container {
-position: relative;
-min-height: 100%;
-min-width: 100%;
-}
-
-#content-wrap {
-padding-bottom: 10%;
-padding-top: 10%;
-}
-
-.user_home_header {
-  top: 0px;
-  position: absolute;
-  width: 100%;
-  min-height: 10%;
-  background-color: rgb(55, 119, 216);
-  margin-bottom: 10%;
-  left: 0;
-  color: white;
-}
-
-.user_home_footer {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-  min-height: 10%;
-  background-color: rgb(55, 119, 216);
-  left: 0;
-  color: white;
-}
-
-#logo {
-  font-family: 'Aleo';
-  color: rgb(255, 255, 255);
+.list {
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 10px;
   margin-left: 10%;
-  margin-top: 1%;
+  margin-bottom: 10px;
+}
+
+.list td, th {
+  border: 1px solid #ffe8d7;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.list tr:nth-child(even){
+  background-color: #FFCCCC;
+}
+
+.list tr:hover {
+  background-color: #F9B7BF;
+}
+
+.list th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #FF9999;
+  color: white;
+}
+
+.btn {
+  width: 35%;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+}
+
+#error_explanation {
+  font-size: 20px;
+  left: 10%;
+}
+
+.inputs {
+border-radius: 6px;
+height: 30px;
+width: 250px;
+border: none;
+}
+
+.inputInst{
+border-radius: 6px;
+height: 80px;
+width: 250px;
+border: none;
+}
+
+#labels {
+text-align: center;
+}
+
+.submit {
+  height: 35px;
+  width: 150px;
+  background-color: #5682db;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  margin-left: 45%;
+  border: none;
+  font-size: 17px;
+}
+
+.image {
+  background-color: #FF9999;
+  border-radius: 6px;
+  padding: 3px;
+  width: 28%;
+}
+
+.grid-container {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+  grid-gap: 5%;
+  padding: 2%;
+}
+
+.recipeShow{
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #FFCCCC;
+  border-radius: 6px;
+  padding-bottom: 3%;
+}
+
+.areasRaCo{
+  background-color: #F7E1E9;
+  border-radius: 6px;
+  border: none;
+}
+
+.commentView{
+  position: relative;
   display: inline-block;
 }
 
-  .sign_btns {
-    float: right;
-    height: 100%;
-    margin-right: 0.5%;
-  }
+.commentView .commHover{
+  visibility: hidden;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  background-color: #FF9999;
+}
 
-  .sign_btns span{
-    background-color: rgba(75, 75, 75, 0.329);
-    float: left;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-top: 10%;
-    top: 0px;
-  }
+.commentView:hover .commHover{
+  visibility: visible;
+}
 
-  #sign_btn {
-    background-color: rgba(75, 75, 75, 0.329);
-    float: left;
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    cursor: pointer;
-  }
+.commDelete{
+  text-decoration: none;
+  color: #fff;
+}
 
-  #sign_btn:hover {
-      background-color: rgb(130, 121, 255);
-  }
+.recipeImage{
+  width: 20%;
+}
+
+.homeBTN{
+  text-decoration: none;
+  color: black;
+}
+
+.header{
+  background-color: #FF9999;
+  width: 100%;
+  margin-left: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.recipeName{
+  font-size: 35px;
+}
+
+.recipeInst{
+  font-size: 25px;
+}
+
+.sendBTN{
+  background-color: #FF9999;
+  color: white;
+  border: none;
+  padding: 1% 5% 1% 5%;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Sofia;
+  font-size: 15px;
+  top: 10%;
+}
+
+.star:active{
+  background-color: yellow;
+}
+
+.recipeimgli{
+  position: relative;
+  border: none;
+  background-color: #FFCCCC;
+  text-align: center;
+  padding: 3% 0;
+  border-radius: 10px;
+
+}
+
+.recipeimgli .recipeimgspan{
+  visibility: hidden;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  background-color: #FF6666;
+  opacity: 0.8;
+}
+
+.recipeimgli:hover .recipeimgspan{
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-left: -95%;
+  margin-top: -3%;
+}
+
+.recipeimg{
+  width: 90%;
+}
+
+.search {
+  width: 80%;
+  height: 100%;
+  float: right;
+  margin-right: 5%;
+}
+
+.search input[type=search] {
+width: 70%;
+height: 30px;
+border: none;
+border-radius: 30px;
+margin-right: 5%;
+margin-left: 5%;
+}
+
+.search input[type=submit] {
+border: none;
+border-radius: 30px;
+background-color: rgb(55, 119, 216);
+}
+
+.search_form button {
+background-color: rgba(75, 75, 75, 0.329);
+float: right;
+border: none;
+color: white;
+margin-right: 10%;
+height: 30px;
+border-radius: 30px;
+}
+
+.search_form button:hover {
+  background-color: rgb(15, 68, 146);
+}
+
+.dropbtn {
+  background-color: rgba(131, 131, 131, 0);
+  border: none;
+  top: 50%;
+  float: left;
+}
+
+.dropdown {
+  position: relative;
+  display: inline;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ff7b7b;
+  min-width: 160px;
+  margin-top: 30px;
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;*/
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown-content button {
+  background-color: #ff7b7b;
+  width: 100%;
+  border: none;
+  text-align: left;
+}

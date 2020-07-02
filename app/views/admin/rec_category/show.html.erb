@@ -1,13 +1,27 @@
-<div class="indexCate">
-	<p>
-  <strong>ID:</strong>
-  <%= @reccategory.id %>
-</p>
-<p>
-  <strong>NAME:</strong>
-  <%= @reccategory.name %>
-</p>
-<%= link_to 'Edit', edit_admin_rec_category_path(@reccategory), :class => 'newCate' %> | 
-<%= link_to 'Back', admin_rec_category_index_path, :class => 'newCate' %>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
 </div>
 
+<div class="admin_sub">
+	<h1 class="admin_sub_inside">Recipe Category</h1>
+	<hr class="hr">
+	<div class="insub">
+		<table>
+			<tr>
+			  <th><strong>ID:</strong></th>
+			  <td><%= @reccategory.id %></td>
+			</tr>
+			<tr>
+			  <th><strong>NAME:</strong></th>
+			  <td><%= @reccategory.name %></td>
+			</tr>
+		</table>
+		<%= link_to 'Edit', edit_admin_rec_category_path(@reccategory), :class => 'btn-user' %>
+		<%= link_to 'Back', admin_rec_category_index_path, :class => 'btn-user' %>
+	</div>
+</div>
