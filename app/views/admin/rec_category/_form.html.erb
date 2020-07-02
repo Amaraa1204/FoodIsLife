@@ -1,5 +1,4 @@
 <%= form_with model: @reccategory, url: @newpath, local: true do |form| %>
- 
   <% if @reccategory.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,13 +12,11 @@
       </ul>
     </div>
   <% end %>
-  <p>
+  <p class="label_new">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
- 
   <p>
     <%= form.submit %>
   </p>
- 
 <% end %>

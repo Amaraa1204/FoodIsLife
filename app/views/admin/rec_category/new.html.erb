@@ -1,7 +1,18 @@
-<div class="indexCate">
-<h1>New rec_category</h1>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= render 'form' %>
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+</div>
 
-<%= link_to 'Back', admin_rec_category_index_path, :class => 'newCate' %>
+<div class="admin_sub">
+  <h1 class="admin_sub_inside">New Recipe Category</h1>
+  <hr class="hr">
+  <div class="insub">
+    <%= render 'form' %>
+
+    <%= link_to 'Back', admin_rec_category_index_path, :class => 'btn-user' %>
+  </div>
 </div>

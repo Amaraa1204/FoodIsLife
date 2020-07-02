@@ -1,3 +1,12 @@
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+</div>
+
 <%= form_with scope: :recipe, url: admin_recipe_index_path(@recipe), local: true do |form| %>
   
   <% if @recipe.errors.any? %>

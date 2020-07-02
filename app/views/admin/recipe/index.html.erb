@@ -1,18 +1,24 @@
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= image_tag 'house.png', :class => "iconLil" %>
-<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
-<h1>Recipe list</h1>
-<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+</div>
 
-<%= link_to 'New recipe', new_admin_recipe_path, class: "btn" %>
-<table class="list">
-  <tr>
-    <th>Name</th>
-    <th>Instruction</th>
-    <th>Image</th>
-    <th>Author</th>
-    <th colspan="3"></th>
-  </tr>
+<div class="admin_sub">
+  <h1 class="admin_sub_inside">Recipe List</h1>
+  <hr class="hr">
+  <div class="insub">
+    <%= link_to 'New recipe', new_admin_recipe_path, class: "btn-user" %>
+    <table class="list">
+      <tr>
+        <th>Name</th>
+        <th>Instruction</th>
+        <th>Image</th>
+        <th>Author</th>
+      </tr>
 
   <% @recipe.each do |recipe| %>
     <tr>
