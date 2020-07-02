@@ -6,8 +6,9 @@
   <div class="user_home_header">
     <h1 id="logo">RECIDENT</h1>
     <% if user_logged_in?%>
-      <div class="pro_btn">
-        <span><%= button_to "Profile", 'user/user', method: :get, id: "profile_btn"%></span>
+      <div class="sign_btns">
+        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
       </div>
     <% else %>
       <div class="sign_btns">
@@ -24,17 +25,16 @@
 
   <div class="search">
       <div class="dropdown">
-          <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
+          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
           <div class="dropdown-content">
-            <%= form_tag(search_user_rec_category_index_path, method: :get) do %>
+            <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
               <% RecCategory.all.each do |cate| %>
-                <span><%= cate.name %><%= submit_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
+                <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
               <% end %>
             <% end %>    
           </div>
       </div>
-    </div>
-    <div class="search">
+      <div class="search_form">
     <%= form_tag(user_search_index_path, method: :get) do %>
       <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
       <%= button_tag "Search", :name => nil %>

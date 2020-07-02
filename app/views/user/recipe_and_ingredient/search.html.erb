@@ -1,11 +1,58 @@
-<h3>Search Result</h3> 
 
-  <% @results.each do |result| %>
-    <%= result.id %><br>
-    <%= result.name %><br>
-    <% if result.image.thumb.url %>
-      <%= image_tag result.image.thumb.url %>
-    <% else %>
-      <%= image_tag asset_path("thumb_default.jpg")%>
+<%= stylesheet_link_tag 'search', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
+
+<div class="header">
+  <%= image_tag 'house.png', :class => "iconLil" %>
+  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+</div><br>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
+
+<div class="search">
+      <div class="dropdown">
+          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
+          <div class="dropdown-content">
+            <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
+              <% RecCategory.all.each do |cate| %>
+                <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
+              <% end %>
+            <% end %>    
+          </div>
+      </div>
+      <div class="search_form">
+    <%= form_tag(user_search_index_path, method: :get) do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+      <%= button_tag "Search", :name => nil %>
+    <%end%>
+    </div>
+
+<div class="recipeShow">
+
+  <ul class="grid-container">
+    <% if @results%>
+      <% @results.each do |result| %>
+        <li class="recipeimgli">
+          <% if result.image.full.url %>
+            <%= image_tag result.image.full.url, :class => 'recipeimg' %>
+          <% else %>
+            <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
+          <% end %>
+          <span class="recipeimgspan">
+            <strong>Recipe name: </strong>
+            <%= result.name %><br>
+            <strong>Author: </strong>
+            <%= User.find(result.author_id).user_name %><br>
+            <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
+            <%= link_to 'Favourite', user_favourite_index_path(recipe_id: result.id),
+        method: :post,
+        data: { confirm: 'Add Favourite' },
+        class: "btn" %> 
+          </span>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
+  </ul>
+</div>
