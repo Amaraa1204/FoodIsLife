@@ -86,7 +86,7 @@ transition: all 0.2s ease 0s;
 .dropdown {
   position: relative;
   display: inline-block;
-  
+
 }
 
 .dropdown-content {
@@ -237,11 +237,11 @@ transition: all 0.2s ease 0s;
   border-radius: 10%;
   bottom: 0;
 }
-.btnLogEdit a:link { 
-    text-decoration:none; 
+.btnLogEdit a:link {
+    text-decoration:none;
 }
-.btnLogExit a:link { 
-    text-decoration:none; 
+.btnLogExit a:link {
+    text-decoration:none;
 }
 .showBtn {
   font-family: Sofia;
@@ -258,8 +258,8 @@ transition: all 0.2s ease 0s;
   bottom: 1%;
   margin-left: 100px;
 }
-.showBtn a:link { 
-    text-decoration:none; 
+.showBtn a:link {
+    text-decoration:none;
 }
 .showBtn:hover {
   background-color: #ddd;
@@ -281,7 +281,7 @@ button.btnLogEdit::after {
     background-image: image-url("pencil.png");
     background-size: 100% 100%;
     display: inline-block;
-    width: 25px; 
+    width: 25px;
     height: 25px;;
    content: "";
 }
@@ -300,7 +300,7 @@ button.btnLogExit::after {
     background-image: image-url("exit.png");
     background-size: 100% 100%;
     display: inline-block;
-    width: 25px; 
+    width: 25px;
     height: 25px;;
    content: "";
 }
@@ -317,7 +317,7 @@ transition: all 0.2s ease 0s;
 .formPos input{
   float:right;
   display: inline;
-
+}
 .del_btn {
   width: 35%;
   background-color: white;
