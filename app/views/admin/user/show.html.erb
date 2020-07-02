@@ -1,39 +1,34 @@
-<table>
-    <tr>
-        <th>
-            <strong>ID:</strong>
-        </th>
-        <td>
-        <%= @user.id %>
-        </td>
-    </tr>
-    <tr>
-        <th>
-        <strong>Email:</strong>
-        </th>
-        <td>
-        <%= @user.email %>
-        </td>
-    </tr>
-    <tr>
-    <th>
-    <strong>Username:</strong>
-    </th>
-        <td>
-        <%= @user.user_name %>
-        </td>
-        
-    </tr>
-    <tr>
-        <th>
-            <strong>Account created at:</strong>
-        </th>
-        <td>
-        <%= @user.created_at %>
-        </td>
-    </tr>
-</table>
-<br>
-<br>
-<%= link_to 'Back', admin_user_index_path,class: "btn" %>
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+</div>
+
+<div class="admin_sub">
+	<h1 class="admin_sub_inside">User information</h1>
+	<hr class="hr">
+	<div class="insub">
+    <table>
+      <tr>
+        <th><strong>ID:</strong></th>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th><strong>Email:</strong></th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th><strong>Username:</strong></th>
+        <td><%= @user.user_name %></td>
+      </tr>
+      <tr>
+        <th><strong>Account created at:</strong></th>
+        <td><%= @user.created_at %></td>
+      </tr>
+    </table>
+    <%= link_to 'Back', admin_user_index_path, class: "btn-user" %>
+  </div>
+</div>
