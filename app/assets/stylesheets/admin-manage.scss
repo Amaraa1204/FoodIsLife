@@ -57,8 +57,9 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+
 }
-input[type=password], select {
+input[type=password] {
   width: 90%;
   padding: 12px 20px;
   margin: 8px 15px;
@@ -150,7 +151,6 @@ input[type=submit]:hover {
   width: 10%;
 }
 .label_new{
-  text-align: center;
   font-size: 20px;
 }
 .input_inst{
@@ -174,4 +174,30 @@ input[type=submit]:hover {
 .welcome_admin{
   text-align: center;
   padding-top: 2%;
+}
+.img_rec{
+  width: 20%;
+}
+.admin_rec_edit_out{
+  position: relative;
+  display: inline-block;
+  width: 30%;
+}
+.admin_rec_edit_out .admin_rec_edit_span{
+  visibility: hidden;
+  text-align: left;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  margin-left: -15%;
+  margin-top: -2%;
+  background-color: #CCE5FF;
+  display: inline-block;
+  width: 100%;
+}
+.admin_rec_edit_out:hover .admin_rec_edit_span{
+  visibility: visible;
+}
+.img_area_admin_edit{
+  text-align: center;
 }

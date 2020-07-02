@@ -12,8 +12,8 @@
   <hr class="hr">
   <div class="insub">
     <%= link_to 'New recipe', new_admin_recipe_path, class: "btn-user" %>
-    <table class="list">
-      <tr>
+    <table>
+      <tr class="admin_user_tr">
         <th>Name</th>
         <th>Instruction</th>
         <th>Image</th>
@@ -32,11 +32,11 @@
         <% end %>
       </td>
       <td><%= recipe.author_id %></td>
-      <td class="btn_form_td"><%= link_to 'Show', admin_recipe_path(recipe), class:"btn-form"  %></td>
-      <td class="btn_form_td"><%= link_to 'Edit', edit_admin_recipe_path(recipe), class:"btn-form"  %></td>
+      <td class="btn_form_td"><%= link_to 'Show', admin_recipe_path(recipe), class: "btn-form" %></td>
+      <td class="btn_form_td"><%= link_to 'Edit', edit_admin_recipe_path(recipe), class: "btn-form" %></td>
       <td class="btn_form_td"><%= link_to 'Delete', admin_recipe_path(recipe),
               method: :delete,
-              data: { confirm: 'Are you sure?' }, class:"btn-form"  %></td>
+              data: { confirm: 'Are you sure?' }, class: "btn-form" %></td>
     </tr>
   <% end %>
 </table>

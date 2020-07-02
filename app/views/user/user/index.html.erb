@@ -1,5 +1,5 @@
 
-  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'home','recipe_and_ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <div id="page-container">
 
@@ -47,8 +47,9 @@
     <div class="ingredients">
         <div class="category">
         <% IngreCategory.all.each do |inca| %>
+          <p id="ingre-txt"><%=inca.name%></p>
           <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-          <%=inca.name%>
+          
           <% if inca.image.full.url %>
             <%= image_tag inca.image.full.url %>
           <% else %>
@@ -57,16 +58,22 @@
           </a>
           <div class="content" id=<%=inca.id%>>
           <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+            <div class="ingres">
             <%= check_box_tag "ingredient_id[]", ingre.id %>
-            <%= ingre.name %>
+            <%= ingre.name %><br>
+            </div>
             <% end %>
           </div>
           <% end %>  
       </div>
       <br>
+      <br>
+      <br><br><br>
       <%= submit_tag "Search with ingredients" %>
     </div>
+    
     </div>
+    
   <% end %>
   
   <script>
@@ -81,6 +88,7 @@
     clas[i].style.display = "none";
     }
     x.style.display = "inline";
+    x.style.opacity =  1;
   }
   else{
         x.style.display = "none";
