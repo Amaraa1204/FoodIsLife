@@ -1,7 +1,8 @@
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: 1px solid #F9B7BF;
+  background-color: #F9B7BF;
+  font-family: Sofia;
 }
 
 .tab button {
@@ -14,17 +15,18 @@
   transition: 0.3s;
   font-size: 17px;
   width: 50%;
+  font-family: Sofia;
 }
 
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #ffe8d7;
 }
 
 .tab button.active {
-  background-color: #ccc;
+  background-color: #FF9999;
 }
 
-.grid-container {
+.grid {
 
     margin-top: 0;
     display: grid;
@@ -37,7 +39,7 @@
     backface-visibility: hidden;
   }
   
-  .grid-container > div {
+  .grid > div {
     background-color: rgba(155, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
@@ -159,4 +161,39 @@
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+.del_btn {
+  width: 35%;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 60%;
+}
+
+.logout_btn {
+  background-color: #FF9999;
+  color: white;
+  border: none;
+  padding: 1% 5% 1% 5%;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Sofia;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.send_btn {
+  background-color: #FF9999;
+  color: white;
+  border: none;
+  padding: 1% 5% 1% 5%;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Sofia;
+  font-size: 15px;
+  display: inline-block;
 }
