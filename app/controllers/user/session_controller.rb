@@ -22,6 +22,6 @@ class User::SessionController < UserApplicationController
   def destroy 
     session.delete(:user_id)
     @current_user = nil
-    redirect_to user_session_index_path
+    redirect_to user_user_index_path
   end
 end

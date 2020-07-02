@@ -23,6 +23,12 @@
     <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
     <%# @non_rated = @non_rated - 1 %>
   <%# end %><br>
+  <div>
+<h4 style="display: inline;">Rating</h4>
+  <% if @res %>
+    <%= @res %>
+  <% end %>
+</div>
   <% if @recipe.image.full.url %>
      <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
   <% else %>

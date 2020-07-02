@@ -1,65 +1,58 @@
 
-<%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'search', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
 
-<div id="page-container">
+<div class="header">
+  <%= image_tag 'house.png', :class => "iconLil" %>
+  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+</div><br>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
 
-  <div class="user_home_header">
-    <h1 id="logo">RECIDENT</h1>
-    <% if user_logged_in?%>
-      <div class="pro_btn">
-        <span><%= button_to "Profile", 'user/user', method: :get, id: "profile_btn"%></span>
+<div class="search">
+      <div class="dropdown">
+          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
+          <div class="dropdown-content">
+            <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
+              <% RecCategory.all.each do |cate| %>
+                <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
+              <% end %>
+            <% end %>    
+          </div>
       </div>
-    <% else %>
-      <div class="sign_btns">
-        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
-        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
-      </div>
-    <% end %>
-  </div>
-<div id="content-wrap">
-  <div class="motto">
-    <h1>Discover new recipes with your favourite ingredients!</h1>
-    <h2>Share your recipe with the world</h2>
-  </div>
-
-  <div class="search">
-    <div class="dropdown">
-        <button class="dropbtn"><img style="margin-top: 50%;" src=<%=asset_path("three1.png")%> ></img></button>
-        <div class="dropdown-content">
-          <%= form_tag(search_user_rec_category_index_path, method: :get) do %>
-            <% RecCategory.all.each do |cate| %>
-              <span><%= cate.name %><%= submit_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
-            <% end %>
-          <% end %>    
-        </div>
+      <div class="search_form">
+    <%= form_tag(user_search_index_path, method: :get) do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+      <%= button_tag "Search", :name => nil %>
+    <%end%>
     </div>
-  </div>
-  <div class="search">
-  <%= form_tag(user_search_index_path, method: :get) do %>
-    <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
-    <%= button_tag "Search", :name => nil %>
-  <%end%>
-  </div>
-  <% if alert %>
-    <%= alert %>
-  <% end %>
-  
-<h3>Search Result</h3> 
 
-  <% @results.each do |result| %>
-    <%= result.name %><br>
-    <% if result.image.thumb.url %>
-      <%= image_tag result.image.thumb.url %>
-    <% else %>
-      <%= image_tag asset_path("thumb_default.jpg")%>
+<div class="recipeShow">
+
+  <ul class="grid-container">
+    <% if @results%>
+      <% @results.each do |result| %>
+        <li class="recipeimgli">
+          <% if result.image.full.url %>
+            <%= image_tag result.image.full.url, :class => 'recipeimg' %>
+          <% else %>
+            <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
+          <% end %>
+          <span class="recipeimgspan">
+            <strong>Recipe name: </strong>
+            <%= result.name %><br>
+            <strong>Author: </strong>
+            <%= User.find(result.author_id).user_name %><br>
+            <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
+            <%= link_to 'Favourite', user_favourite_index_path(recipe_id: result.id),
+        method: :post,
+        data: { confirm: 'Add Favourite' },
+        class: "btn" %> 
+          </span>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-
-
-<div class="user_home_footer">
-
-</div>
-
-</div>
+  </ul>
 </div>
