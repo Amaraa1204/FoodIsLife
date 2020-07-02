@@ -4,6 +4,7 @@ class User::SearchController < UserApplicationController
     if params[:search].blank?
       puts '*** 1 ***' 
       @results = Recipe.all
+      flash.now[:alert] = 'Please write a food name!'
       render 'user/recipe/index'
     else
       @parameter = params[:search].downcase 
@@ -12,6 +13,7 @@ class User::SearchController < UserApplicationController
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all
+        flash.now[:alert] = 'Sorry, no results.'
         render 'user/recipe/index'
       else
         puts '*** 3 ***' 

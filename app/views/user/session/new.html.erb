@@ -1,8 +1,17 @@
-<h1>Login</h1>
+<%= stylesheet_link_tag 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="admin_sub">
+  <h1 class="admin_sub_inside">Login</h1>
+  <hr class="hr">
+  <div class="insub">
 <%= form_tag url: user_session_index_path do %>
+<p class="label_new">
     <%= label_tag :user_name %>
     <%= text_field_tag :user_name %>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
     <%= submit_tag "Login" %>
-<%end%>
+      </p>
+    <%end%>
+  </div>
+</div>

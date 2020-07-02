@@ -70,6 +70,13 @@
       <br>
       <br><br><br>
       <%= submit_tag "Search with ingredients" %>
+      <div class="alert">
+        <% if alert %>
+          <strong>
+            <%= alert %>
+          </strong>
+        <% end %>
+      </div>
     </div>
     
     </div>

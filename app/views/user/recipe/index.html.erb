@@ -5,6 +5,17 @@
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
   <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
+  <% if user_logged_in?%>
+      <div class="sign_btns">
+        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
+      </div>
+    <% else %>
+      <div class="sign_btns">
+        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+      </div>
+    <% end %>
 </div><br>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
@@ -28,15 +39,19 @@
       <%= button_tag "Search", :name => nil %>
     <%end%>
     </div>
+    <div class="alert">
+      <% if alert %>
+        <strong>
+          <%= alert %>
+        </strong>
+      <% end %>
+    </div>
 
 <div class="recipeShow">
   <p>
     <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
   </p>
   <ul class="grid-container">
-  <% if @results.nil? %>
-  <h1>GGGGGGGGGGG you sucker!</h1>
-  <%end%>
     <% if @results %>
       <% @results.each do |result| %>
         <li class="recipeimgli">
@@ -47,7 +62,7 @@
           <% end %>
           <span class="recipeimgspan">
             <strong>Recipe name: </strong>
-            <%= result.name %><br>
+              <%= result.name %><br>
             <strong>Author: </strong>
             <%= User.find(result.author_id).user_name %><br>
             <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
@@ -73,7 +88,7 @@
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>
             <strong>Author: </strong>
-            <%= recipe.author_id %><br>
+            <%= User.find(recipe.author_id).user_name %><br>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
 
             <% if current_user.nil?%>

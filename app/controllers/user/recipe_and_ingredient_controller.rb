@@ -11,7 +11,8 @@ class User::RecipeAndIngredientController < UserApplicationController
     if params[:ingredient_id].blank?
       puts '*** 1 ***'
       @results = Recipe.all
-      render 'user/recipe/index'
+      flash.now[:alert] = 'Please check ingredients.'
+      render 'user/user/index'
     else
       @parameter = params[:ingredient_id] #includes
       recipe_ids = Array.new
@@ -27,10 +28,8 @@ class User::RecipeAndIngredientController < UserApplicationController
         end
         if total > 2
           recipe_ids.push(ri.recipe_id)
-        else
-          if total == @parameter.length
-            recipe_ids.push(ri.recipe_id)
-          end
+        elsif total == @parameter.length
+          recipe_ids.push(ri.recipe_id)
         end
       end
       @results = Recipe.where(id: recipe_ids)
@@ -38,11 +37,11 @@ class User::RecipeAndIngredientController < UserApplicationController
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all
+        flash.now[:alert] = 'Sorry, no results.'
         render 'user/recipe/index'
       else
         puts '*** 3 ***' 
         # redirect_to user_search_index_path
-        raise @results.inspect
         render 'user/recipe/index'
       end
     end

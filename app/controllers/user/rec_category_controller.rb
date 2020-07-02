@@ -4,6 +4,7 @@ class User::RecCategoryController < UserApplicationController
     if params[:rec_cate].blank?
       puts '*** 1 ***' 
       @results = Recipe.all
+      flash.now[:alert] = 'No such category.'
       render 'user/recipe/index'
     else
       @parameter = params[:rec_cate]
@@ -12,6 +13,7 @@ class User::RecCategoryController < UserApplicationController
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all
+        flash.now[:alert] = 'Sorry, no results.'
         render 'user/recipe/index'
       else
         puts '*** 3 ***' 

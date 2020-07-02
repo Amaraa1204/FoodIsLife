@@ -60,7 +60,7 @@
 </div><br>
 
 <div class="recipeShow">
-  <strong class="recipeInst">All ratings</strong>
+  <strong class="recipeInst">Rate the Recipe!</strong>
 
   <%= link_to image_tag('starWhite.png', :style => 'width:15px;', :class => 'star_rating star_1', :data => 1),
               user_recipe_recipe_and_rate_index_path(@recipe, rate: 1), method: :post %>
@@ -130,4 +130,11 @@
     <%= f.submit :Send, :class => 'sendBTN' %>
 
   <% end %>
+  <div class="alert">
+    <% if alert %>
+      <strong>
+        <%= alert %>
+      </strong>
+    <% end %>
+  </div>
 </div>
