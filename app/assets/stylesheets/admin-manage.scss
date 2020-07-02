@@ -184,7 +184,7 @@ input[type=submit]:hover {
   width: 30%;
 }
 .admin_rec_edit_out .admin_rec_edit_span{
-  visibility: hidden;
+  display: none;
   text-align: left;
   border-radius: 6px;
   position: relative;
@@ -192,11 +192,10 @@ input[type=submit]:hover {
   margin-left: -15%;
   margin-top: -2%;
   background-color: #CCE5FF;
-  display: inline-block;
   width: 100%;
 }
 .admin_rec_edit_out:hover .admin_rec_edit_span{
-  visibility: visible;
+  display: inline-block;
 }
 .img_area_admin_edit{
   text-align: center;

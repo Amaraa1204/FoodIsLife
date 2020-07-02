@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= link_to 'New recipe', new_user_recipe_path, class: "btn" %>
 
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
@@ -11,10 +10,7 @@
 </head>
 
 <div class="recipeShow">
-  <%= image_tag 'order.png', :class => "iconH1" %>
-
-
-  <p>
+  <p class="user_div_top_btn">
     <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
   </p>
 
@@ -35,11 +31,11 @@
             <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
         method: :post,
         data: { confirm: 'Add Favourite' },
-        class: "btn" %> 
+        class: "btn" %>
           </span>
         </li>
-        
+
     <% end %>
-    
+
   </ul>
 </div>
