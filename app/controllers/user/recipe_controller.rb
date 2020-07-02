@@ -2,7 +2,7 @@ class User::RecipeController < UserApplicationController
   skip_before_action :authorized, only: [:show, :index]
 
   def index
-    @recipe = Recipe.all
+		@recipe = Recipe.all
     /
 		@cat = Category.all
 		if params[:search].present?
