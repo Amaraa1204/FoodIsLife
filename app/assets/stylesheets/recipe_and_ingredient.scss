@@ -2,8 +2,8 @@
 .ingredients {
     margin-top: 10%;
     margin-left: 15%;
-    width: 100%;
-    
+    width: 70%;
+    display: inline-block;
 }
 
 .ingredients input[type=submit] {
@@ -31,18 +31,16 @@
   }
   #ingre-txt{
     position: absolute;
-    display: inline;  
-    margin-left: 7%;
-    margin-top: 20%;
-
+    display: inline;
+    margin-left: 6%;
+    margin-top: 15%;
   }
   .content {
-    margin-top: 200px;
-    margin-left: -140px;
-    width: 30%;
-    display: inline-block;
+    margin-top: 160px;
+    margin-left: -150px;
+    width: 17%;
+    display: none;
     position: absolute;
-    
-    background-color: #4b90be;
+    background-color: #af414154;
     padding: 10px;
   }
