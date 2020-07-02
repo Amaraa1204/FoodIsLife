@@ -97,31 +97,30 @@
   width: 70%;
   height: 30px;
   border: none;
-  border-radius: 30px;
+  border-radius: 6px;
   margin-right: 5%;
   margin-left: 5%;
 }
 
 .search input[type=submit] {
   border: none;
-  border-radius: 30px;
+  border-radius: 6px;
   height: 30px;
   background-color: rgba(75, 75, 75, 0.329);
   float: right;
 }
 
 .search input[type=submit]:hover {
-  background-color: rgb(15, 68, 146);
+  background-color: gray;
 }
 
 .search_form button {
   background-color: rgba(75, 75, 75, 0.329);
   float: right;
   border: none;
-  color: white;
-  
+  color: black;
   height: 30px;
-  border-radius: 30px;
+  border-radius: 6px;
 }
 
 .search_form button:hover {
@@ -162,60 +161,3 @@
     border: none;
     text-align: left;
   }
-/*
-
-  .dropdown-content button {
-    background-color: #ff7b7b;
-    width: 100%;
-    border: none;
-    text-align: left;
-  }
-
-.ingredients {
-    margin-top: 15%;
-    width: 100%;
-}
-
-.ingredients input[type=submit] {
-    float: right;
-    background-color: rgba(255, 146, 96, 0.808);
-    border: none;
-    width: 15%;
-    height: 50%;
-    padding: 20px;
-    margin-right: 20px;
-}
-
-  .cat_btn img{
-    background-color: rgba(131, 131, 131, 0);
-    border: none;
-    width: 15%;
-    height: 35%;
-  }
-
-  .category {
-    position: relative;
-    display: inline;
-    margin-right: 5%;
-  }
-
-  .content {
-    margin-top: 200px;
-    margin-left: -180px;
-    display: none;
-    position: absolute;
-    background-color: #4b90be;
-    padding: 10px;
-  }
-  .pro_btn{
-      float: right;
-      border: none;
-      color: white;
-      cursor: pointer;
-      margin-top: 5%;
-      top: 0px;
-      padding: 10px 24px;
-  }
-  #pro_btn:hover {
-    background-color: rgb(130, 121, 255);
-}
