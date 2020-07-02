@@ -1,18 +1,20 @@
-<%= stylesheet_link_tag 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-<div class="admin_sub">
-  <div class="insub">
-    <h1 class="admin_sub_inside">Sign up</h1>
-    <hr class="hr">
-<%= form_for :user, url: user_user_index_path do |f| %>
-<p class="label_new">
-    <%= f.label :user_name %><br>
-    <%= f.text_field :user_name %><br>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
-    <%= f.submit %>
-      </p>
-    <% end %>
-  </div>
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
+
+<div class="recipeShow">
+  <h1>Sign up</h1>
+  <hr>
+  <%= form_for :user, url: user_user_index_path do |f| %>
+      <%= f.label :user_name %><br>
+      <%= f.text_field :user_name, class: 'user_sign_fld' %><br>
+      <%= f.label :email %><br>
+      <%= f.text_field :email, class: 'user_sign_fld' %><br>
+      <%= f.label :password %><br>
+      <%= f.password_field :password, class: 'user_sign_fld' %><br>
+      <%= f.submit :Save, class: 'user_se_btn' %>
+  <% end %>
 </div>

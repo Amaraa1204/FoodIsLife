@@ -1,17 +1,18 @@
-<%= stylesheet_link_tag 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<div class="admin_sub">
-  <h1 class="admin_sub_inside">Login</h1>
-  <hr class="hr">
-  <div class="insub">
-<%= form_tag url: user_session_index_path do %>
-<p class="label_new">
-    <%= label_tag :user_name %>
-    <%= text_field_tag :user_name %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Login" %>
-      </p>
-    <%end%>
-  </div>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
+
+<div class="recipeShow">
+  <h1>Login</h1>
+  <hr>
+  <%= form_for :user, url: user_session_index_path do |f| %>
+      <%= f.label :user_name %><br>
+      <%= f.text_field :user_name, class: 'user_sign_fld' %><br>
+      <%= f.label :password %><br>
+      <%= f.password_field :password, class: 'user_sign_fld' %><br>
+      <%= f.submit "Login", class: 'user_se_btn'%>
+  <%end%>
 </div>
