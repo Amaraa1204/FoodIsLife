@@ -28,11 +28,11 @@
 
     <label for="psw" id="myForm"><b>Password</b></label>
     <input type="password" id="myForm" placeholder="Enter Password" name="psw" required>
-    
+
     <button type="submit" id="myForm" class="btnLogEdit" style="margin-left: 20px;"><%= link_to 'Edit', user_user_path(current_user.id)%></button>
     <button type="submit" id="myForm" class="btnLogExit"><%= link_to 'Logout', user_session_path, method: :delete %></button>-->
-    
-    
+
+
     <%= form_with model: @user, url: user_user_path(@user), class: "form-container", id: "myForm", local: true do |form| %>
       <div>
         <p>
@@ -59,7 +59,7 @@
   <div class="recipeShow">
   <ul class="grid-container">
     <% Recipe.all.each do |recipe| %>
-      <% if session[:user_id] == recipe.author_id %>   
+      <% if session[:user_id] == recipe.author_id %>
         <div>
         <li class="recipeimgli">
           <% if recipe.image.full.url %>
@@ -78,7 +78,7 @@
           </span>
         </li>
         </div>
-      <% end %>   
+      <% end %>
     <% end %>
     </ul>
     </div>
@@ -106,13 +106,16 @@
               data: { confirm: 'Are you sure?' }, class: "del_btn" %>
           </span>
         </li>
-          </div> 
+          </div>
         <% end %>
 
       <% end %>
     <% end %>
     </ul>
     </div>
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
 
 <script>
@@ -134,7 +137,7 @@ function openRecipe(evt, RecipeName) {
 document.getElementById("defaultOpen").click();
 
 $(function(){
-    $("#btnLogin").click(function(e){       
+    $("#btnLogin").click(function(e){
         e.stopPropagation();
         $("#myForm").show();
         $("body").click(function(e){
@@ -145,7 +148,7 @@ $(function(){
             }
         });
     });
-    
+
 });
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
