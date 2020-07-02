@@ -1,14 +1,5 @@
-<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= form_with model: @recipe, url: user_recipe_path(@recipe), local: true do |form| %>
 
-<div class="header">
-	<div class="inside_head">
-		<%= image_tag 'house.png', :class => "iconLil" %>
-		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
-	</div>
-</div>
-
-<%= form_with scope: :recipe, url: admin_recipe_index_path(@recipe), local: true do |form| %>
-  
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -22,7 +13,8 @@
       </ul>
     </div>
   <% end %>
-<div id="form">
+
+  <div id="form">
   <p id="labels">
     <%= form.label :name %><br>
     <%= form.text_field :name, class: "inputs" %>
@@ -41,38 +33,44 @@
         </a>
         <div class="content" id=<%=inca.id%>>
         <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-          <%= check_box_tag "ingredient_id[]", ingre.id %>
-          <%= ingre.name %>
+          <% if RecipeAndIngredient.where("recipe_id = ?", @recipe.id).pluck(:ingredient_id).include?(ingre.id) %>
+            <%= check_box_tag "ingredient_id[]", ingre.id, true %>
+            <%= ingre.name %>
+          <% else %>
+            <%= check_box_tag "ingredient_id[]", ingre.id %>
+            <%= ingre.name %>          
           <% end %>
+        <% end %>
         </div>
         <% end %>  
     </div>
   </div>
  
   <p id="labels">
-      <%= form.label :instruction %><br>
-      <%= form.text_area :instruction, class: "inputs" %>
-    </p>
+    <%= form.label :instruction %><br>
+    <%= form.text_area :instruction, class: "inputs" %>
+  </p>
 
-    <p id="labels">
-      <%= form.label :image %><br>
-      <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
-    </p>
+  <p id="labels">
+    <%= form.label :image %><br>
+    <span class="sbtn"><%= form.file_field :image, class: "image" %></span>
+  </p>
 
-    <p id="labels">
-      <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
-    </p>
+  <p id="labels">
+    <%= collection_select(:recipe, :rec_category_id, RecCategory.all, :id, :name)%>
+  </p>
 
-    <p id="labels">
-      <%= form.hidden_field :author_id, :value => 0 %>
-    </p>
-
-    <p>
-      <%= form.submit nil, class: "submit" %>
-    </p>
+  <p id="labels">
+    <%= form.hidden_field :author_id, class: "inputs" %>
+  </p>
+ 
+  <p>
+    <%= form.submit :save, class: "submit" %>
+  </p>
+</div>
 <% end %>
 
-  <%= link_to 'Back', admin_recipe_index_path(@recipe), class: "btn" %>
+<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
 
 <script>
 

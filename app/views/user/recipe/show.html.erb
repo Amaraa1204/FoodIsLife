@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
-
 <div class="recipeShow">
   <strong class="recipeName">Recipe:
     <%= @recipe.name %>
@@ -24,10 +23,11 @@
     <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
     <%# @non_rated = @non_rated - 1 %>
   <%# end %><br>
-
-  <% if @recipe.image.full.url%>
-    <%= image_tag @recipe.image.full.url, :class => 'recipeImage'%><br>
-  <%end%>
+  <% if @recipe.image.full.url %>
+     <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
+  <% else %>
+     <%= image_tag asset_path("default.jpg"), :class => 'recipeImage'%>
+  <% end %>
 
   <p>
     <strong class="recipeInst">Instruction</strong><br>

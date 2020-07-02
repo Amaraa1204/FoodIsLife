@@ -1,4 +1,40 @@
+
 <%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<table class="list">
+  <tr>
+    <th>
+      <strong>Name:</strong>
+    </th>
+    <th>
+      <strong>Instruction:</strong>
+    </th>
+    <th>
+      <strong>Image:</strong>
+    </th>
+    <th>
+      <strong>Author:</strong>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <%= @recipe.name %>
+    </td>
+    <td>
+      <%= @recipe.instruction %>
+    </td>
+    <td>
+      <% if @recipe.image.full.url %>
+        <%= image_tag @recipe.image.full.url %>
+      <% else %>
+        <%= image_tag asset_path("default.jpg")%>
+      <% end %>
+    </td>
+    <td>
+      <%= @recipe.author_id %>
+    </td>
+  </tr>
+</table>
 
 <div class="header">
 	<div class="inside_head">

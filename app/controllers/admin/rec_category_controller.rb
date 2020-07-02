@@ -34,8 +34,12 @@ class Admin::RecCategoryController < AdminApplicationController
 
 	def destroy
   		@reccategory = RecCategory.find(params[:id])
-  		@reccategory.destroy
- 
+			if @reccategory.destroy
+				@recipes = Recipe.where("rec_category_id = ?", @reccategory.id)
+				@recipes.each do |r|
+					r.destroy
+				end
+			end
   		redirect_to admin_rec_category_index_path
 	end
 	private
