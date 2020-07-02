@@ -63,7 +63,7 @@
             <strong>Recipe name: </strong>
               <%= result.name %><br>
             <strong>Author: </strong>
-            <% if User.find(result.author_id) %>
+            <% if User.exists?(result.author_id) %>
               <%= User.find(result.author_id).user_name %>
             <% else %>
               <h4>Unknown</h4>
@@ -91,7 +91,7 @@
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>
             <strong>Author: </strong>
-            <% if User.find(recipe.author_id) %>
+            <% if User.exists?(recipe.author_id) %>
               <%= User.find(recipe.author_id).user_name %>
             <% else %>
               <h4>Unknown</h4>
