@@ -1,5 +1,4 @@
 class User::FavouriteController < ApplicationController
-	# before_action :set_variables
 	def set_variables
  		@favVar = session[:user_id]
  		@recipeVar = params[:recipe_id]
