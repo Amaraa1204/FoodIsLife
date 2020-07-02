@@ -1,9 +1,17 @@
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<h1>New User Information</h1>
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+</div>
 
-<%= render 'form' %>
-<br>
-<%= link_to 'Back', admin_user_index_path, class:"btn-user" %>
-
-
- 
+<div class="admin_sub">
+  <h1 class="admin_sub_inside">New User Information</h1>
+  <hr class="hr">
+  <div class="insub">
+    <%= render 'form' %><br>
+    <%= link_to 'Back', admin_user_index_path, class:"btn-user" %>
+  </div>
+<div class="admin_sub">

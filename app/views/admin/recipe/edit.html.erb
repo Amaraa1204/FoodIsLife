@@ -1,3 +1,11 @@
+<%= stylesheet_link_tag 'ingredient', 'admin-manage', 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="header">
+	<div class="inside_head">
+		<%= image_tag 'house.png', :class => "iconLil" %>
+		<%= link_to 'Home', admin_admin_index_path, :class => 'homeBTN' %>
+	</div>
+
 <%= form_with model: @recipe, url: admin_recipe_path(@recipe), local: true do |form| %>
 
   <% if @recipe.errors.any? %>
@@ -68,7 +76,6 @@
     <%= form.submit :save, class: "submit" %>
   </p>
 </div>
-<% end %>
 
 <%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
 
