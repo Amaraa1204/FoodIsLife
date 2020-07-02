@@ -1,10 +1,10 @@
+<%= stylesheet_link_tag 'recipe', 'ingredient', 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <%= stylesheet_link_tag 'home','recipe_and_ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-  <div id="page-container">
-
-  <div class="user_home_header">
-    <h1 id="logo">RECIDENT</h1>
+<div class="header">
+    <strong class="recident_let">
+      <%= image_tag 'cook.png', :class => 'logo_user_user' %>
+      <%= link_to 'FoodIsLife', user_user_index_path, :class => 'head_recident_user'%>
+    </strong>
     <% if user_logged_in?%>
       <div class="sign_btns">
         <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
@@ -16,7 +16,14 @@
         <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
       </div>
     <% end %>
-  </div>
+</div><br>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
+
+<div class="recipeShow">
+
   <div id="content-wrap">
   <div class="motto">
     <h1>Discover new recipes with your favourite ingredients!</h1>
@@ -25,51 +32,52 @@
 
   <div class="search">
       <div class="dropdown">
-          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
+          <button class="dropbtn"><img src=<%= asset_path("menu.png") %> class="search_icon"></button>
           <div class="dropdown-content">
             <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
               <% RecCategory.all.each do |cate| %>
                 <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
               <% end %>
-            <% end %>    
+            <% end %>
           </div>
       </div>
       <div class="search_form">
-    <%= form_tag(user_search_index_path, method: :get) do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
-      <%= button_tag "Search", :name => nil %>
-    <%end%>
-    <%= button_to "All recipes", user_recipe_index_path, method: :get %>
-    </div>
+        <%= form_tag(user_search_index_path, method: :get) do %>
+          <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make" %>
+          <%= button_tag "Search", :name => nil %>
+        <%end%>
+       <%= button_to "All recipes", user_recipe_index_path, method: :get, :class => 'all_recipe_user_btn' %>
+      </div>
   </div>
-  
+
+<div class="ingre_area_user">
   <%= form_tag(search_user_recipe_and_ingredient_index_path, method: :get) do |f| %>
-    <div class="ingredients">
-        <div class="category">
-        <% IngreCategory.all.each do |inca| %>
-          <p id="ingre-txt"><%=inca.name%></p>
+    <div class="img_area_user_edit">
+      <% IngreCategory.all.each do |inca| %>
+        <div class="user_rec_edit_out">
           <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-          
+          <%=inca.name%><br>
           <% if inca.image.full.url %>
-            <%= image_tag inca.image.full.url %>
+            <%= image_tag inca.image.full.url, class: 'img_rec_user' %>
           <% else %>
-            <%= image_tag asset_path("tomato.png")%>
+            <%= image_tag asset_path("tomato.png"), class: 'img_rec_user' %>
           <% end %>
           </a>
-          <div class="content" id=<%=inca.id%>>
-          <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-            <div class="ingres">
-            <%= check_box_tag "ingredient_id[]", ingre.id %>
-            <%= ingre.name %><br>
-            </div>
+          <div id=<%=inca.id%>>
+            <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+              <span class="user_rec_edit_span">
+                <%= check_box_tag "ingredient_id[]", ingre.id %>
+                <%= ingre.name %>
+              </span>
             <% end %>
           </div>
-          <% end %>  
-      </div>
-      <br>
-      <br>
-      <br><br><br>
-      <%= submit_tag "Search with ingredients" %>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <p class="search_btn_user_div">
+    <%= submit_tag "Search with ingredients", :class => 'search_btn_ingre_user' %>
+    <p>
       <div class="alert">
         <% if alert %>
           <strong>
@@ -77,17 +85,14 @@
           </strong>
         <% end %>
       </div>
-    </div>
-    
-    </div>
-    
   <% end %>
-  
+</div>
+
   <script>
 
   function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
-    
+
     var clas = document.getElementsByClassName("content");
 
   if(x.style.display === "none"){
@@ -99,8 +104,7 @@
   }
   else{
         x.style.display = "none";
-    
+
     }
   }
   </script>
-
