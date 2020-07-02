@@ -32,11 +32,11 @@
         <% end %>
       </td>
       <td><%= recipe.author_id %></td>
-      <td><%= link_to 'Show', admin_recipe_path(recipe), class: "btn" %></td>
-      <td><%= link_to 'Edit', edit_admin_recipe_path(recipe), class: "btn" %></td>
-      <td><%= link_to 'Delete', admin_recipe_path(recipe),
+      <td class="btn_form_td"><%= link_to 'Show', admin_recipe_path(recipe), class:"btn-form"  %></td>
+      <td class="btn_form_td"><%= link_to 'Edit', edit_admin_recipe_path(recipe), class:"btn-form"  %></td>
+      <td class="btn_form_td"><%= link_to 'Delete', admin_recipe_path(recipe),
               method: :delete,
-              data: { confirm: 'Are you sure?' }, class: "btn" %></td>
+              data: { confirm: 'Are you sure?' }, class:"btn-form"  %></td>
     </tr>
   <% end %>
 </table>

@@ -10,7 +10,8 @@ class User::RecipeAndIngredientController < UserApplicationController
   def search 
     if params[:ingredient_id].blank?
       puts '*** 1 ***'
-      redirect_to(user_user_index_path)
+      @results = Recipe.all
+      render 'user/recipe/index'
     else
       @parameter = params[:ingredient_id] #includes
       recipe_ids = Array.new
@@ -37,9 +38,12 @@ class User::RecipeAndIngredientController < UserApplicationController
       if @results.blank?
         puts '*** 2 ***' 
         @results = Recipe.all
+        render 'user/recipe/index'
       else
         puts '*** 3 ***' 
         # redirect_to user_search_index_path
+        raise @results.inspect
+        render 'user/recipe/index'
       end
     end
   end 
