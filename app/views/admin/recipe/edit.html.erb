@@ -85,21 +85,20 @@
 		<%= link_to 'Back', admin_recipe_index_path, class: "btn-user" %>
 
 		<script>
-			function ingre_show(inca_id){
-			    var x = document.getElementById(inca_id);
-
-			    var clas = document.getElementsByClassName("content");
-
-			  if(x.style.display === "none"){
-			    for (var i = 0; i < clas.length; i++) {
-			    clas[i].style.display = "none";
-			    }
-			    x.style.display = "inline";
-			  }
-			  else{
-			    x.style.display = "none";
-			  }
-			}
+      
+		function ingre_show(inca_id){
+		    var x = document.getElementById(inca_id);
+		    var clas = document.getElementsByClassName("content");
+		  if(x.style.display === "none"){
+		    for (var i = 0; i < clas.length; i++) {
+		    clas[i].style.display = "none";
+		    }
+		    x.style.display = "inline";
+		  }
+		  else{
+		        x.style.display = "none";
+		    }
+		}
 		</script>
 	</div>
 </div>

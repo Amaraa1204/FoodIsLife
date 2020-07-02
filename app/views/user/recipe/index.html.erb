@@ -87,7 +87,9 @@
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>
             <strong>Author: </strong>
-            <%= User.find(recipe.author_id).user_name %><br>
+            <% if User.find(recipe.author_id) %>
+              <%= User.find(recipe.author_id).user_name %>
+            <% end %><br>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
 
             <% if current_user.nil?%>
