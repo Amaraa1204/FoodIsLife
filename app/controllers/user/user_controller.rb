@@ -1,7 +1,7 @@
 class User::UserController < UserApplicationController
     skip_before_action :authorized, only: [:new, :create, :index]
     def show 
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
     end
 
     def new
@@ -9,11 +9,11 @@ class User::UserController < UserApplicationController
     end
 
     def edit 
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
     end
 
     def update 
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
 		if @user.update(params.require(:user).permit(:user_name, :email, :password))
 			redirect_to url: user_user_path(@user)
 		else
@@ -30,6 +30,7 @@ class User::UserController < UserApplicationController
 			render 'new'
 		end
     end
+
      
     def destroy
         @user = User.find(params[:id])

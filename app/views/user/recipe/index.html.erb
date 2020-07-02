@@ -1,4 +1,6 @@
+
 <%= stylesheet_link_tag 'search', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 
 <div class="header">
   <%= image_tag 'house.png', :class => "iconLil" %>
@@ -88,6 +90,7 @@
             <strong>Author: </strong>
             <%= User.find(recipe.author_id).user_name %><br>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
+
             <% if current_user.nil?%>
             <% else%>
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),

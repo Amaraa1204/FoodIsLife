@@ -1,3 +1,10 @@
+body {
+    font-family: "Aleo";
+    background-color: #ffe8d7;
+    font-size: 20px;
+    font-family: Sofia;
+    margin: 0;
+}
 .tab {
   overflow: hidden;
   border: 1px solid #F9B7BF;
@@ -19,7 +26,16 @@
 }
 
 .tab button:hover {
-  background-color: #ffe8d7;
+  background-color: #ddd;
+  letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
+}
+
+.tab button.active {
+  background-color: #da7b93;
 }
 
 .tab button.active {
@@ -38,7 +54,7 @@
     transition: .5s ease;
     backface-visibility: hidden;
   }
-  
+
   .grid > div {
     background-color: rgba(155, 255, 255, 0.8);
     text-align: center;
@@ -48,7 +64,6 @@
   }
 
 .dropbtn {
-  background-color: #cccccc;
   color: white;
   padding: 3px;
   font-size: 16px;
@@ -58,7 +73,14 @@
   bottom: -350px;
   right: 30px;
   font-size: 18px;
-  border-radius: 40%;
+  border-radius: 45%;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: pink;
+  display: inline-block;
+  border: none;
+  transition: all 0.2s ease 0s;
 }
 
 .dropdown {
@@ -87,18 +109,31 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+  background-color: #f93f23;
+  letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
+}
 .dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+background-color: #f93f23;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
+}
 .word {
   position: absolute;
-  bottom: -400px;
-  right: 450px;
   font-size: 18px;
+  margin-left: 4%;
 }
 
 .open-button {
-  background-color: #555;
+  background-color: #da7b93;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -106,7 +141,18 @@
   position: fixed;
   top: 23px;
   right: 28px;
-  width: 280px;
+  border-radius: 10%;
+  width: 120px;
+  text-align: right;
+}
+
+.open-button:hover {
+  background-color: rgb(50, 129, 168);
+  letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
 }
 
 /* The popup form - hidden by default */
@@ -117,28 +163,32 @@
   right: 15px;
   border: 3px solid #f1f1f1;
   z-index: 9;
+  border-radius: 5%;
 }
 
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(66, 242, 245);
+  border-radius: 5%;
 }
 
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
+  width: 80%;
+  padding: 5px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  display: inline;
 }
 
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+  background-color: white;
   outline: none;
+
 }
 
 /* Set a style for the submit/login button */
@@ -162,6 +212,111 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+.btnLogEdit {
+  font-family: Sofia;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10%;
+  bottom: 0;
+}
+.btnLogExit {
+  font-family: Sofia;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10%;
+  bottom: 0;
+}
+.btnLogEdit a:link { 
+    text-decoration:none; 
+}
+.btnLogExit a:link { 
+    text-decoration:none; 
+}
+.showBtn {
+  font-family: Sofia;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 0px 36px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  bottom: 1%;
+  margin-left: 100px;
+}
+.showBtn a:link { 
+    text-decoration:none; 
+}
+.showBtn:hover {
+  background-color: #ddd;
+  letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
+}
+.imgPro {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+button.btnLogEdit::after {
+    margin-left: 5px;
+    background-image: image-url("pencil.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 25px; 
+    height: 25px;;
+   content: "";
+}
+
+.btnLogEdit:hover {
+  background-color: #ddd;
+  letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
+}
+
+button.btnLogExit::after {
+    margin-left: 5px;
+    background-image: image-url("exit.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 25px; 
+    height: 25px;;
+   content: "";
+}
+
+.btnLogExit:hover {
+  background-color: #ddd;
+  letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.2s ease 0s;
+}
+
+.formPos input{
+  float:right;
+  display: inline;
 
 .del_btn {
   width: 35%;
