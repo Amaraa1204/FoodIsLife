@@ -101,16 +101,16 @@ body {
 #nav-logout{
   position: relative;
   width: 10%;
-  background-color: #5682db ;
-  color: white;
+  background-color: white ;
+  color: #2b59a2;
   margin-right: 5%;
-  margin-top: -2%;
-  padding: 14px 25px;
+  margin-top: -4%;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   float: right;
+  font-size: 15px;
 }
 
-.nav-logout:hover {
-  background-color: #304b82;
+#nav-logout:hover {
+  background-color: #d8e5f1;
 }
