@@ -1,5 +1,5 @@
 
-  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'home','recipe_and_ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <div id="page-container">
 
@@ -46,8 +46,9 @@
     <div class="ingredients">
         <div class="category">
         <% IngreCategory.all.each do |inca| %>
+          <p id="ingre-txt"><%=inca.name%></p>
           <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-          <%=inca.name%>
+          
           <% if inca.image.full.url %>
             <%= image_tag inca.image.full.url %>
           <% else %>
@@ -63,6 +64,8 @@
           <% end %>  
       </div>
       <br>
+      <br>
+      <br><br><br>
       <%= submit_tag "Search with ingredients" %>
     </div>
     </div>
