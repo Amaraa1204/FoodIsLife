@@ -7,8 +7,8 @@
         
     <%= button_to "Logout", admin_session_index_path , method: :delete, class: "log-btn"%>
     <% else %>
-        <%= button_to "Sign up", '/admin/admin/new', method: :get,  class: "log-btn"%>
-        <%= button_to "Login", '/admin/session/new', method: :get,  class: "log-btn"%>
+        <%= button_to "Sign up", new_admin_admin_path, method: :get,  class: "log-btn"%>
+        <%= button_to "Login", new_admin_session_path, method: :get,  class: "log-btn"%>
     <%end%>
   </div>
 </div>

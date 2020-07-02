@@ -105,7 +105,13 @@ body{
 .search input[type=submit] {
   border: none;
   border-radius: 30px;
-  background-color: rgb(55, 119, 216);
+  height: 30px;
+  background-color: rgba(75, 75, 75, 0.329);
+  float: right;
+}
+
+.search input[type=submit]:hover {
+  background-color: rgb(15, 68, 146);
 }
 
 .search_form button {
@@ -113,7 +119,7 @@ body{
   float: right;
   border: none;
   color: white;
-  margin-right: 10%;
+  
   height: 30px;
   border-radius: 30px;
 }
