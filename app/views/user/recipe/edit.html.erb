@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= form_with model: @recipe, url: user_recipe_path(@recipe), local: true do |form| %>
 
   <% if @recipe.errors.any? %>
@@ -38,14 +39,14 @@
             <%= ingre.name %>
           <% else %>
             <%= check_box_tag "ingredient_id[]", ingre.id %>
-            <%= ingre.name %>          
+            <%= ingre.name %>
           <% end %>
         <% end %>
         </div>
-        <% end %>  
+        <% end %>
     </div>
   </div>
- 
+
   <p id="labels">
     <%= form.label :instruction %><br>
     <%= form.text_area :instruction, class: "inputs" %>
@@ -63,20 +64,20 @@
   <p id="labels">
     <%= form.hidden_field :author_id, class: "inputs" %>
   </p>
- 
+
   <p>
     <%= form.submit :save, class: "submit" %>
   </p>
 </div>
 <% end %>
 
-<%= link_to 'Back', admin_recipe_index_path, class: "btn" %>
+<%= link_to 'Back', user_user_index_path(@user), class: "btn" %>
 
 <script>
 
 function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
-    
+
     var clas = document.getElementsByClassName("content");
 
   if(x.style.display === "none"){
@@ -87,7 +88,10 @@ function ingre_show(inca_id){
   }
   else{
         x.style.display = "none";
-    
+
     }
 }
 </script>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
+</div>

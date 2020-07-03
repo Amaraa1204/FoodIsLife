@@ -8,11 +8,13 @@
 <div class="recipeShow">
   <h1>Login</h1>
   <hr>
-  <%= form_for :user, url: user_session_index_path do |f| %>
-      <%= f.label :user_name %><br>
-      <%= f.text_field :user_name, class: 'user_sign_fld' %><br>
-      <%= f.label :password %><br>
-      <%= f.password_field :password, class: 'user_sign_fld' %><br>
-      <%= f.submit "Login", class: 'user_se_btn'%>
-  <%end%>
+    <div class="user_sign_fld">
+    <%= form_tag url: user_session_index_path, class: 'user_sign_fld' do %>
+        <%= label_tag :user_name %><br>
+        <%= text_field_tag :user_name %><br>
+        <%= label_tag :password %><br>
+        <%= password_field_tag :password %><br>
+        <%= submit_tag "Login", class: 'user_se_btn'%>
+    <%end%> 
+    </div>
 </div>

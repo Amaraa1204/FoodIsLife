@@ -48,7 +48,6 @@
       <% end %>
     </div>
 </div>
-
 <div class="recipeShow">
   <p>
     <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
@@ -78,7 +77,7 @@
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: result.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
@@ -108,13 +107,16 @@
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
       <% end %>
     <% end %>
   </ul>
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
 <div class="user_footer">
   <p>@Copyright Internship 2020</p>

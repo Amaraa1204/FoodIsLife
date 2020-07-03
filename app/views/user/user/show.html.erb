@@ -3,6 +3,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
+<div class="header">
+    <strong class="recident_let">
+      <%= image_tag 'cook.png', :class => 'logo_user_user' %>
+      <%= link_to 'FoodIsLife', user_user_index_path, :class => 'head_recident_user'%>
+    </strong>
+    <% if user_logged_in?%>
+      <div class="sign_btns">
+      </div>
+    <% else %>
+      <div class="sign_btns">
+        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+      </div>
+    <% end %>
+</div><br>
 <div>
 <%= image_tag 'house.png', :class => "iconLil" %>
   <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>

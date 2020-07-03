@@ -1,9 +1,11 @@
 
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="header">
-  <%= image_tag 'house.png', :class => "iconLil" %>
-  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
-  <% if user_logged_in?%>
+    <strong class="recident_let">
+      <%= image_tag 'cook.png', :class => 'logo_user_user' %>
+      <%= link_to 'FoodIsLife', user_user_index_path, :class => 'head_recident_user'%>
+    </strong>
+    <% if user_logged_in?%>
       <div class="sign_btns">
         <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
         <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
@@ -31,16 +33,16 @@
     <h4>Unknown</h4>
   <% end %><br>
 
-  <%# if @rate.present? %>
-    <%# while @rate.ave_rate != 0 do %>
-      <%#= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
-      <%# @rate.ave_rate = @rate.ave_rate - 1 %>
-    <%# end %>
-  <%# end %>
-  <%# while @non_rated != 0 do %>
-    <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-    <%# @non_rated = @non_rated - 1 %>
-  <%# end %><br>
+  <% if @rate.present? %>
+    <% while @rate.ave_rate != 0 do %>
+      <%= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
+      <% @rate.ave_rate = @rate.ave_rate - 1 %>
+    <% end %>
+  <% end %>
+  <% while @non_rated != 0 do %>
+    <%= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
+    <% @non_rated = @non_rated - 1 %>
+  <% end %><br>
   <div>
 <h4 style="display: inline;">Rating : </h4>
   <% if @res %>
@@ -155,4 +157,7 @@
       </strong>
     <% end %>
   </div>
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
