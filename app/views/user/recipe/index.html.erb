@@ -59,12 +59,12 @@
             <% end %>
           </div>
       </div>
-      <div class="search_form" style="margin-top: 6%;">
-    <%= form_tag(user_search_index_path, method: :get) do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
-      <%= button_tag "Search", :name => nil %>
-    <%end%>
-    </div>
+      <div class="search_form">
+        <%= form_tag(user_search_index_path, method: :get) do %>
+          <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+          <%= button_tag "Search", :name => nil %>
+        <%end%>
+      </div>
     <div class="alert">
       <% if alert %>
         <strong>
@@ -81,7 +81,7 @@
     <% if @results %>
       <% @results.each do |result| %>
         <li class="recipeimgli">
-            <strong>Recipe name:
+            <strong class="txt_user_img">Recipe name:
               <%= result.name %>
             </strong>
           <% if result.image.full.url %>
@@ -96,6 +96,7 @@
             <% else %>
               <h4>Unknown</h4>
             <% end %><br>
+
             <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
             <% if current_user.nil?%>
             <% else %>
@@ -104,13 +105,14 @@
                   data: { confirm: 'Add Favourite' },
                   class: "btn" %>
             <%end%>
+
           </span>
         </li>
       <% end %>
     <% else %>
       <% @recipe.each do |recipe| %>
         <li class="recipeimgli">
-          <strong>Recipe name:
+          <strong style="font-size:18px;">Recipe name:
             <%= recipe.name %>
           </strong>
           <% if recipe.image.full.url %>
@@ -139,9 +141,6 @@
       <% end %>
     <% end %>
   </ul>
-</div>
-<div class="user_footer">
-  <p>@Copyright Internship 2020</p>
 </div>
 <div class="user_footer">
   <p>@Copyright Internship 2020</p>

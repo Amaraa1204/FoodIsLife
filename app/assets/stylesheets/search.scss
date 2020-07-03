@@ -43,7 +43,7 @@ body {
 }
 
 .btn {
-  width: 35%;
+  width: 55%;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -108,7 +108,7 @@ text-align: center;
 .recipeShow{
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 5%;
+  //margin-top: 5%;
   padding-left: 5%;
   padding-right: 5%;
   background-color: #FFCCCC;
@@ -161,7 +161,7 @@ text-align: center;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 1%;
-  position: fixed;
+  //position: fixed;
 }
 
 .recipeName{
@@ -188,46 +188,12 @@ text-align: center;
   background-color: yellow;
 }
 
-.recipeimgli{
-  position: relative;
-  border: none;
-  background-color: #FFCCCC;
-  text-align: center;
-  padding: 3% 0;
-  border-radius: 10px;
-
-}
-
-.recipeimgli .recipeimgspan{
-  visibility: hidden;
-  text-align: center;
-  border-radius: 6px;
-  padding: 0;
-  position: absolute;
-  z-index: 1;
-  background-color: #ffb5b5;
-  opacity: 0.8;
-  margin: auto;
-}
-
-.recipeimgli:hover .recipeimgspan{
-  visibility: visible;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-
-}
-
-.recipeimg{
-  width: 90%;
-}
-
 .search {
   width: 80%;
   height: 100%;
   float: right;
   margin-right: 5%;
+  //margin-top: 5%;
 }
 
 .search input[type=search] {
@@ -256,7 +222,7 @@ color: white;
 margin-right: 10%;
 height: 30px;
 border-radius: 30px;
-margin-top: 10%;
+//margin-top: 10%;
 }
 
 .search_form button:hover {
@@ -297,7 +263,7 @@ margin-top: 10%;
 }
 
 .user_footer{
-  position: fixed;
+//  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;

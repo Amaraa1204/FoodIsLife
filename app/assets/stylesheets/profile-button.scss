@@ -17,7 +17,7 @@
   padding: 16px 20px;
   border: none;
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   top: 13px;
   right: 28px;
   border-radius: 10%;
@@ -38,7 +38,7 @@ transition: all 0.2s ease 0s;
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 75px;
   right: 15px;
   border: 3px solid #f1f1f1;
