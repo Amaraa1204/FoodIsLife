@@ -23,13 +23,13 @@
 
 <div class="search">
       <div class="dropdown">
-          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
+          <button class="dropbtn"><img src=<%= asset_path("menu.png") %>></button>
           <div class="dropdown-content">
             <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
               <% RecCategory.all.each do |cate| %>
                 <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
               <% end %>
-            <% end %>    
+            <% end %>
           </div>
       </div>
       <div class="search_form">
@@ -74,7 +74,7 @@
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: result.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
@@ -103,7 +103,7 @@
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
@@ -112,4 +112,7 @@
   </ul>
 
 
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
