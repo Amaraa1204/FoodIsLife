@@ -65,7 +65,7 @@
           </a>
           <div class="ingres", id=<%=inca.id%>>
             <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-              <div class="user-ingres">
+              <div class="user_rec_edit_span">
                 <%= check_box_tag "ingredient_id[]", ingre.id %>
                 <%= ingre.name %>
               </div>
@@ -116,12 +116,6 @@
     <% end %>
   </ul>
 
-</div>
-</div>
-</div>
-
-<div class="user_footer">
-  <p>@Copyright Internship 2020</p>
 </div>
 
 
