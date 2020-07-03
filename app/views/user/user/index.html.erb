@@ -23,109 +23,112 @@
 </head>
 
 <div class="recipeShow">
-
   <div id="content-wrap">
-  <div class="motto">
-    <h1>Discover new recipes with your favourite ingredients!</h1>
-    <h2>Share your recipe with the world</h2>
-  </div>
-
-  <div class="search">
-      <div class="dropdown">
-          <button class="dropbtn"><img src=<%= asset_path("menu.png") %> class="search_icon"></button>
-          <div class="dropdown-content">
-            <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
-              <% RecCategory.all.each do |cate| %>
-                <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
-              <% end %>
-            <% end %>
-          </div>
-      </div>
-      <div class="search_form">
-        <%= form_tag(user_search_index_path, method: :get) do %>
-          <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make" %>
-          <%= button_tag "Search", :name => nil %>
-        <%end%>
-       <%= button_to "All recipes", user_recipe_index_path, method: :get, :class => 'all_recipe_user_btn' %>
-      </div>
-  </div>
-
-<div class="ingre-search">
-  <%= form_tag(search_user_recipe_and_ingredient_index_path, method: :get) do |f| %>
-    <div class="ingre-cat">
-      <% IngreCategory.all.each do |inca| %>
-        <div class="cat-box">
-          <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
-          <%=inca.name%><br>
-          <% if inca.image.full.url %>
-            <%= image_tag inca.image.full.url, class: 'img_ingre_user' %>
-          <% else %>
-            <%= image_tag asset_path("tomato.png"), class: 'img_rec_user' %>
-          <% end %>
-          </a>
-        </div>
-          <div class="user-ingres", id=<%=inca.id%>>
-            <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-              <div class="ingre-items">
-                <%= check_box_tag "ingredient_id[]", ingre.id %>
-                <%= ingre.name %>
-              </div>
-            <% end %>
-          </div>
-      <% end %>
-    </div>
-    <br>
-    <p class="search_btn_user_div">
-    <%= submit_tag "Search with ingredients", :class => 'search_btn_ingre_user' %>
-    <p>
-      <div class="alert">
+    <div class="motto">
+      <h1>Discover new recipes with your favourite ingredients!</h1>
+      <h2>Share your recipe with the world</h2>
+      <div class="alert" style="text-align: center; margin-bottom: 2%;">
         <% if alert %>
           <strong>
             <%= alert %>
           </strong>
         <% end %>
       </div>
-  <% end %>
+    </div>
+  </div>
 
-  <br><br><br>
-  <ul class="grid-container">
-    <% RecipeAndRate.all.each do |rai| %>
-      <% Recipe.where("id = ?", rai.recipe_id).limit(3).each do |recipe| %>
-        <li class="recipeimgli">
-          <% if recipe.image.full.url %>
-            <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
-          <% else %>
-            <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
+  <div class="search">
+    <div class="dropdown">
+      <button class="dropbtn"><img src=<%= asset_path("menu.png") %> class="search_icon"></button>
+      <div class="dropdown-content">
+        <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
+          <% RecCategory.all.each do |cate| %>
+            <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
           <% end %>
-          <span class="recipeimgspan">
-            <strong>Recipe name: </strong>
-            <%= recipe.name %><br>
-            <strong>Author: </strong>
-            <% if User.find_by(id: recipe.author_id).present? %>
-              <%= User.find(recipe.author_id).user_name %><br>
+        <% end %>
+      </div>
+    </div>
+    <div class="search_form">
+      <%= form_tag(user_search_index_path, method: :get) do %>
+        <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make" %>
+        <%= button_tag "Search", :name => nil %>
+        <%= button_to "All recipes", user_recipe_index_path, method: :get, :class => 'all_recipe_user_btn' %>
+      <%end%>
+    </div>
+  </div>
+      
+  <div class="ingre-search">
+    <%= form_tag(search_user_recipe_and_ingredient_index_path, method: :get) do |f| %>
+      <div class="ingre-cat">
+        <% IngreCategory.all.each do |inca| %>
+          <div class="cat-box">
+            <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
+            <%=inca.name%><br>
+            <% if inca.image.full.url %>
+              <%= image_tag inca.image.full.url, class: 'img_ingre_user' %>
+            <% else %>
+              <%= image_tag asset_path("tomato.png"), class: 'img_rec_user' %>
             <% end %>
-            <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
-
-            <% if current_user.nil?%>
-            <% else%>
-              <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
-                  method: :post,
-                  data: { confirm: 'Add Favourite' },
-                  class: "btn" %>
-            <%end%>
-          </span>
-        </li>
-      <% end %>
+            </a>
+          </div>
+        <% end %>
+        <div class='ingre-wrap'>
+          <% IngreCategory.all.each do |inca| %>
+            <div class="user-ingres", id=<%=inca.id%>>
+              <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
+                <div class="ingre-items">
+                  <%= check_box_tag "ingredient_id[]", ingre.id %>
+                  <%= ingre.name %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <p class="search_btn_user_div">
+        <%= submit_tag "Search with ingredients", :class => 'search_btn_ingre_user' %>
+      <p>
     <% end %>
-  </ul>
+  </div>
+  <div class="top-rec" style="margin-top: 50px;">
+    <ul class="grid-container">
+      <% RecipeAndRate.all.each_with_index do |rai, index| %>
+        <% Recipe.where("id = ?", rai.recipe_id).limit(3).each do |recipe| %>
+          <li class="recipeimgli">
+            <% if recipe.image.full.url %>
+              <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
+            <% else %>
+              <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
+            <% end %>
+            <span class="recipeimgspan">
+              <strong>Recipe name: </strong>
+              <%= recipe.name %><br>
+              <strong>Author: </strong>
+              <% if User.find_by(id: recipe.author_id).present? %>
+                <%= User.find(recipe.author_id).user_name %><br>
+              <% end %>
+              <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
 
+              <% if current_user.nil?%>
+              <% else%>
+                <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
+                    method: :post,
+                    data: { confirm: 'Add Favourite' },
+                    class: "btn" %>
+              <%end%>
+            </span>
+          </li>
+        <% end %>
+        <% break if index == 3 %>
+      <% end %>
+    </ul>
+  </div>
 </div>
 <div class="user_footer">
   <p>@Copyright Internship 2020</p>
 </div>
 
-
-  <script>
+<script>
   function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
 
@@ -143,4 +146,4 @@
 
     }
   }
-  </script>
+</script>

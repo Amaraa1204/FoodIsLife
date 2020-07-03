@@ -108,7 +108,7 @@ body {
     background-color: #FFCCCC;
     border-radius: 6px;
     padding-bottom: 3%;
-    margin-bottom: 10%;
+    // margin-bottom: 10%;
     //margin-top: 10%;
   }
 
@@ -256,7 +256,6 @@ body {
   width: 110%;
 }
 .ingre-search{
-  margin-top: 10%;
   padding-top: 5%;
   position: relative;
 }
@@ -266,7 +265,7 @@ body {
 .cat-box{
   position: relative;
   display: inline-block;
-  width: 30%;
+  width: 20%;
 }
 .img_rec_user{
   width: 50%;
@@ -277,14 +276,14 @@ body {
   width: 35%;
   height: 35%;
 }
+.ingre-wrap{
+  margin-top: 7%;
+}
 .ingre-items{
   display: inline-block;
-  position: absolute;
+  position: relative;
 }
  .user-ingres{
-  position: relative;
-  top: 30%;
-  left: 18%;
   text-align: left;
   border-radius: 6px;
   background-color: #FF9999;
@@ -294,7 +293,7 @@ body {
 }
 
 .search_btn_ingre_user{
-  
+  margin-top: 5%;
   border: none;
   background: rgba(75, 75, 75, 0.329);
   border-radius: 6px;
