@@ -5,12 +5,7 @@ body {
     font-family: Sofia;
     margin: 0;
 }
-  .cat_btn img{
-    background-color: rgba(131, 131, 131, 0);
-    border: none;
-    width: 15%;
-    height: 35%;
-  }
+  
 
 .list {
     border-collapse: collapse;
@@ -228,7 +223,7 @@ body {
     padding: 1% 5% 1% 5%;;
     width: 20%;
   }
-  .user_sign_fld input[submit]{
+  .user_sign_fld input[submit],input[type=text], input[type=password]{
     border: none;
     border-radius: 6px;
     width: 18%;
@@ -256,6 +251,10 @@ body {
 .search_icon{
   width: 110%;
 }
+.ingre_area_user{
+  margin-top: 10%;
+  padding-top: 5%;
+}
 .img_area_user_edit{
   text-align: center;
 }
@@ -267,20 +266,34 @@ body {
 .img_rec_user{
   width: 50%;
 }
-.user_rec_edit_out .user_rec_edit_span{
+.cat_btn img{
+  background-color: rgba(131, 131, 131, 0);
+  border: none;
+  width: 35%;
+  height: 35%;
+}
+.ingres{
+  position: absolute;
+  
+}
+.user_rec_edit_out,.user-ingres{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+ .user-ingres{
+  top: 0;
+  left: 0;
   text-align: left;
   border-radius: 6px;
-  position: relative;
-  z-index: 1;
-  margin-left: -15%;
-  margin-top: -2%;
+  position: absolute;
+  z-index: 10;
   background-color: #FF9999;
-  display: none;
+  margin-top: 78%;
   width: 100%;
+
 }
-.user_rec_edit_out:hover .user_rec_edit_span{
-  display: inline-block;
-}
+
 .search_btn_ingre_user{
   border: none;
   background: rgba(75, 75, 75, 0.329);
@@ -292,8 +305,4 @@ body {
 }
 .search_btn_user_div{
   text-align: right;
-}
-.ingre_area_user{
-  margin-top: 5%;
-  padding-top: 5%;
 }
