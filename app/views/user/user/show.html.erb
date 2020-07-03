@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'user-profile-show', 'ingredient', 'search', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'user-profile-show', 'ingredient', 'search','profile-button', media: 'all', 'data-turbolinks-track': 'reload' %>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
@@ -70,7 +70,7 @@
     <% end %>
   </form>
 </div>
-<div id="own" class="tabcontent">
+<div id="own" class="tabcontent" style="padding-bottom: 5%;">
   <div class="recipeShow">
   <ul class="grid-container">
     <% Recipe.all.each do |recipe| %>
@@ -97,9 +97,10 @@
     <% end %>
     </ul>
     </div>
+    <%= link_to 'Back', user_user_index_path(@user), class: "back_btn" %>
 </div>
 
-<div id="favourite" class="tabcontent">
+<div id="favourite" class="tabcontent" style="padding-bottom: 8%;">
   <div class="recipeShow">
   <ul class="grid-container">
     <% Favourite.all.each do |favourite| %>
@@ -128,6 +129,7 @@
     <% end %>
     </ul>
     </div>
+    <%= link_to 'Back', user_user_index_path(@user), class: "back_btn" %>
 </div>
 <div class="user_footer">
   <p>@Copyright Internship 2020</p>
