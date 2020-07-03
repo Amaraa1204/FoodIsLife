@@ -192,8 +192,8 @@ text-align: center;
   width: 80%;
   height: 100%;
   float: right;
-  margin-right: 5%;
-  //margin-top: 5%;
+  margin-bottom: 5%;
+  margin-top: 7%;
 }
 
 .search input[type=search] {
@@ -201,10 +201,6 @@ width: 70%;
 height: 30px;
 border: none;
 border-radius: 30px;
-margin-right: 5%;
-margin-left: 5%;
-margin-bottom: 5%;
-margin-top: 10%;
 }
 
 .search input[type=submit] {
@@ -216,13 +212,11 @@ margin-top: 10%;
 
 .search_form button {
 background-color: rgba(75, 75, 75, 0.329);
-float: right;
 border: none;
 color: white;
-margin-right: 10%;
 height: 30px;
 border-radius: 30px;
-//margin-top: 10%;
+//margin-top: 10%
 }
 
 .search_form button:hover {
@@ -234,7 +228,6 @@ border-radius: 30px;
   border: none;
   top: 50%;
   float: left;
-  margin-top: 6%;
 }
 
 .dropdown {

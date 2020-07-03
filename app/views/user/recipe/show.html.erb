@@ -1,5 +1,5 @@
 
-<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'recipe', 'ingredient','profile-button', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="header">
     <strong class="recident_let">
       <%= image_tag 'cook.png', :class => 'logo_user_user' %>
@@ -7,8 +7,7 @@
     </strong>
     <% if user_logged_in?%>
       <div class="sign_btns">
-        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
-        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
+        
       </div>
     <% else %>
       <div class="sign_btns">
@@ -17,6 +16,7 @@
       </div>
     <% end %>
 </div><br>
+
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
@@ -24,30 +24,8 @@
 <div class="recipeShow">
   <strong class="recipeName">Recipe:
     <%= @recipe.name %>
-<<<<<<< Updated upstream
-  </strong> by
-
-  <%# if @rate.present? %>
-    <%# while @rate.ave_rate != 0 do %>
-      <%#= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
-      <%# @rate.ave_rate = @rate.ave_rate - 1 %>
-    <%# end %>
-  <%# end %>
-  <%# while @non_rated != 0 do %>
-    <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-    <%# @non_rated = @non_rated - 1 %>
-  <%# end %><br>
-
-<!-- <div>
-  <h4 style="display: inline;">Rating : </h4>
-  <% if @res %>
-    <%= @res %>
-  <% end %>
-</div> -->
-=======
   </strong> by <%= User.find(@recipe.author_id).user_name %>
 
->>>>>>> Stashed changes
   <% if @recipe.image.full.url %>
      <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
   <% else %>
@@ -160,3 +138,22 @@
 <div class="user_footer">
   <p>@Copyright Internship 2020</p>
 </div>
+<script>
+  $(function(){
+    $("#btnLogin").click(function(e){
+        e.stopPropagation();
+        $("#myForm").show();
+        $("body").click(function(e){
+            if(e.target.id != "myForm")
+            {
+                $("#myForm").hide();
+                $("form-popup").unbind("click");
+            }
+        });
+    });
+
+});
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>

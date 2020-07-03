@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'search', 'ingredient', 'recipe', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'search', 'ingredient', 'recipe','profile-button', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 
 <div class="header">
@@ -8,8 +8,7 @@
     </strong>
     <% if user_logged_in?%>
       <div class="sign_btns">
-        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
-        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
+        
       </div>
     <% else %>
       <div class="sign_btns">
@@ -18,13 +17,15 @@
       </div>
     <% end %>
 </div><br>
+
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
 
 
-  <div class="search">
+<div class="search">
+    <div class="search_form">
       <div class="dropdown">
           <button class="dropbtn"><img src=<%= asset_path("menu.png") %> class="search_icon"></button>
           <div class="dropdown-content">
@@ -35,20 +36,13 @@
             <% end %>
           </div>
       </div>
-      <div class="search_form">
-        <%= form_tag(user_search_index_path, method: :get) do %>
-          <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
-          <%= button_tag "Search", :name => nil %>
-        <%end%>
-      </div>
-    <div class="alert">
-      <% if alert %>
-        <strong>
-          <%= alert %>
-        </strong>
-      <% end %>
+      <%= form_tag(user_search_index_path, method: :get) do %>
+        <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+        <%= button_tag "Search", :name => nil %>
+      <%end%>
     </div>
 </div>
+
 <div class="recipeShow">
   <p>
     <%= link_to 'New recipe', new_user_recipe_path, class: "sendBTN" %>
@@ -118,6 +112,25 @@
     <% end %>
   </ul>
 </div>
-<div class="user_footer">
+<div class="user_footer" style="margin-top: 5%;">
   <p>@Copyright Internship 2020</p>
 </div>
+<script>
+  $(function(){
+    $("#btnLogin").click(function(e){
+        e.stopPropagation();
+        $("#myForm").show();
+        $("body").click(function(e){
+            if(e.target.id != "myForm")
+            {
+                $("#myForm").hide();
+                $("form-popup").unbind("click");
+            }
+        });
+    });
+
+});
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
