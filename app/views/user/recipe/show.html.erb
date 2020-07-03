@@ -83,8 +83,8 @@
     <p>
       <div class="commentView">
         <strong>
-          <% if User.exists?(@recipe.author_id) %>
-            <%= User.find(@recipe.author_id).user_name %>
+          <% if User.exists?(rate.user_id) %>
+            <%= User.find(rate.user_id).user_name %>
           <% else %>
             <h4>Unknown :</h4>
           <% end %>
@@ -122,8 +122,8 @@
     <p>
       <div class="commentView">
       <strong>
-        <% if User.exists?(@recipe.author_id) %>
-              <%= User.find(@recipe.author_id).user_name %>
+        <% if User.exists?(comment.user_id) %>
+              <%= User.find(comment.user_id).user_name %>
             <% else %>
               <h4>Unknown</h4>
             <% end %><br>
