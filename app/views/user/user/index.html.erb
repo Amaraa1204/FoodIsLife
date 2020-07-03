@@ -50,28 +50,28 @@
       </div>
   </div>
 
-<div class="ingre_area_user">
+<div class="ingre-search">
   <%= form_tag(search_user_recipe_and_ingredient_index_path, method: :get) do |f| %>
-    <div class="img_area_user_edit">
+    <div class="ingre-cat">
       <% IngreCategory.all.each do |inca| %>
-        <div class="user_rec_edit_out">
+        <div class="cat-box">
           <a class="cat_btn" onclick="ingre_show(<%=inca.id%>)">
           <%=inca.name%><br>
           <% if inca.image.full.url %>
-            <%= image_tag inca.image.full.url, class: 'img_rec_user' %>
+            <%= image_tag inca.image.full.url, class: 'img_ingre_user' %>
           <% else %>
             <%= image_tag asset_path("tomato.png"), class: 'img_rec_user' %>
           <% end %>
           </a>
-          <div class="ingres", id=<%=inca.id%>>
+        </div>
+          <div class="user-ingres", id=<%=inca.id%>>
             <% Ingredient.where("ingre_category_id = ?", inca.id).each do |ingre| %>
-              <div class="user_rec_edit_span">
+              <div class="ingre-items">
                 <%= check_box_tag "ingredient_id[]", ingre.id %>
                 <%= ingre.name %>
               </div>
             <% end %>
           </div>
-        </div>
       <% end %>
     </div>
     <br>
@@ -87,6 +87,7 @@
       </div>
   <% end %>
   
+  <br><br><br>
   <ul class="grid-container">
     <% RecipeAndRate.all.each do |rai| %>
       <% Recipe.where("id = ?", rai.recipe_id).limit(3).each do |recipe| %>
@@ -123,7 +124,7 @@
   function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
 
-    var clas = document.getElementsByClassName("content");
+    var clas = document.getElementsByClassName("user-ingres");
 
   if(x.style.display === "none"){
     for (var i = 0; i < clas.length; i++) {
