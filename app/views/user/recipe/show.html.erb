@@ -25,30 +25,24 @@
   <strong class="recipeName">Recipe:
     <%= @recipe.name %>
   </strong> by
-  <% if User.exists?(@recipe.author_id) %>
-    <% if @recipe.author_id.present? %>
-    <%= User.find(@recipe.author_id).user_name %>
-    <%end%>
-  <% else %>
-    <h4>Unknown</h4>
-  <% end %><br>
 
-  <% if @rate.present? %>
-    <% while @rate.ave_rate != 0 do %>
-      <%= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
-      <% @rate.ave_rate = @rate.ave_rate - 1 %>
-    <% end %>
-  <% end %>
-  <% while @non_rated != 0 do %>
-    <%= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-    <% @non_rated = @non_rated - 1 %>
-  <% end %><br>
-  <div>
-<h4 style="display: inline;">Rating : </h4>
+  <%# if @rate.present? %>
+    <%# while @rate.ave_rate != 0 do %>
+      <%#= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
+      <%# @rate.ave_rate = @rate.ave_rate - 1 %>
+    <%# end %>
+  <%# end %>
+  <%# while @non_rated != 0 do %>
+    <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
+    <%# @non_rated = @non_rated - 1 %>
+  <%# end %><br>
+
+<!-- <div>
+  <h4 style="display: inline;">Rating : </h4>
   <% if @res %>
     <%= @res %>
   <% end %>
-</div>
+</div> -->
   <% if @recipe.image.full.url %>
      <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
   <% else %>

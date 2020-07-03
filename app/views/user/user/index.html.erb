@@ -86,7 +86,7 @@
         <% end %>
       </div>
   <% end %>
-  
+
   <br><br><br>
   <ul class="grid-container">
     <% RecipeAndRate.all.each do |rai| %>
@@ -101,11 +101,9 @@
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>
             <strong>Author: </strong>
-            <% if User.exists?(recipe.author_id) %>
-              <%= User.find(recipe.author_id).user_name %>
-            <% else %>
-              <h4>Unknown</h4>
-            <% end %><br>
+            <% if User.find_by(id: recipe.author_id).present? %>
+              <%= User.find(recipe.author_id).user_name %><br>
+            <% end %>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
 
             <% if current_user.nil?%>
@@ -113,7 +111,7 @@
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
@@ -121,6 +119,9 @@
     <% end %>
   </ul>
 
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
 
 
