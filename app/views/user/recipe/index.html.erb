@@ -35,12 +35,12 @@
             <% end %>
           </div>
       </div>
-      <div class="search_form" style="margin-top: 6%;">
-    <%= form_tag(user_search_index_path, method: :get) do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
-      <%= button_tag "Search", :name => nil %>
-    <%end%>
-    </div>
+      <div class="search_form">
+        <%= form_tag(user_search_index_path, method: :get) do %>
+          <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
+          <%= button_tag "Search", :name => nil %>
+        <%end%>
+      </div>
     <div class="alert">
       <% if alert %>
         <strong>
@@ -117,9 +117,6 @@
       <% end %>
     <% end %>
   </ul>
-</div>
-<div class="user_footer">
-  <p>@Copyright Internship 2020</p>
 </div>
 <div class="user_footer">
   <p>@Copyright Internship 2020</p>
