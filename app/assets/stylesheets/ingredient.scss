@@ -31,3 +31,71 @@
 .headWord{
   color: white;
 }
+
+.user_footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #FF9999;
+  color: black;
+  text-align: center;
+}
+  .recident_let{
+    font-size: 38px;
+    margin-left: 3%;
+    text-decoration: none;
+    color: black;
+  }
+
+   .logo_user_user{
+    width: 3%;
+  }
+
+  .head_recident_user{
+    text-decoration: none;
+    color: black;
+  }
+
+    .header{
+    background-color: #FF9999;
+    width: 100%;
+    margin-left: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1%;
+    position: fixed;
+
+  }
+    .sign_btns {
+      float: right;
+      height: 100%;
+      margin-right: 5%;
+      border-radius: 6px;
+    }
+
+    .sign_btns span{
+      background-color: rgba(75, 75, 75, 0.329);
+      float: left;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      margin-top: 15%;
+    }
+
+    #sign_btn {
+      background-color: #FF6666;
+      border-radius: 6px;
+      float: left;
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      cursor: pointer;
+      margin-top: -20%;
+    }
+
+    #sign_btn:hover {
+        background-color: #FFCCCC;
+        color: black;
+    }

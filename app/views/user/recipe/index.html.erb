@@ -2,9 +2,11 @@
 
 
 <div class="header">
-  <%= image_tag 'house.png', :class => "iconLil" %>
-  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
-  <% if user_logged_in?%>
+    <strong class="recident_let">
+      <%= image_tag 'cook.png', :class => 'logo_user_user' %>
+      <%= link_to 'FoodIsLife', user_user_index_path, :class => 'head_recident_user'%>
+    </strong>
+    <% if user_logged_in?%>
       <div class="sign_btns">
         <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
         <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
@@ -23,13 +25,13 @@
 
 <div class="search">
       <div class="dropdown">
-          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
+          <button class="dropbtn"><img src=<%= asset_path("menu.png") %>></button>
           <div class="dropdown-content">
             <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
               <% RecCategory.all.each do |cate| %>
                 <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
               <% end %>
-            <% end %>    
+            <% end %>
           </div>
       </div>
       <div class="search_form">
@@ -63,14 +65,18 @@
             <strong>Recipe name: </strong>
               <%= result.name %><br>
             <strong>Author: </strong>
-            <%= User.find(result.author_id).user_name %><br>
+            <% if User.exists?(result.author_id) %>
+              <%= User.find(result.author_id).user_name %>
+            <% else %>
+              <h4>Unknown</h4>
+            <% end %><br>
             <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
             <% if current_user.nil?%>
             <% else %>
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: result.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
@@ -87,7 +93,11 @@
             <strong>Recipe name: </strong>
             <%= recipe.name %><br>
             <strong>Author: </strong>
-            <%= User.find(recipe.author_id).user_name %><br>
+            <% if User.exists?(recipe.author_id) %>
+              <%= User.find(recipe.author_id).user_name %>
+            <% else %>
+              <h4>Unknown</h4>
+            <% end %><br>
             <%= link_to 'Show', user_recipe_path(recipe), class: "btn" %>
 
             <% if current_user.nil?%>
@@ -95,7 +105,7 @@
               <%= link_to 'Favourite', user_favourite_index_path(recipe_id: recipe.id),
                   method: :post,
                   data: { confirm: 'Add Favourite' },
-                  class: "btn" %> 
+                  class: "btn" %>
             <%end%>
           </span>
         </li>
@@ -104,4 +114,7 @@
   </ul>
 
 
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>

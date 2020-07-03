@@ -5,7 +5,7 @@
 }
 
 #content-wrap {
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   padding-top: 2%;
 }
 
@@ -38,38 +38,7 @@
     display: inline-block;
   }
 
-    .sign_btns {
-      float: right;
-      height: 100%;
-      margin-right: 5%;
-      border-radius: 6px;
-    }
 
-    .sign_btns span{
-      background-color: rgba(75, 75, 75, 0.329);
-      float: left;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
-      margin-top: 15%;
-    }
-
-    #sign_btn {
-      background-color: #FF6666;
-      border-radius: 6px;
-      float: left;
-      border: none;
-      color: white;
-      padding: 10px 24px;
-      cursor: pointer;
-      margin-top: -20%;
-    }
-
-    #sign_btn:hover {
-        background-color: #FFCCCC;
-        color: black;
-    }
 
 .motto {
     width: 100%;
@@ -145,7 +114,7 @@
     background-color: #ff7b7b;
     min-width: 150px;
     margin-top: 40px;
-    opacity: 0.8;
+    opacity: 1;
     border-radius: 6px;
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;*/

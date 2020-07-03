@@ -1,8 +1,10 @@
 <%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="header">
-  <%= image_tag 'house.png', :class => "iconLil" %>
-  <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
-  <% if user_logged_in?%>
+    <strong class="recident_let">
+      <%= image_tag 'cook.png', :class => 'logo_user_user' %>
+      <%= link_to 'FoodIsLife', user_user_index_path, :class => 'head_recident_user'%>
+    </strong>
+    <% if user_logged_in?%>
       <div class="sign_btns">
         <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
         <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
@@ -63,7 +65,7 @@
           <%= ingre.name %>
           <% end %>
         </div>
-        <% end %>  
+        <% end %>
     </div>
 
     <p id="labels">
@@ -95,6 +97,9 @@
 <% end %>
 
   <%= link_to 'Back', user_recipe_index_path(@recipe), class: "btn" %>
+  <div class="user_footer">
+    <p>@Copyright Internship 2020</p>
+  </div>
 
 <script>
 
