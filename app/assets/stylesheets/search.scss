@@ -43,7 +43,7 @@ body {
 }
 
 .btn {
-  width: 35%;
+  width: 55%;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -188,46 +188,12 @@ text-align: center;
   background-color: yellow;
 }
 
-.recipeimgli{
-  position: relative;
-  border: none;
-  background-color: #FFCCCC;
-  text-align: center;
-  padding: 3% 0;
-  border-radius: 10px;
-
-}
-
-.recipeimgli .recipeimgspan{
-  visibility: hidden;
-  text-align: center;
-  border-radius: 6px;
-  padding: 0;
-  position: absolute;
-  z-index: 1;
-  background-color: #ffb5b5;
-  opacity: 0.8;
-  margin: auto;
-}
-
-.recipeimgli:hover .recipeimgspan{
-  visibility: visible;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-
-}
-
-.recipeimg{
-  width: 90%;
-}
-
 .search {
   width: 80%;
   height: 100%;
   float: right;
   margin-right: 5%;
+  margin-top: 5%;
 }
 
 .search input[type=search] {

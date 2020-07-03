@@ -58,7 +58,7 @@
     <% if @results %>
       <% @results.each do |result| %>
         <li class="recipeimgli">
-            <strong>Recipe name:
+            <strong class="txt_user_img">Recipe name:
               <%= result.name %>
             </strong>
           <% if result.image.full.url %>
@@ -73,6 +73,7 @@
             <% else %>
               <h4>Unknown</h4>
             <% end %><br>
+
             <%= link_to 'Show', user_recipe_path(result), class: "btn" %>
             <% if current_user.nil?%>
             <% else %>
@@ -81,13 +82,14 @@
                   data: { confirm: 'Add Favourite' },
                   class: "btn" %>
             <%end%>
+
           </span>
         </li>
       <% end %>
     <% else %>
       <% @recipe.each do |recipe| %>
         <li class="recipeimgli">
-          <strong>Recipe name:
+          <strong style="font-size:18px;">Recipe name:
             <%= recipe.name %>
           </strong>
           <% if recipe.image.full.url %>
