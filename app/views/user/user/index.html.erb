@@ -1,5 +1,8 @@
-<%= stylesheet_link_tag 'recipe', 'ingredient', 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+<%= stylesheet_link_tag 'recipe', 'ingredient', 'home','profile-button', media: 'all', 'data-turbolinks-track': 'reload' %>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+</head>
 <div class="header">
     <strong class="recident_let">
       <%= image_tag 'cook.png', :class => 'logo_user_user' %>
@@ -7,8 +10,7 @@
     </strong>
     <% if user_logged_in?%>
       <div class="sign_btns">
-        <span><%= button_to "Profile", user_user_path(current_user.id), method: :get, id: "sign_btn"%></span>
-        <span><%= button_to "Logout", user_session_index_path, method: :delete, id: "sign_btn" %></span>
+        
       </div>
     <% else %>
       <div class="sign_btns">
@@ -17,10 +19,33 @@
       </div>
     <% end %>
 </div><br>
-<head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
-</head>
+<button class="open-button" id="btnLogin" style="font-family: Sofia;"><img class="imgPro" src=<%=asset_path("login.png")%> ><% if current_user.id %><%= current_user.user_name %><% end %></button>
+
+<div class="form-popup" id="myForm">
+ 
+
+    <%= form_with model: @user, url: user_user_path(session[:user_id]), class: "form-container", id: "myForm", local: true do |form| %>
+      <div>
+        <p>
+           <label for="email" id="mail" id="myForm"><b>Username</b></label>
+    <input type="text" id="myForm" value="<%= current_user.user_name %>" placeholder="Enter Email" name="email" required>
+        </p>
+        <p>
+          <label for="email" id="mail" id="myForm"><b>Email</b></label>
+    <input type="text" id="myForm" value="<%= current_user.email %>" placeholder="Enter Email" name="email" required>
+        </p>
+        <p>
+          <label for="psw" id="myForm"><b>Password</b></label>
+    <input type="password" id="myForm" placeholder="Enter Password" name="psw" required>
+        </p>
+        <p>
+          <%= link_to 'Profile', href="http://localhost:3000/user/user/show" , class: "logout_btn", id: "myForm" %>
+          <%= link_to 'Log out', user_session_index_path, class: "logout_btn", id: "myForm" %>
+        </p>
+      </div>
+    <% end %>
+  </form>
+</div>
 
 <div class="recipeShow">
 
@@ -125,6 +150,23 @@
 
 
   <script>
+    $(function(){
+    $("#btnLogin").click(function(e){
+        e.stopPropagation();
+        $("#myForm").show();
+        $("body").click(function(e){
+            if(e.target.id != "myForm")
+            {
+                $("#myForm").hide();
+                $("form-popup").unbind("click");
+            }
+        });
+    });
+
+});
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
   function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
 

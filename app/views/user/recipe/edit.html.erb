@@ -1,4 +1,47 @@
-<%= stylesheet_link_tag 'recipe', 'ingredient', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'recipe', 'ingredient','profile-button', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="header">
+    <strong class="recident_let">
+      <%= image_tag 'cook.png', :class => 'logo_user_user' %>
+      <%= link_to 'FoodIsLife', user_user_index_path, :class => 'head_recident_user'%>
+    </strong>
+    <% if user_logged_in?%>
+      <div class="sign_btns">
+        
+      </div>
+    <% else %>
+      <div class="sign_btns">
+        <span><%= button_to "Sign up", new_user_user_path, method: :get, id: "sign_btn"%></span>
+        <span><%= button_to "Login", new_user_session_path, method: :get, id: "sign_btn"%></span>
+      </div>
+    <% end %>
+</div><br>
+<button class="open-button" id="btnLogin" style="font-family: Sofia;"><img class="imgPro" src=<%=asset_path("login.png")%> ><% if current_user.id %><%= current_user.user_name %><% end %></button>
+
+<div class="form-popup" id="myForm">
+    <%= form_with model: @user, url: user_user_path(session[:user_id]), class: "form-container", id: "myForm", local: true do |form| %>
+      <div>
+        <p>
+           <label for="email" id="mail" id="myForm"><b>Username</b></label>
+    <input type="text" id="myForm" value="<%= current_user.user_name %>" placeholder="Enter Email" name="email" required>
+        </p>
+        <p>
+          <label for="email" id="mail" id="myForm"><b>Email</b></label>
+    <input type="text" id="myForm" value="<%= current_user.email %>" placeholder="Enter Email" name="email" required>
+        </p>
+        <p>
+          <label for="psw" id="myForm"><b>Password</b></label>
+    <input type="password" id="myForm" placeholder="Enter Password" name="psw" required>
+        </p>
+        <p>
+          <%= link_to 'Profile', href="http://localhost:3000/user/user/show" , class: "logout_btn", id: "myForm" %>
+          <%= link_to 'Log out', user_session_index_path, class: "logout_btn", id: "myForm" %>
+        </p>
+      </div>
+    <% end %>
+  </form>
+</div>
+
 <%= form_with model: @recipe, url: user_recipe_path(@recipe), local: true do |form| %>
 
   <% if @recipe.errors.any? %>
@@ -15,7 +58,7 @@
     </div>
   <% end %>
 
-  <div id="form">
+  <div id="form" style="margin-top:5%;">
   <p id="labels">
     <%= form.label :name %><br>
     <%= form.text_field :name, class: "inputs" %>
@@ -71,10 +114,26 @@
 </div>
 <% end %>
 
-<%= link_to 'Back', user_user_index_path(@user), class: "btn" %>
+<%= link_to 'Back', href="http://localhost:3000/user/user/show", class: "back_btn" %>
 
 <script>
+$(function(){
+    $("#btnLogin").click(function(e){
+        e.stopPropagation();
+        $("#myForm").show();
+        $("body").click(function(e){
+            if(e.target.id != "myForm")
+            {
+                $("#myForm").hide();
+                $("form-popup").unbind("click");
+            }
+        });
+    });
 
+});
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 function ingre_show(inca_id){
     var x = document.getElementById(inca_id);
 

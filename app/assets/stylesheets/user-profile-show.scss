@@ -63,168 +63,11 @@ transition: all 0.2s ease 0s;
     border-radius: 5%;
   }
 
-.dropbtn {
-  color: white;
-  padding: 3px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  bottom: -350px;
-  right: 30px;
-  font-size: 18px;
-  border-radius: 45%;
-  color: #fff !important;
-  text-transform: uppercase;
-  text-decoration: none;
-  background-color: pink;
-  display: inline-block;
-  border: none;
-  transition: all 0.2s ease 0s;
-}
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  font-size: 14px;
-  top: 350px;
-  right: 23px;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f93f23;
-  letter-spacing: 1px;
--webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 0.2s ease 0s;
-}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {
-background-color: #f93f23;
-letter-spacing: 1px;
--webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 0.2s ease 0s;
-}
 .word {
   position: absolute;
   font-size: 18px;
   margin-left: 4%;
-}
-
-.open-button {
-  background-color: #da7b93;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  position: fixed;
-  top: 13px;
-  right: 28px;
-  border-radius: 10%;
-  width: 120px;
-  text-align: right;
-  z-index: 1;
-}
-
-.open-button:hover {
-  background-color: rgb(255, 200, 200);
-  letter-spacing: 1px;
--webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 0.2s ease 0s;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  top: 75px;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-  border-radius: 5%;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: #FF9999;
-  border-radius: 5%;
-}
-
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
-  width: 80%;
-  padding: 5px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  display: inline;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: white;
-  outline: none;
-
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #FF9999;
-  color: white;
-  border: none;
-  padding: 1% 5% 1% 5%;
-  border-radius: 6px;
-  text-decoration: none;
-  font-family: Sofia;
-  font-size: 15px;
-  display: inline-block;
-}
-
-.form-container input[type=submit] {
-  background-color: #FF9999;
-  color: white;
-  border: none;
-  padding: 1% 5% 1% 5%;
-  border-radius: 6px;
-  text-decoration: none;
-  font-family: Sofia;
-  font-size: 15px;
-  display: inline-block;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
 }
 
 .btnLogEdit {
@@ -283,13 +126,7 @@ transition: all 0.2s ease 0s;
 box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
 transition: all 0.2s ease 0s;
 }
-.imgPro {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  left: 10%;
-  top: 20%;
-}
+
 button.btnLogEdit::after {
     margin-left: 5px;
     background-image: image-url("pencil.png");
@@ -344,18 +181,6 @@ transition: all 0.2s ease 0s;
   margin-top: 60%;
 }
 
-.logout_btn {
-  background-color: #FF9999;
-  color: white;
-  border: none;
-  padding: 1% 5% 1% 5%;
-  border-radius: 6px;
-  text-decoration: none;
-  font-family: Sofia;
-  font-size: 15px;
-  display: inline-flex;
-}
-
 .send_btn {
   background-color: #FF9999;
   color: white;
@@ -368,16 +193,3 @@ transition: all 0.2s ease 0s;
   display: inline-block;
 }
 
-.back_btn {
-  background-color: white;
-  color: white;
-  border: none;
-  padding: 1% 5% 1% 5%;
-  border-radius: 6px;
-  text-decoration: none;
-  font-family: Sofia;
-  display: inline-block;
-  color: black;
-  margin: 1%;
-
-}
