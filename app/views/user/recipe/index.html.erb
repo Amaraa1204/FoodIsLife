@@ -21,23 +21,25 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
 
-<div class="search">
+
+  <div class="search">
       <div class="dropdown">
-          <button class="dropbtn"><img src=<%= asset_path("grid1.png") %>></button>
+          <button class="dropbtn"><img src=<%= asset_path("menu.png") %> class="search_icon"></button>
           <div class="dropdown-content">
             <%= form_tag(search_user_rec_category_index_path, method: :get) do |f| %>
               <% RecCategory.all.each do |cate| %>
                 <span><%= button_tag cate.name, :value => cate.id, :name => "rec_cate" %></span><br>
               <% end %>
-            <% end %>    
+            <% end %>
           </div>
       </div>
       <div class="search_form">
-    <%= form_tag(user_search_index_path, method: :get) do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make"%>
-      <%= button_tag "Search", :name => nil %>
-    <%end%>
-    </div>
+        <%= form_tag(user_search_index_path, method: :get) do %>
+          <%= search_field_tag :search, params[:search], placeholder: "Write the name of the food you want to make" %>
+          <%= button_tag "Search", :name => nil %>
+        <%end%>
+      </div>
+  </div>
     <div class="alert">
       <% if alert %>
         <strong>
@@ -55,13 +57,14 @@
     <% if @results %>
       <% @results.each do |result| %>
         <li class="recipeimgli">
+            <strong>Recipe name: 
+              <%= result.name %>
+            </strong>
           <% if result.image.full.url %>
             <%= image_tag result.image.full.url, :class => 'recipeimg' %>
           <% else %>
             <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
           <% end %>
-          <strong>Recipe name: </strong>
-              <%= result.name %><br>
           <span class="recipeimgspan">
             <strong>Author: </strong>
             <% if User.exists?(result.author_id) %>
@@ -83,13 +86,14 @@
     <% else %>
       <% @recipe.each do |recipe| %>
         <li class="recipeimgli">
+          <strong>Recipe name:
+            <%= recipe.name %>
+          </strong>
           <% if recipe.image.full.url %>
             <%= image_tag recipe.image.full.url, :class => 'recipeimg' %>
           <% else %>
             <%= image_tag asset_path("default.jpg"), :class => 'recipeimg'%>
           <% end %>
-          <strong>Recipe name: </strong>
-            <%= recipe.name %><br>
           <span class="recipeimgspan">
             <strong>Author: </strong>
             <% if User.exists?(recipe.author_id) %>
