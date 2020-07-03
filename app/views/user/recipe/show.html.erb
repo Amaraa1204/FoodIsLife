@@ -24,6 +24,7 @@
 <div class="recipeShow">
   <strong class="recipeName">Recipe:
     <%= @recipe.name %>
+<<<<<<< Updated upstream
   </strong> by
 
   <%# if @rate.present? %>
@@ -43,6 +44,10 @@
     <%= @res %>
   <% end %>
 </div> -->
+=======
+  </strong> by <%= User.find(@recipe.author_id).user_name %>
+
+>>>>>>> Stashed changes
   <% if @recipe.image.full.url %>
      <%= image_tag @recipe.image.full.url, :class => 'recipeImage' %>
   <% else %>

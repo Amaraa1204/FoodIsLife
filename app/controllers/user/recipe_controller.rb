@@ -3,24 +3,22 @@ class User::RecipeController < UserApplicationController
 
   def index
 		@recipe = Recipe.all
-    /
-		@cat = Category.all
-		if params[:search].present?
-			recipe_ids = RecipeIngridient.where(ingridient_id: params[:search]).pluck(:recipe_id)
-			select recipe_id from RecipeIngridient where ingridient in (1,2,3,4,5)
-			@recipe = Recipe.where(id: recipe_ids)
-		else
-			@recipe = Recipe.all
-		end/
+    
+		# @cat = Category.all
+		# if params[:search].present?
+		# 	recipe_ids = RecipeIngridient.where(ingridient_id: params[:search]).pluck(:recipe_id)
+		# 	select recipe_id from RecipeIngridient where ingridient in (1,2,3,4,5)
+		# 	@recipe = Recipe.where(id: recipe_ids)
+		# else
+		# 	@recipe = Recipe.all
+		# end
 	end
 
 	def show
-    #params.permit(:id)
-    #@non_rated = 5
+    	params.permit(:id)
+    	@non_rated = 5
 		@recipe = Recipe.find(params[:id])
-    #@rate = RecipeAndRate.select('avg(rate) as ave_rate').where(recipe_id: params[:id]).group('recipe_id')[0]
-		#@non_rated =- @rate.ave_rate if @rate.present?
-  end
+	end
 
 	def new
 		@recipe = Recipe.new

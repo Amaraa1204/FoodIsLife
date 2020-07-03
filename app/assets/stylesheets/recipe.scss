@@ -279,10 +279,10 @@ body {
 }
 .ingre-items{
   display: inline-block;
-  position: relative;
+  position: absolute;
 }
  .user-ingres{
-  position: absolute;
+  position: relative;
   top: 30%;
   left: 18%;
   text-align: left;
@@ -294,7 +294,7 @@ body {
 }
 
 .search_btn_ingre_user{
-  margin-top: 20%;
+  
   border: none;
   background: rgba(75, 75, 75, 0.329);
   border-radius: 6px;
