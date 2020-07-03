@@ -3,27 +3,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
 </head>
-<% if current_user.user_name %>
-  <h3>Welcome <%= current_user.user_name %></h3>
-<% end %>
 <div>
 <%= image_tag 'house.png', :class => "iconLil" %>
   <%= link_to 'Home', user_user_index_path, :class => 'homeBTN' %>
   <p>
     <%= link_to 'New recipe', new_user_recipe_path, class: "send_btn" %>
   </p>
-  <p>
-    <%= link_to 'Log out', user_session_index_path, class: "logout_btn" %>
-  </p>
 </div>
 <div class="tab">
   <button class="tablinks" onclick="openRecipe(event, 'own')" id="defaultOpen">My own recipes</button>
   <button class="tablinks" onclick="openRecipe(event, 'favourite')">My favourite recipes</button>
 </div>
-<button class="open-button" id="btnLogin" style="font-family: Sofia;"><img class="imgPro" src=<%=asset_path("login.png")%> ></img><%= current_user.user_name %></button>
+<button class="open-button" id="btnLogin" style="font-family: Sofia;"><img class="imgPro" src=<%=asset_path("login.png")%> ><% if current_user.id %><%= current_user.user_name %><% end %></button>
 
 <div class="form-popup" id="myForm">
-  <form class="form-container" id="myForm">
+  <!--<form class="form-container" id="myForm">
     <h1 style="color: rgb(245, 66, 150);"  id="myForm">Hello, <%= current_user.user_name %></h1>
 
     <label for="email" id="mail" id="myForm"><b>Username</b></label>
@@ -34,18 +28,38 @@
 
     <label for="psw" id="myForm"><b>Password</b></label>
     <input type="password" id="myForm" placeholder="Enter Password" name="psw" required>
-    
-    <button type="submit" id="myForm" class="btnLogEdit" style="margin-left: 20px;"><%= link_to 'Edit', edit_user_user_path%></button>
-    <button type="submit" id="myForm" class="btnLogExit"><%= link_to 'Logout', user_session_path, method: :delete %></button>
 
-    
+    <button type="submit" id="myForm" class="btnLogEdit" style="margin-left: 20px;"><%= link_to 'Edit', user_user_path(current_user.id)%></button>
+    <button type="submit" id="myForm" class="btnLogExit"><%= link_to 'Logout', user_session_path, method: :delete %></button>-->
+
+
+    <%= form_with model: @user, url: user_user_path(@user), class: "form-container", id: "myForm", local: true do |form| %>
+      <div>
+        <p>
+	        <%= form.label :username, id: "myForm"%><br>
+	        <%= form.text_field :user_name, id: "myForm"%>
+        </p>
+        <p>
+	        <%= form.label :email, id: "myForm"%><br>
+	        <%= form.text_field :email, id: "myForm"%>
+        </p>
+        <p>
+	        <%= form.label :password, id: "myForm"%><br>
+	        <%= form.text_field :password, id: "myForm"%>
+        </p>
+        <p>
+	        <%= form.submit%>
+          <%= link_to 'Log out', user_session_index_path, class: "logout_btn", id: "myForm" %>
+        </p>
+      </div>
+    <% end %>
   </form>
 </div>
 <div id="own" class="tabcontent">
   <div class="recipeShow">
   <ul class="grid-container">
     <% Recipe.all.each do |recipe| %>
-      <% if session[:user_id] == recipe.author_id %>   
+      <% if session[:user_id] == recipe.author_id %>
         <div>
         <li class="recipeimgli">
           <% if recipe.image.full.url %>
@@ -64,7 +78,7 @@
           </span>
         </li>
         </div>
-      <% end %>   
+      <% end %>
     <% end %>
     </ul>
     </div>
@@ -92,13 +106,16 @@
               data: { confirm: 'Are you sure?' }, class: "del_btn" %>
           </span>
         </li>
-          </div> 
+          </div>
         <% end %>
 
       <% end %>
     <% end %>
     </ul>
     </div>
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
 
 <script>
@@ -120,7 +137,7 @@ function openRecipe(evt, RecipeName) {
 document.getElementById("defaultOpen").click();
 
 $(function(){
-    $("#btnLogin").click(function(e){       
+    $("#btnLogin").click(function(e){
         e.stopPropagation();
         $("#myForm").show();
         $("body").click(function(e){
@@ -131,7 +148,7 @@ $(function(){
             }
         });
     });
-    
+
 });
 function closeForm() {
   document.getElementById("myForm").style.display = "none";

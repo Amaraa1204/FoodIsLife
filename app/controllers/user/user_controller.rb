@@ -34,7 +34,12 @@ class User::UserController < UserApplicationController
      
     def destroy
         @user = User.find(params[:id])
-        @user.destroy
+        if @user.destroy
+            @recipe = Recipe.where("author_id = ?", @user.id)
+            @recipe.each do |i|
+				i.destroy
+			end
+        end
 
         redirect_to user_user_index_path
     end

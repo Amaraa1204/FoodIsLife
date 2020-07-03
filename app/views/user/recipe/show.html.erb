@@ -23,18 +23,24 @@
   <strong class="recipeName">Recipe:
     <%= @recipe.name %>
   </strong> by
-  <%= User.find_by(id: @recipe.author_id).user_name if @recipe.author_id.present? %>
+  <% if User.exists?(@recipe.author_id) %>
+    <% if @recipe.author_id.present? %>
+    <%= User.find(@recipe.author_id).user_name %>
+    <%end%>
+  <% else %>
+    <h4>Unknown</h4>
+  <% end %><br>
 
-  <%# if @rate.present? %>
-    <%# while @rate.ave_rate != 0 do %>
-      <%#= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
-      <%# @rate.ave_rate = @rate.ave_rate - 1 %>
-    <%# end %>
-  <%# end %>
-  <%# while @non_rated != 0 do %>
-    <%#= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
-    <%# @non_rated = @non_rated - 1 %>
-  <%# end %><br>
+  <% if @rate.present? %>
+    <% while @rate.ave_rate != 0 do %>
+      <%= link_to image_tag 'starYellow.png', :style => 'width:15px;' %>
+      <% @rate.ave_rate = @rate.ave_rate - 1 %>
+    <% end %>
+  <% end %>
+  <% while @non_rated != 0 do %>
+    <%= link_to image_tag 'starWhite.png', :style => 'width:15px;' %>
+    <% @non_rated = @non_rated - 1 %>
+  <% end %><br>
   <div>
 <h4 style="display: inline;">Rating : </h4>
   <% if @res %>
@@ -76,7 +82,13 @@
   <% @recipe.recipe_and_rates.each do |rate| %>
     <p>
       <div class="commentView">
-        <strong><%= User.find_by(id: rate.user_id).user_name %>: </strong>
+        <strong>
+          <% if User.exists?(@recipe.author_id) %>
+            <%= User.find(@recipe.author_id).user_name %>
+          <% else %>
+            <h4>Unknown :</h4>
+          <% end %>
+        </strong>
         <%= rate.rate %>
         <% if current_user.nil?%>
         <% elsif rate.user_id == current_user.id%>
@@ -109,7 +121,13 @@
   <% @recipe.comments.each do |comment| %>
     <p>
       <div class="commentView">
-      <strong><%= User.find_by(id: comment.user_id).user_name %>: </strong>
+      <strong>
+        <% if User.exists?(@recipe.author_id) %>
+              <%= User.find(@recipe.author_id).user_name %>
+            <% else %>
+              <h4>Unknown</h4>
+            <% end %><br>
+      </strong>
         <%= comment.comment %>
         <% if current_user.nil?%>
         <% elsif comment.user_id == current_user.id%>
@@ -137,4 +155,7 @@
       </strong>
     <% end %>
   </div>
+</div>
+<div class="user_footer">
+  <p>@Copyright Internship 2020</p>
 </div>
